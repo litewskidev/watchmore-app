@@ -1,0 +1,28 @@
+@import './settings.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $black-light;
+  font-family: $font-text;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: default;
+}
+
+a {
+  text-decoration: none !important;
+
+  &:link {
+    text-decoration: none !important;
+  }
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: rgb(230, 230, 230);
+}

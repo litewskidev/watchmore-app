@@ -9,7 +9,9 @@
 /coverage
 
 # production
+/public
 /build
+/src/utils/tmdb.js
 
 # misc
 .DS_Store

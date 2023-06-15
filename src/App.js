@@ -1,8 +1,20 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchMovies } from "./redux/moviesRedux";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home/Home";
+
 function App() {
-  return (
-    <div className="App">
-      <h1>watchmore</h1>
-    </div>
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchMovies()), [dispatch]);
+
+  return(
+    <main>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </main>
   );
 }
 
