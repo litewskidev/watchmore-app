@@ -52,7 +52,7 @@ function App() {
   return(
     <main>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home page={page} />} />
       </Routes>
     </main>
   );
