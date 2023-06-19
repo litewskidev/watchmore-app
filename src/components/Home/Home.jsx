@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import './Home.scss';
-import { getFetchedMovies } from '../../redux/moviesRedux';
+import { getFetchedNowPlayingMovies } from '../../redux/moviesRedux';
 import ListMovies from '../ListMovies/ListMovies';
 import Footer from '../Footer/Footer';
 
 const Home = () => {
 
-  const moviesList = useSelector(getFetchedMovies);
+  const moviesList = useSelector(getFetchedNowPlayingMovies);
   console.log(moviesList);
 
   return(

@@ -2,6 +2,7 @@ import { imagePath } from '../../utils/tmdbConfig';
 import './ListMovies.scss';
 
 const ListMovies = ({ list }) => {
+  console.log(list);
   return (
     <div className='movie__box'>
       {list.results?.map(movie => (
