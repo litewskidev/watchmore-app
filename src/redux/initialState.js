@@ -1,11 +1,30 @@
 const initialState = {
 
+  movie: {
+    details: {},
+    credits: {},
+    release: {},
+    reviews: {},
+    images: {},
+    videos: {},
+    similar: {}
+  },
+
   movies: {
     all: {},
     nowPlaying: {},
     popular: {},
     topRated: {},
     upcoming: {}
+  },
+
+  tvShow: {
+    details: {},
+    credits: {},
+    reviews: {},
+    images: {},
+    videos: {},
+    similar: {}
   },
 
   tvSeries: {

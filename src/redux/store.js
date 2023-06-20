@@ -9,9 +9,13 @@ import genresReducer from "./genresRedux";
 import searchReducer from "./searchRedux";
 import searchStringReducer from "./searchStringRedux";
 import pageReducer from "./pageRedux";
+import movieReducer from "./movieRedux";
+import tvShowReducer from "./tvShowRedux";
 
 const subreducers = {
+  movie: movieReducer,
   movies: moviesReducer,
+  tvShow: tvShowReducer,
   tvSeries: tvSeriesReducer,
   trending: trendingReducer,
   people: peopleReducer,

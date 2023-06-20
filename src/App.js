@@ -10,12 +10,16 @@ import { fetchMovieGenres, fetchTvGenres } from "./redux/genresRedux.js";
 import { getSearch } from "./redux/searchStringRedux.js";
 import { fetchSearchMovie, fetchSearchMulti, fetchSearchPerson, fetchSearchTv } from "./redux/searchRedux.js";
 import { getPage } from "./redux/pageRedux.js";
+import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchReleaseMovie, fetchReviewsMovie, fetchSimilarMovie, fetchVideosMovie } from "./redux/movieRedux.js";
+import { fetchCreditsTvShow, fetchDetailsTvShow, fetchImagesTvShow, fetchReviewsTvShow, fetchSimilarTvShow, fetchVideosTvShow } from "./redux/tvShowRedux.js";
 
 function App() {
   const dispatch = useDispatch();
 
   const searchString = useSelector(getSearch);
   const page = useSelector(getPage);
+  const movieId = '603692';  //  JOHN WICK 4
+  const tvShowId = '1399';  //  GAME OF THRONES
 
   //  MOVIES
   useEffect(() => dispatch(fetchAllMovies(page)), [dispatch, page]);
@@ -24,11 +28,28 @@ function App() {
   useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
 
-  //  TV
+  // MOVIE
+  useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchReviewsMovie(movieId, page)), [dispatch, movieId, page]);
+  useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
+
+  //  TV SERIES
   useEffect(() => dispatch(fetchAiringTodayTv(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchOnTheAirTv(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchPopularTv(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
+
+  //  TV SHOW
+  useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
+  useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
+  useEffect(() => dispatch(fetchReviewsTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
+  useEffect(() => dispatch(fetchImagesTvShow(tvShowId)), [dispatch, tvShowId]);
+  useEffect(() => dispatch(fetchVideosTvShow(tvShowId)), [dispatch, tvShowId]);
+  useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
 
   //  TRENDING
   useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
