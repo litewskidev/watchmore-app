@@ -20,6 +20,7 @@ const GET_VIDEOS = createActionName('GET_VIDEOS');
 const GET_SIMILAR = createActionName('GET_SIMILAR');
 
 //  ACTION CREATORS
+//  DETAILS
 export const getDetailsMovie = payload => ({ type: GET_DETAILS, payload });
 export const fetchDetailsMovie = (movieId) => {
   return(dispatch) => {
@@ -30,6 +31,7 @@ export const fetchDetailsMovie = (movieId) => {
   }
 };
 
+//  CREDITS
 export const getCreditsMovie = payload => ({ type: GET_CREDITS, payload });
 export const fetchCreditsMovie = (movieId) => {
   return(dispatch) => {
@@ -40,6 +42,7 @@ export const fetchCreditsMovie = (movieId) => {
   }
 };
 
+//  RELEASE DATES
 export const getReleaseMovie = payload => ({ type: GET_RELEASE, payload });
 export const fetchReleaseMovie = (movieId) => {
   return(dispatch) => {
@@ -50,6 +53,7 @@ export const fetchReleaseMovie = (movieId) => {
   }
 };
 
+//  REVIEWS
 export const getReviewsMovie = payload => ({ type: GET_REVIEWS, payload });
 export const fetchReviewsMovie = (movieId, page) => {
   return(dispatch) => {
@@ -60,6 +64,7 @@ export const fetchReviewsMovie = (movieId, page) => {
   }
 };
 
+//  IMAGES
 export const getImagesMovie = payload => ({ type: GET_IMAGES, payload });
 export const fetchImagesMovie = (movieId) => {
   return(dispatch) => {
@@ -70,6 +75,7 @@ export const fetchImagesMovie = (movieId) => {
   }
 };
 
+//  VIDEOS
 export const getVideosMovie = payload => ({ type: GET_VIDEOS, payload });
 export const fetchVideosMovie = (movieId) => {
   return(dispatch) => {
@@ -80,6 +86,7 @@ export const fetchVideosMovie = (movieId) => {
   }
 };
 
+//  SIMILAR
 export const getSimilarMovie = payload => ({ type: GET_SIMILAR, payload });
 export const fetchSimilarMovie = (movieId, page) => {
   return(dispatch) => {

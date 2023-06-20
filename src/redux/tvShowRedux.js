@@ -18,6 +18,7 @@ const GET_VIDEOS = createActionName('GET_VIDEOS');
 const GET_SIMILAR = createActionName('GET_SIMILAR');
 
 //  ACTION CREATORS
+//  DETAILS
 export const getDetailsTvShow = payload => ({ type: GET_DETAILS, payload });
 export const fetchDetailsTvShow = (tvShowId) => {
   return(dispatch) => {
@@ -28,6 +29,7 @@ export const fetchDetailsTvShow = (tvShowId) => {
   }
 };
 
+//  CREDITS
 export const getCreditsTvShow = payload => ({ type: GET_CREDITS, payload });
 export const fetchCreditsTvShow = (tvShowId) => {
   return(dispatch) => {
@@ -38,6 +40,7 @@ export const fetchCreditsTvShow = (tvShowId) => {
   }
 };
 
+//  REVIEWS
 export const getReviewsTvShow = payload => ({ type: GET_REVIEWS, payload });
 export const fetchReviewsTvShow = (tvShowId, page) => {
   return(dispatch) => {
@@ -48,6 +51,7 @@ export const fetchReviewsTvShow = (tvShowId, page) => {
   }
 };
 
+//  IMAGES
 export const getImagesTvShow = payload => ({ type: GET_IMAGES, payload });
 export const fetchImagesTvShow = (tvShowId) => {
   return(dispatch) => {
@@ -58,6 +62,7 @@ export const fetchImagesTvShow = (tvShowId) => {
   }
 };
 
+//  VIDEOS
 export const getVideosTvShow = payload => ({ type: GET_VIDEOS, payload });
 export const fetchVideosTvShow = (tvShowId) => {
   return(dispatch) => {
@@ -68,6 +73,7 @@ export const fetchVideosTvShow = (tvShowId) => {
   }
 };
 
+//  SIMILAR
 export const getSimilarTvShow = payload => ({ type: GET_SIMILAR, payload });
 export const fetchSimilarTvShow = (tvShowId, page) => {
   return(dispatch) => {

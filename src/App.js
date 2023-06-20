@@ -12,6 +12,12 @@ import { fetchSearchMovie, fetchSearchMulti, fetchSearchPerson, fetchSearchTv } 
 import { getPage } from "./redux/pageRedux.js";
 import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchReleaseMovie, fetchReviewsMovie, fetchSimilarMovie, fetchVideosMovie } from "./redux/movieRedux.js";
 import { fetchCreditsTvShow, fetchDetailsTvShow, fetchImagesTvShow, fetchReviewsTvShow, fetchSimilarTvShow, fetchVideosTvShow } from "./redux/tvShowRedux.js";
+import Footer from "./components/Footer/Footer.jsx";
+import Navbar from "./components/Navbar/Navbar.jsx";
+import Movies from "./components/Movies/Movies.jsx";
+import TVSeries from "./components/TVSeries/TVSeries.jsx";
+import Trending from "./components/Trending/Trending.jsx";
+import Search from "./components/Search/Search.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,9 +78,15 @@ function App() {
 
   return(
     <main>
+      <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home page={page} />} />
+        <Route exact path="/" element={ <Home page={page} /> } />
+        <Route path="/movies" element={ <Movies /> } />
+        <Route path="/tvseries" element={ <TVSeries /> } />
+        <Route path="/trending" element={ <Trending /> } />
+        <Route path="/search" element={ <Search /> } />
       </Routes>
+      <Footer />
     </main>
   );
 }
