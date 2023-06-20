@@ -34,6 +34,7 @@ function App() {
   useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
 
+  /*
   // MOVIE
   useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
@@ -42,6 +43,7 @@ function App() {
   useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
+  */
 
   //  TV SERIES
   useEffect(() => dispatch(fetchAiringTodayTv(page)), [dispatch, page]);
@@ -49,6 +51,7 @@ function App() {
   useEffect(() => dispatch(fetchPopularTv(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
 
+  /*
   //  TV SHOW
   useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
@@ -56,6 +59,7 @@ function App() {
   useEffect(() => dispatch(fetchImagesTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchVideosTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
+  */
 
   //  TRENDING
   useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
@@ -63,6 +67,7 @@ function App() {
   useEffect(() => dispatch(fetchTvTrending(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchPeopleTrending(page)), [dispatch, page]);
 
+  /*
   // PEOPLE
   useEffect(() => dispatch(fetchPopularPeople(page)), [dispatch, page]);
 
@@ -75,13 +80,14 @@ function App() {
   useEffect(() => dispatch(fetchSearchMovie(searchString, page)), [dispatch, searchString, page]);
   useEffect(() => dispatch(fetchSearchTv(searchString, page)), [dispatch, searchString, page]);
   useEffect(() => dispatch(fetchSearchPerson(searchString, page)), [dispatch, searchString, page]);
-
+  */
+ 
   return(
     <main>
       <Navbar />
       <Routes>
         <Route exact path="/" element={ <Home page={page} /> } />
-        <Route path="/movies" element={ <Movies /> } />
+        <Route path="/movies" element={ <Movies page={page} /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
         <Route path="/trending" element={ <Trending /> } />
         <Route path="/search" element={ <Search /> } />

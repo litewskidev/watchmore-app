@@ -1,27 +1,28 @@
 .home__container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-left: 1rem;
 
-  span {
-    img {
-      margin-bottom: -0.9rem;
-      margin-right: -0.8rem;
-      margin-left: 0.1rem;
-      width: 3rem;
-      filter: invert(100%);
-      opacity: 0.9;
-    }
+  h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
   }
 }
 
 .page__input {
+  width: fit-content;
   background-color: rgb(68, 68, 68);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   display: flex;
+  justify-content: center;
   gap: 2rem;
   color: white;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 

@@ -104,6 +104,7 @@ li {
 
   .navbar {
     padding: 1.5rem;
+    padding-bottom: 0;
   }
 
   .navbar__logo {
@@ -207,7 +208,7 @@ li {
     position: absolute;
     min-width: 34%;
     min-height: 65%;
-    background-color: rgb(34, 32, 28);
+    background-color: rgba(34, 32, 28, 0.950);
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 1rem;
