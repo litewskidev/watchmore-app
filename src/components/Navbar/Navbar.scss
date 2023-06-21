@@ -61,7 +61,7 @@ li {
   padding: 0.5rem 2.5rem;
   border: none;
   border-radius: 1rem;
-  background-color: rgba(206, 49, 49, 0.671);
+  background-color: rgb(158, 33, 33);
   font-family: $font-text;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.774);
@@ -108,7 +108,9 @@ li {
   }
 
   .navbar__logo {
-    margin-right: -24px;
+    margin-right: -45px;
+    //margin-left: -27.19px;
+    text-align: end;
   }
 
   .navbar__pattern {
@@ -120,11 +122,12 @@ li {
   }
 
   .navbar__login__button {
-    border-radius: 50%;
-    min-width: 2.7rem;
-    min-height: 2.7rem;
+    background-color: transparent;
+    border-radius: 10%;
+    min-width: 3rem;
+    min-height: 1.7rem;
     padding: 0;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .navbar__search__icon__mobile {
@@ -169,6 +172,7 @@ li {
   }
 
   .dropdown__toggle__btn.active {
+    position: fixed;
     z-index: 3;
 
     .hamburger__one {
@@ -205,9 +209,9 @@ li {
   }
 
   .navbar__dropdown {
-    position: absolute;
+    position: fixed;
     min-width: 34%;
-    min-height: 65%;
+    min-height: 100vh;
     background-color: rgba(34, 32, 28, 0.950);
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;

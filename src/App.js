@@ -16,8 +16,9 @@ import Footer from "./components/Footer/Footer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Movies from "./components/Movies/Movies.jsx";
 import TVSeries from "./components/TVSeries/TVSeries.jsx";
-import Trending from "./components/Trending/Trending.jsx";
 import Search from "./components/Search/Search.jsx";
+import Categories from "./components/Categories/Categories.jsx";
+import MovieCard from "./components/MovieCard/MovieCard.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
   useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
 
-  /*
+/*
   // MOVIE
   useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
@@ -43,7 +44,8 @@ function App() {
   useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
-  */
+*/
+
 
   //  TV SERIES
   useEffect(() => dispatch(fetchAiringTodayTv(page)), [dispatch, page]);
@@ -62,10 +64,10 @@ function App() {
   */
 
   //  TRENDING
-  useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchMoviesTrending(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTvTrending(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPeopleTrending(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchMoviesTrending(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchTvTrending(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchPeopleTrending(page)), [dispatch, page]);
 
   /*
   // PEOPLE
@@ -81,7 +83,7 @@ function App() {
   useEffect(() => dispatch(fetchSearchTv(searchString, page)), [dispatch, searchString, page]);
   useEffect(() => dispatch(fetchSearchPerson(searchString, page)), [dispatch, searchString, page]);
   */
- 
+
   return(
     <main>
       <Navbar />
@@ -89,7 +91,8 @@ function App() {
         <Route exact path="/" element={ <Home page={page} /> } />
         <Route path="/movies" element={ <Movies page={page} /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
-        <Route path="/trending" element={ <Trending /> } />
+        <Route path="/categories" element={ <Categories /> } />
+        <Route path="/movie/:id" element={ <MovieCard /> } />
         <Route path="/search" element={ <Search /> } />
       </Routes>
       <Footer />

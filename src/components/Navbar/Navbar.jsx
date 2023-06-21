@@ -43,8 +43,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/trending'>
-              TRENDING
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/categories'>
+              CATEGORIES
             </NavLink>
           </li>
         </ul>
@@ -85,8 +85,8 @@ const Navbar = () => {
         </li>
         <li>
           <div className='dropdown__box'>
-            <Link className='dropdown__link' to="trending" onClick={closeMenu}>
-              TRENDING
+            <Link className='dropdown__link' to="/categories" onClick={closeMenu}>
+              CATEGORIES
             </Link>
           </div>
           <div className='dropdown__box__pattern'></div>

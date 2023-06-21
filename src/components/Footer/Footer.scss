@@ -17,3 +17,9 @@
   width: 80%;
   font-size: 0.7rem;
 }
+
+@media (max-width: 1024px) {
+  .tmdb__logo {
+    width: 10rem;
+  }
+}
