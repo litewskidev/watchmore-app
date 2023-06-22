@@ -18,6 +18,9 @@ li {
   flex-direction: column;
   padding: 2rem 5rem;
   padding-bottom: 0;
+  position: fixed;
+  z-index: 10;
+  background-color: hsl(0, 0%, 9%);
 }
 
 .navbar__pattern {
@@ -172,7 +175,7 @@ li {
   }
 
   .dropdown__toggle__btn.active {
-    position: fixed;
+    //position: fixed;
     z-index: 3;
 
     .hamburger__one {
@@ -209,7 +212,7 @@ li {
   }
 
   .navbar__dropdown {
-    position: fixed;
+    position: absolute;
     min-width: 34%;
     min-height: 100vh;
     background-color: rgba(34, 32, 28, 0.950);
@@ -228,8 +231,10 @@ li {
     box-shadow: 0 0 20rem black;
     transition: left 0.3s ease-out;
 
+
     &.open {
       left: 0;
+      transition: left 0.3s ease-out;
     }
   }
 }

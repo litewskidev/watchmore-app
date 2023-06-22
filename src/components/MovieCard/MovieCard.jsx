@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import './MovieCard.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCreditsMovie, fetchDetailsMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarMovie, getFetchedVideosMovie } from '../../redux/movieRedux';
+import { fetchCreditsMovie, fetchDetailsMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux';
 import { useEffect } from 'react';
-import { imagePath, videoPath } from '../../utils/tmdbConfig';
+import { mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
 
 const MovieCard = () => {
   const navigate = useNavigate();
@@ -19,13 +19,8 @@ const MovieCard = () => {
 
   const movieData = useSelector(getFetchedDetailsMovie);
   const movieCredits = useSelector(getFetchedCreditsMovie);
-  const movieSimilar = useSelector(getFetchedSimilarMovie);
-  const movieVideos = useSelector(getFetchedVideosMovie);
-
-  console.log(movieData);
-  console.log(movieCredits);
-  console.log(movieSimilar);
-  console.log(movieVideos);
+  const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
+  const movieTrailers = useSelector(getFetchedTrailerMovie);
 
   return(
     <div className='movie__wrapper'>
@@ -34,7 +29,7 @@ const MovieCard = () => {
       </div>
       <div className='movie__inner'>
         <div className='movie__poster__title'>
-          <img src={imagePath + movieData.poster_path} alt='movie poster'/>
+          <img src={mediumImagePath + movieData.poster_path} alt='movie poster'/>
         </div>
         <div className='movie__overview'>
           <p>{movieData.overview}</p>
@@ -50,30 +45,33 @@ const MovieCard = () => {
           <p>{movieData.vote_average}</p>
         </div>
       </div>
-      <p className='movie__section__name'>CAST</p>
+      <p className='movie__section__name'>TOP CAST</p>
       <div className='movie__cast__crew'>
         <div className='movie__cast'>
           {movieCredits.cast?.slice(0, 5).map(person => (
+            (person.profile_path !== null) ? (
             <div className='movie__cast__person' key={person.id}>
-              <img src={imagePath + person.profile_path} alt='profile avatar'/>
-            </div>
+              <img src={profileImagePath + person.profile_path} alt='profile avatar'/>
+            </div>) : (null)
           ))}
         </div>
       </div>
       <p className='movie__section__name'>SIMILAR</p>
       <div className='movie__similar'>
-        {movieSimilar.results?.slice(0, 8).map(similar => (
+        {movieSimilar?.slice(0, 8).map(similar => (
+          (similar.poster_path !== null) ? (
           <div className='movie__similar__item' key={similar.id} onClick={() => navigate(`/movie/${similar.id}`)}>
-            <img src={imagePath + similar.poster_path} alt='movie poster'/>
-          </div>
+            <img src={miniImagePath + similar.poster_path} alt='movie poster'/>
+          </div>) : (null)
         ))}
       </div>
-      <p className='movie__section__name'>VIDEOS</p>
+      <p className='movie__section__name'>TRAILER</p>
       <div className='movie__video__container'>
-          {movieVideos.results?.map(video => (
+          {movieTrailers?.slice(0, 1).map(video => (
+            (video.type === 'Trailer') ? (
             <div className='movie__video' key={video.key}>
               <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} />
-            </div>
+            </div>) : (null)
           ))}
         </div>
     </div>

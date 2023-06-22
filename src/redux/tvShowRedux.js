@@ -8,6 +8,9 @@ export const getFetchedImagesTvShow = ({ tvShow }) => tvShow.images;
 export const getFetchedVideosTvShow = ({ tvShow }) => tvShow.videos;
 export const getFetchedSimilarTvShow = ({ tvShow }) => tvShow.similar;
 
+export const getFetchedTrailerTvShow = ({ tvShow }) => tvShow.videos.results?.filter(video => video.type === 'Trailer');
+export const getFetchedSimilarWithPosterTvShow = ({ tvShow }) => tvShow.similar.results?.filter(similar => similar.poster_path !== null && similar.vote_average > 6);
+
 //  ACTIONS
 const createActionName = actionName => `app/tvShow/${actionName}`;
 const GET_DETAILS = createActionName('GET_DETAILS');

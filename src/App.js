@@ -19,80 +19,71 @@ import TVSeries from "./components/TVSeries/TVSeries.jsx";
 import Search from "./components/Search/Search.jsx";
 import Categories from "./components/Categories/Categories.jsx";
 import MovieCard from "./components/MovieCard/MovieCard.jsx";
+import TvShowCard from "./components/TvShowCard/TvShowCard.jsx";
 
 function App() {
   const dispatch = useDispatch();
-
-  const searchString = useSelector(getSearch);
-  const page = useSelector(getPage);
-  const movieId = '603692';  //  JOHN WICK 4
-  const tvShowId = '1399';  //  GAME OF THRONES
+  const page = 1;
 
   //  MOVIES
-  useEffect(() => dispatch(fetchAllMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchNowPlayingMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPopularMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchAllMovies(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchNowPlayingMovies(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchPopularMovies(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
 
-/*
   // MOVIE
-  useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
-  useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
-  useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
-  useEffect(() => dispatch(fetchReviewsMovie(movieId, page)), [dispatch, movieId, page]);
-  useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
-  useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
-  useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
-*/
-
+  //useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
+  //useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
+  //useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
+  //useEffect(() => dispatch(fetchReviewsMovie(movieId, page)), [dispatch, movieId, page]);
+  //useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
+  //useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
+  //useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
 
   //  TV SERIES
-  useEffect(() => dispatch(fetchAiringTodayTv(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchOnTheAirTv(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPopularTv(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchAiringTodayTv(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchOnTheAirTv(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchPopularTv(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
 
-  /*
   //  TV SHOW
-  useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
-  useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
-  useEffect(() => dispatch(fetchReviewsTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
-  useEffect(() => dispatch(fetchImagesTvShow(tvShowId)), [dispatch, tvShowId]);
-  useEffect(() => dispatch(fetchVideosTvShow(tvShowId)), [dispatch, tvShowId]);
-  useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
-  */
+  //useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
+  //useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
+  //useEffect(() => dispatch(fetchReviewsTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
+  //useEffect(() => dispatch(fetchImagesTvShow(tvShowId)), [dispatch, tvShowId]);
+  //useEffect(() => dispatch(fetchVideosTvShow(tvShowId)), [dispatch, tvShowId]);
+  //useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
 
   //  TRENDING
-  //useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchMoviesTrending(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchTvTrending(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchMoviesTrending(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchTvTrending(page)), [dispatch, page]);
   //useEffect(() => dispatch(fetchPeopleTrending(page)), [dispatch, page]);
 
-  /*
   // PEOPLE
-  useEffect(() => dispatch(fetchPopularPeople(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchPopularPeople(page)), [dispatch, page]);
 
   //  GENRES
-  useEffect(() => dispatch(fetchMovieGenres()), [dispatch]);
-  useEffect(() => dispatch(fetchTvGenres()), [dispatch]);
+  //useEffect(() => dispatch(fetchMovieGenres()), [dispatch]);
+  //useEffect(() => dispatch(fetchTvGenres()), [dispatch]);
 
   //  SEARCH
-  useEffect(() => dispatch(fetchSearchMulti(searchString, page)), [dispatch, searchString, page]);
-  useEffect(() => dispatch(fetchSearchMovie(searchString, page)), [dispatch, searchString, page]);
-  useEffect(() => dispatch(fetchSearchTv(searchString, page)), [dispatch, searchString, page]);
-  useEffect(() => dispatch(fetchSearchPerson(searchString, page)), [dispatch, searchString, page]);
-  */
+  //useEffect(() => dispatch(fetchSearchMulti(searchString, page)), [dispatch, searchString, page]);
+  //useEffect(() => dispatch(fetchSearchMovie(searchString, page)), [dispatch, searchString, page]);
+  //useEffect(() => dispatch(fetchSearchTv(searchString, page)), [dispatch, searchString, page]);
+  //useEffect(() => dispatch(fetchSearchPerson(searchString, page)), [dispatch, searchString, page]);
 
   return(
     <main>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={ <Home page={page} /> } />
-        <Route path="/movies" element={ <Movies page={page} /> } />
+        <Route exact path="/" element={ <Home /> } />
+        <Route path="/movies" element={ <Movies /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
         <Route path="/categories" element={ <Categories /> } />
-        <Route path="/movie/:id" element={ <MovieCard /> } />
+        <Route exact path="/movie/:id" element={ <MovieCard /> } />
+        <Route path="/tv/:id" element={ <TvShowCard /> } />
         <Route path="/search" element={ <Search /> } />
       </Routes>
       <Footer />

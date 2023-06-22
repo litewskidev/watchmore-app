@@ -9,6 +9,9 @@ export const getFetchedImagesMovie = ({ movie }) => movie.images;
 export const getFetchedVideosMovie = ({ movie }) => movie.videos;
 export const getFetchedSimilarMovie = ({ movie }) => movie.similar;
 
+export const getFetchedTrailerMovie = ({ movie }) => movie.videos.results?.filter(video => video.type === 'Trailer');
+export const getFetchedSimilarWithPosterMovie = ({ movie }) => movie.similar.results?.filter(similar => similar.poster_path !== null && similar.vote_average > 6);
+
 //  ACTIONS
 const createActionName = actionName => `app/movie/${actionName}`;
 const GET_DETAILS = createActionName('GET_DETAILS');
@@ -23,7 +26,7 @@ const GET_SIMILAR = createActionName('GET_SIMILAR');
 //  DETAILS
 export const getDetailsMovie = payload => ({ type: GET_DETAILS, payload });
 export const fetchDetailsMovie = (movieId) => {
-  return(dispatch) => {
+    return(dispatch) => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
     .then(res => res.json())
     .then(details => { dispatch(getDetailsMovie(details)) })

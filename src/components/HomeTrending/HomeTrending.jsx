@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { imagePath } from '../../utils/tmdbConfig';
+import { miniImagePath } from '../../utils/tmdbConfig';
 import './HomeTrending.scss';
 
 const HomeTrending = ({ trendingMovies, trendingTv }) => {
-  console.log(trendingMovies);
-  console.log(trendingTv);
   const navigate = useNavigate();
+
   return(
     <div  className='home__trending__wrapper'>
       <div>
@@ -13,7 +12,7 @@ const HomeTrending = ({ trendingMovies, trendingTv }) => {
         <div className='trending__movies__container'>
           {trendingMovies.results?.map(movie => (
             <div className='trending__movies__box' key={movie.id}>
-              <img src={imagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)}/>
+              <img src={miniImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
             </div>
           ))}
         </div>
@@ -23,7 +22,7 @@ const HomeTrending = ({ trendingMovies, trendingTv }) => {
         <div className='trending__movies__container'>
           {trendingTv.results?.map(tv => (
             <div className='trending__movies__box' key={tv.id}>
-              <img src={imagePath + tv.poster_path} />
+              <img src={miniImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
             </div>
           ))}
         </div>
