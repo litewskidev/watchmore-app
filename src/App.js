@@ -27,10 +27,10 @@ function App() {
 
   //  MOVIES
   //useEffect(() => dispatch(fetchAllMovies(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchNowPlayingMovies(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchPopularMovies(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchNowPlayingMovies(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchPopularMovies(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
 
   // MOVIE
   //useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
@@ -42,10 +42,10 @@ function App() {
   //useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
 
   //  TV SERIES
-  //useEffect(() => dispatch(fetchAiringTodayTv(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchOnTheAirTv(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchPopularTv(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAiringTodayTv(3)), [dispatch, page]);
+  useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch, page]);
+  useEffect(() => dispatch(fetchPopularTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
 
   //  TV SHOW
   //useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
@@ -82,9 +82,9 @@ function App() {
         <Route path="/movies" element={ <Movies /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
         <Route path="/categories" element={ <Categories /> } />
-        <Route exact path="/movie/:id" element={ <MovieCard /> } />
-        <Route path="/tv/:id" element={ <TvShowCard /> } />
         <Route path="/search" element={ <Search /> } />
+        <Route exact path="/movie/:id" element={ <MovieCard /> } />
+        <Route exact path="/tv/:id" element={ <TvShowCard /> } />
       </Routes>
       <Footer />
     </main>

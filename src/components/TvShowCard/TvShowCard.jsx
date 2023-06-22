@@ -22,8 +22,6 @@ const TvShowCard = () => {
   const tvShowSimilar = useSelector(getFetchedSimilarWithPosterTvShow);
   const tvShowTrailers = useSelector(getFetchedTrailerTvShow);
 
-  console.log(tvShowData);
-
   return(
     <div className='tvShow__wrapper'>
     <div className='tvShow__title'>
