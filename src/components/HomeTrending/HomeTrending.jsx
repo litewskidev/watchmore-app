@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { miniImagePath } from '../../utils/tmdbConfig';
+import { mediumImagePath, miniImagePath } from '../../utils/tmdbConfig';
 import './HomeTrending.scss';
+import Slider from 'react-slick';
 
-const HomeTrending = ({ trendingMovies, trendingTv }) => {
+const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
   const navigate = useNavigate();
 
   return(
@@ -10,21 +11,25 @@ const HomeTrending = ({ trendingMovies, trendingTv }) => {
       <div>
         <p>TRENDING MOVIES</p>
         <div className='trending__movies__container'>
-          {trendingMovies.results?.map(movie => (
-            <div className='trending__movies__box' key={movie.id}>
-              <img src={miniImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
-            </div>
-          ))}
+          <Slider {...settings}>
+            {trendingMovies.results?.map(movie => (
+              <div className='trending__movies__box' key={movie.id}>
+                <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
       <div>
         <p>TRENDING TV SERIES</p>
         <div className='trending__movies__container'>
-          {trendingTv.results?.map(tv => (
-            <div className='trending__movies__box' key={tv.id}>
-              <img src={miniImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
-            </div>
-          ))}
+          <Slider {...settings}>
+            {trendingTv.results?.map(tv => (
+              <div className='trending__movies__box' key={tv.id}>
+                <img src={mediumImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </div>
