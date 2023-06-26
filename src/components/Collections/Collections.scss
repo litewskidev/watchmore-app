@@ -1,0 +1,35 @@
+.collections__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.collections__box {
+  width: 100%;
+  border-radius: 0.3rem;
+  padding: 0.1rem;
+  background-color: rgba(255, 254, 254, 0.192);
+  box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+}
+
+.collections__img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 0.3rem;
+}
+
+.collections__logo {
+  position: relative;
+  width: 100%;
+  margin-bottom: -0.3rem;
+  border-radius: 0.3rem;
+}
+
+.collections__video {
+  width: 100%;
+  border-radius: 0.3rem;
+}

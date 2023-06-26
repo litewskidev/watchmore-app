@@ -25,7 +25,10 @@ const Navbar = () => {
           <div className='hamburger__two'></div>
           <div className='hamburger__three'></div>
         </div>
-        <h1 className='navbar__logo'>watch<br />&nbsp;m<span><img src={process.env.PUBLIC_URL + '/assets/logo/4.png'} alt='film reel'/></span>re</h1>
+        <div className='logo__font'>
+          <h1 className='navbar__logo'>watch<br />&nbsp;m<span><img src={process.env.PUBLIC_URL + '/assets/logo/4.png'} alt='film reel'/></span>re</h1>
+          <h1 className='navbar__logo'>watch<br />&nbsp;m<span><img src={process.env.PUBLIC_URL + '/assets/logo/4.png'} alt='film reel'/></span>re</h1>
+        </div>
         <ul className='navbar__links'>
           <li>
             <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/'>

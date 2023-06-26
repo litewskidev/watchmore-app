@@ -1,31 +1,19 @@
 .movie__box {
-  overflow-x: scroll;
-  display: flex;
-  gap: 0.3rem;
   margin-left: -0.5rem;
   width: 100%;
-  position: relative;
-  box-shadow: 10rem 1rem 5rem rgba(61, 4, 4, 0.788);
 
   img {
-    max-width: 8rem;
+    width: 100%;
     border-radius: 0.5rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   }
-
-  &::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
-}
 }
 
 .movie__item {
+  width: 100%;
   background-color: rgba(34, 32, 28, 0.950);
   border-radius: 0.5rem;
-  padding: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.3rem;
+  padding: 0.1rem;
 
   p {
     font-size: 0.4rem;

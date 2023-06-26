@@ -3,7 +3,7 @@ import './Home.scss';
 import { getFetchedAllTrending, getFetchedMoviesTrending, getFetchedTvTrending } from '../../redux/trendingRedux';
 import HomeTrending from '../HomeTrending/HomeTrending';
 import Carousel from '../Carousel/Carousel';
-import NextArrow from '../NextArrow/NextArrow';
+import Collections from '../Collections/Collections';
 
 const Home = () => {
   const trendingAll = useSelector(getFetchedAllTrending);
@@ -31,7 +31,7 @@ const Home = () => {
     slidesToScroll: 3,
     autoplay: false,
     autoplaySpeed: 3500,
-    arrows: false,
+    arrows: true,
     pauseOnFocus: false,
     pauseOnHover: false,
     pauseOnDotsHover: false
@@ -40,6 +40,7 @@ const Home = () => {
   return(
     <div className='home__container'>
       <Carousel settings={settings} list={trendingAll}/>
+      <Collections />
       <HomeTrending trendingMovies={trendingMovies} trendingTv={trendingTv} settings={settings2}/>
     </div>
   )

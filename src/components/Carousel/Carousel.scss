@@ -1,10 +1,5 @@
-.carousel__wrapper {
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
 .carousel__box {
-  padding: 1rem;
+  padding: 2rem;
 
   img {
     width: 100%;
@@ -32,7 +27,7 @@
     font-weight: 900;
     font-size: 5rem;
     color: rgb(255, 255, 255);
-    text-shadow: 0 0 3px #000000; /* horizontal-offset vertical-offset 'blur' colour */
+    text-shadow: 0 2px 3px #000000;
   }
 }
 
@@ -40,10 +35,30 @@
   position: relative;
 }
 
+//  SLICK ARROWS
+.slick-next {
+  right: 0;
+  height: 100% !important;
+  width: 5rem !important;
+  z-index: 9;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 1px;
+  height: 100% !important;
+  width: 5rem !important;
+  z-index: 9;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
 
   .carousel__box {
-    padding: 0.2rem;
+    padding: 0.5rem;
+    padding-top: 1rem;
 
     img {
       border-radius: 0.2rem;
@@ -55,4 +70,26 @@
       font-size: 1.1rem;
     }
   }
+}
+
+.slick-next {
+  right: 0;
+  height: 100% !important;
+  width: 2rem !important;
+  z-index: 9;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 0;
+  height: 100% !important;
+  width: 2rem !important;
+  z-index: 9;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.slick-list {
+  padding-bottom: 1.5rem;
 }

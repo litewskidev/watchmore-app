@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { mediumImagePath, miniImagePath } from '../../utils/tmdbConfig';
+import { mediumImagePath } from '../../utils/tmdbConfig';
 import './HomeTrending.scss';
 import Slider from 'react-slick';
 
@@ -8,8 +8,11 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
 
   return(
     <div  className='home__trending__wrapper'>
-      <div>
-        <p>TRENDING MOVIES</p>
+      <div className='home__trending__box'>
+        <div className='home__section__title'>
+          <p>TRENDING MOVIES&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <p>TRENDING MOVIES&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </div>
         <div className='trending__movies__container'>
           <Slider {...settings}>
             {trendingMovies.results?.map(movie => (
@@ -20,8 +23,11 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
           </Slider>
         </div>
       </div>
-      <div>
-        <p>TRENDING TV SERIES</p>
+      <div className='home__trending__box'>
+        <div className='home__section__title'>
+          <p>TRENDING TV SERIES</p>
+          <p>TRENDING TV SERIES</p>
+        </div>
         <div className='trending__movies__container'>
           <Slider {...settings}>
             {trendingTv.results?.map(tv => (

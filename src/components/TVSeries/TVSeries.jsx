@@ -9,16 +9,30 @@ const TVSeries = () => {
   const popular = useSelector(getFetchedPopularTv);
   const topRated = useSelector(getFetchedTopRatedTv);
 
+  const settings4 = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: false,
+    autoplaySpeed: 3500,
+    arrows: true,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    pauseOnDotsHover: false
+  };
+
   return(
     <div className='tvSeries__container'>
       <h2>POPULAR</h2>
-      <ListTvSeries list={popular}/>
+      <ListTvSeries list={popular} settings={settings4} />
       <h2>ON THE AIR</h2>
-      <ListTvSeries list={onTheAir} />
+      <ListTvSeries list={onTheAir} settings={settings4} />
       <h2>AIRING TODAY</h2>
-      <ListTvSeries list={airingToday} />
+      <ListTvSeries list={airingToday} settings={settings4} />
       <h2>TOP RATED</h2>
-      <ListTvSeries list={topRated} />
+      <ListTvSeries list={topRated} settings={settings4} />
     </div>
   )
 };

@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import './MovieCard.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCreditsMovie, fetchDetailsMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux';
+import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedImagesMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux';
 import { useEffect } from 'react';
 import { mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
 
@@ -16,12 +16,15 @@ const MovieCard = () => {
   useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
+  useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
 
   const movieData = useSelector(getFetchedDetailsMovie);
   const movieCredits = useSelector(getFetchedCreditsMovie);
   const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
   const movieTrailers = useSelector(getFetchedTrailerMovie);
+  const movieImages = useSelector(getFetchedImagesMovie);
 
+  console.log(movieImages);
   return(
     <div className='movie__wrapper'>
       <div className='movie__title'>

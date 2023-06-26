@@ -1,14 +1,6 @@
 .home__trending__wrapper {
   display: flex;
   flex-direction: column;
-
-  p {
-    font-size: 2rem;
-  }
-}
-
-.trending__movies__container {
-padding: 0 0rem;
 }
 
 .trending__movies__box {
@@ -21,7 +13,6 @@ padding: 0 0rem;
     scale: 110%;
   }
 
-
   img {
     width: 100%;
     border-radius: 1rem;
@@ -33,17 +24,6 @@ padding: 0 0rem;
 @media (max-width: 1024px) {
   .home__trending__wrapper {
     padding: 0 1rem;
-    gap: 1rem;
-
-    p {
-      border-radius: 0.2rem;
-      font-size: 1.15rem;
-      letter-spacing: 0.3rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-      padding: 0.2rem 0.35rem;
-    }
   }
 
   .trending__movies__box {
@@ -59,4 +39,36 @@ padding: 0 0rem;
       box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
     }
   }
+}
+
+.home__section__title {
+  position: relative;
+  margin: 1.7rem 0;
+  width: 100%;
+}
+
+.home__section__title p {
+  color: #ff0000;
+  font-size: 1rem;
+  font-weight: 100;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 6.8rem;
+  top: -1.2rem;
+  letter-spacing: 0.2rem;
+}
+
+.home__section__title p:nth-child(1) {
+  border-radius: 50%;
+  color: transparent;
+  -webkit-text-stroke: 3px rgb(216, 52, 52);
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(0.8, #ffffff)) no-repeat;
+  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(0.8, #fff)) no-repeat;
+  background-size: 8px 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.home__section__title p:nth-child(2) {
+  color: #000000;
 }

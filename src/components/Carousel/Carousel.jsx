@@ -2,19 +2,18 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { imagePath, originalImagePath } from '../../utils/tmdbConfig';
+import { imagePath } from '../../utils/tmdbConfig';
 import './Carousel.scss';
 import { useNavigate } from 'react-router';
 
 const Carousel = ({ settings, list }) => {
   const navigate = useNavigate();
-  console.log(list);
 
   return(
     <div className='carousel__wrapper'>
       <Slider {...settings}>
         {list.results?.map(item => (
-          <div className='carousel__box'>
+          <div className='carousel__box' key={item.id}>
             <div className='image__border'>
               <div className='image__box'>
                 <img src={imagePath + item.backdrop_path} alt='poster' onClick={() => navigate(`${item.media_type}/${item.id}`)}/>

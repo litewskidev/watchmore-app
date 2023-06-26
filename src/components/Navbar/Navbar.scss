@@ -1,5 +1,46 @@
 @import '../../styles/settings.scss';
 
+.logo__font {
+  position: relative;
+  margin: 1.7rem 0;
+  width: 100%;
+}
+
+.logo__font h1 {
+  color: #ff0000;
+  font-size: 2.1rem;
+  font-weight: 100;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 59%;
+  letter-spacing: 0.2rem;
+}
+
+.logo__font h1:nth-child(1) {
+  border-radius: 50%;
+  color: transparent;
+  -webkit-text-stroke: 4px rgb(216, 52, 52);
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #ffffff)) no-repeat;
+  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #fff)) no-repeat;
+  background-size: 8px 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: flick 3s infinite;
+}
+
+.logo__font h1:nth-child(2) {
+  color: #000000;
+}
+
+@keyframes flick {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
 li {
   list-style: none;
 }
@@ -40,16 +81,15 @@ li {
 
 .navbar__logo {
   line-height: 1rem;
-  color: rgb(206, 49, 49);
 
   span {
     img {
-      margin-bottom: -0.5rem;
-      margin-right: -0.6rem;
-      margin-left: 0.1rem;
-      width: 2.2rem;
+      margin-bottom: -0.7rem;
+      margin-right: -0.5rem;
+      margin-left: 0.05rem;
+      width: 2.5rem;
       filter: invert(100%);
-      opacity: 0.9;
+      opacity: 0.85;
     }
   }
 }
@@ -230,6 +270,7 @@ li {
     z-index: 2;
     box-shadow: 0 0 20rem black;
     transition: left 0.3s ease-out;
+    -webkit-transition: transition(0, 100%, 0);
 
     &.open {
       left: 0;
