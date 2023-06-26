@@ -45,6 +45,7 @@
   position: relative;
   margin: 1.7rem 0;
   width: 100%;
+  box-shadow: 0rem 4rem 4rem 5rem #000000e1;
 }
 
 .home__section__title p {
@@ -62,11 +63,6 @@
   border-radius: 50%;
   color: transparent;
   -webkit-text-stroke: 3px rgb(216, 52, 52);
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(0.8, #ffffff)) no-repeat;
-  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(0.8, #fff)) no-repeat;
-  background-size: 8px 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
 .home__section__title p:nth-child(2) {

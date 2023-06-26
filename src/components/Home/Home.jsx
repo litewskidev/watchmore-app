@@ -9,6 +9,7 @@ const Home = () => {
   const trendingAll = useSelector(getFetchedAllTrending);
   const trendingMovies = useSelector(getFetchedMoviesTrending);
   const trendingTv = useSelector(getFetchedTvTrending);
+  
   const settings = {
     dots: false,
     infinite: true,

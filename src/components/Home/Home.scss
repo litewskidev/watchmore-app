@@ -1,7 +1,7 @@
 .home__container {
   display: flex;
   flex-direction: column;
-  padding-top : 7rem;
+  padding-top : 8rem;
 
   h2 {
     margin-top: 1rem;
@@ -28,6 +28,6 @@
 
 @media(max-width: 1024px) {
   .home__container {
-    padding-top : 6rem;
+    padding-top : 6.5rem;
   }
 }

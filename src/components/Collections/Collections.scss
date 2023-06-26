@@ -1,10 +1,22 @@
+.collections {
+  margin-top: -1rem;
+  z-index: 99;
+}
+
 .collections__wrapper {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 0 1rem;
-  margin-bottom: 2rem;
+  padding: 0.9rem;
+  background-color: rgba(34, 32, 28, 0.950);
+  margin-bottom: 2.5rem;
+}
+
+.collections__container {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .collections__box {
@@ -32,4 +44,40 @@
 .collections__video {
   width: 100%;
   border-radius: 0.3rem;
+}
+
+.collections__main__title {
+  position: relative;
+  margin-top: 1.7rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.collections__main__title h1 {
+  color: #dbdbdb;
+  font-size: 1.7rem;
+  font-weight: 100;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: -0.1rem;
+  letter-spacing: 0.3rem;
+}
+
+
+.collections__main__title h1:nth-child(1) {
+  border-radius: 50%;
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(0, 0, 0);
+  box-shadow: 0 1rem 1rem#000000;
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #ffffff)) no-repeat;
+  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #fff)) no-repeat;
+  background-size: 8px 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: flick 3s infinite;
+}
+
+.collections__main__title h1:nth-child(2) {
+  color: #cccccc;
 }

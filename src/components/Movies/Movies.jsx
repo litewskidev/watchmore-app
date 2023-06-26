@@ -25,13 +25,29 @@ const Movies = () => {
 
   return(
     <div className='movies__container'>
-      <h2>POPULAR</h2>
+      <div className='movies__main__title'>
+        <h1>MOVIES</h1>
+        <h1>MOVIES</h1>
+      </div>
+      <div className='movies__section__title'>
+        <h2>POPULAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2>POPULAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+      </div>
       <ListMovies list={popular} settings={settings3}/>
-      <h2>NOW PLAYING</h2>
+      <div className='movies__section__title'>
+        <h2>NOW PLAYING&nbsp;</h2>
+        <h2>NOW PLAYING&nbsp;</h2>
+      </div>
       <ListMovies list={nowPlaying} settings={settings3} />
-      <h2>TOP RATED</h2>
+      <div className='movies__section__title'>
+        <h2>TOP RATED&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2>TOP RATED&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+      </div>
       <ListMovies list={topRated} settings={settings3} />
-      <h2>UPCOMING</h2>
+      <div className='movies__section__title'>
+        <h2>UPCOMING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2>UPCOMING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+      </div>
       <ListMovies list={upcoming} settings={settings3} />
     </div>
   )
