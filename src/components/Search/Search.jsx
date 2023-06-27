@@ -43,11 +43,6 @@ const Search = () => {
           <input className='search__input' placeholder={searchString} value={search} onChange={e => setSearch(e.target.value)} type='text'/>
         </form>
       </div>
-      <div className='search__page__input'>
-        <div onClick={decrement}>-</div>
-        <div>{page}</div>
-        <div onClick={increment}>+</div>
-      </div>
       <div className='search__results__container'>
         {searchResults.results?.map(result => (
           (result.poster_path !== null && result.media_type !== 'person') ? (
@@ -55,6 +50,11 @@ const Search = () => {
             <img src={miniImagePath + result.poster_path} alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
           </div>) : (null)
         ))}
+      </div>
+      <div className='search__page__input'>
+        <div onClick={decrement}>-</div>
+        <div>{page}</div>
+        <div onClick={increment}>+</div>
       </div>
     </div>
   )

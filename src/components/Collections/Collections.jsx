@@ -6,7 +6,7 @@ const Collections = () => {
 
   return(
     <div className='collections'>
-      <div className='collections__main__title'>
+      <div className='collections__main__title' onClick={() => navigate('/collections')}>
         <h1>COLLECTIONS</h1>
         <h1>COLLECTIONS</h1>
       </div>

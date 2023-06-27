@@ -47,7 +47,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/categories'>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/collections'>
               CATEGORIES
             </NavLink>
           </li>
@@ -86,7 +86,7 @@ const Navbar = () => {
         </li>
         <li>
           <div className='dropdown__box'>
-            <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : 'dropdown__categories__icon'} to="/categories" onClick={closeMenu}>
+            <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : 'dropdown__categories__icon'} to="/collections" onClick={closeMenu}>
               <img src={process.env.PUBLIC_URL + '/assets/icons/categories-icon.jpg'} />
             </NavLink>
           </div>

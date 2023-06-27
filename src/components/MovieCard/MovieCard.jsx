@@ -24,7 +24,6 @@ const MovieCard = () => {
   const movieTrailers = useSelector(getFetchedTrailerMovie);
   const movieImages = useSelector(getFetchedImagesMovie);
 
-  console.log(movieImages);
   return(
     <div className='movie__wrapper'>
       <div className='movie__title'>
@@ -46,6 +45,12 @@ const MovieCard = () => {
         <div className='movie__score'>
           <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
           <p>{movieData.vote_average}</p>
+        </div>
+      </div>
+      <div className='movie__watch__container' onClick={() => navigate(`/watch/${movieId}`)}>
+        <div className='movie__watch__button'>
+          <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'}/>
+          <p>WATCH NOW</p>
         </div>
       </div>
       <p className='movie__section__name'>TOP CAST</p>

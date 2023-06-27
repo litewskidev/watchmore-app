@@ -21,6 +21,8 @@ import Categories from "./components/Categories/Categories.jsx";
 import MovieCard from "./components/MovieCard/MovieCard.jsx";
 import TvShowCard from "./components/TvShowCard/TvShowCard.jsx";
 import CollectionCard from "./components/CollectionCard/CollectionCard.jsx";
+import WatchMovie from "./components/WatchMovie/WatchMovie.jsx";
+import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -82,11 +84,13 @@ function App() {
         <Route exact path="/" element={ <Home /> } />
         <Route path="/movies" element={ <Movies /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
-        <Route path="/categories" element={ <Categories /> } />
+        <Route path="/collections" element={ <Categories /> } />
         <Route path="/search" element={ <Search /> } />
         <Route exact path="/movie/:id" element={ <MovieCard /> } />
         <Route exact path="/tv/:id" element={ <TvShowCard /> } />
         <Route exact path="/collection/:id" element={ <CollectionCard /> } />
+        <Route exact path="/watch/:title" element={ <WatchMovie /> } />
+        <Route exact path="/watch/:name" element={ <WatchSeries /> } />
       </Routes>
       <Footer />
     </main>
