@@ -3,15 +3,19 @@
 
   img {
     width: 100%;
-    border-radius: 0.3rem;
+    border-radius: 0.2rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   }
 }
 
-.tv__item {
-  background-color: rgba(34, 32, 28, 0.950);
-  border-radius: 0.3rem;
+.tv__item__wrapper {
   padding: 0.1rem;
+}
+
+.tv__item__box {
+  padding: 0.15rem 0.2rem;
+  background-color: rgb(47, 54, 64);
+  border-radius: 0.2rem;
 
   p {
     font-size: 0.4rem;

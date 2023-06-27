@@ -4,14 +4,7 @@
 }
 
 .trending__movies__box {
-  width: 20%;
   padding: 1%;
-  transition: scale 0.3s ease-in-out;
-
-
-  &:hover {
-    scale: 110%;
-  }
 
   img {
     width: 100%;
@@ -23,12 +16,18 @@
 
 @media (max-width: 1024px) {
   .home__trending__wrapper {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .trending__movies__wrapper {
+    padding: 0.1rem;
   }
 
   .trending__movies__box {
-    width: 25%;
-    padding: 3%;
+    //width: 25%;
+    padding: 0.15rem 0.2rem;
+    background-color: rgb(47, 54, 64);
+    border-radius: 0.2rem;
 
     &:hover {
       scale: 100%;
@@ -50,11 +49,11 @@
 
 .home__section__title p {
   color: #ff0000;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 6.8rem;
+  left: 7rem;
   top: -1.2rem;
   letter-spacing: 0.2rem;
 }
@@ -62,7 +61,7 @@
 .home__section__title p:nth-child(1) {
   border-radius: 50%;
   color: transparent;
-  -webkit-text-stroke: 3px rgb(216, 52, 52);
+  -webkit-text-stroke: 3px rgb(194, 54, 22);
 }
 
 .home__section__title p:nth-child(2) {

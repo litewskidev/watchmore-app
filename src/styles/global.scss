@@ -5,13 +5,14 @@
 }
 
 body {
-  background-color: $black-light;
+  background-color: $black-main;
   font-family: $font-text;
   margin: 0;
   padding: 0;
   margin-left: auto;
   margin-right: auto;
   cursor: default;
+  scroll-behavior: smooth;
 }
 
 a {

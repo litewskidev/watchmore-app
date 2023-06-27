@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  padding-top: 6.3rem;
+  padding: 1rem 0.5rem;
+  padding-top: 6.4rem;
 }
 
 .movies__main__title {
@@ -11,11 +11,10 @@
   margin-top: 1.7rem;
   margin-bottom: 3rem;
   width: 100%;
-  z-index: 999;
+  filter: brightness(1.2);
 }
 
 .movies__main__title h1 {
-  color: #dbdbdb;
   font-size: 1.7rem;
   font-weight: 100;
   position: absolute;
@@ -25,24 +24,16 @@
   letter-spacing: 0.3rem;
 }
 
-
 .movies__main__title h1:nth-child(1) {
   border-radius: 50%;
   color: transparent;
-  -webkit-text-stroke: 2px rgb(0, 0, 0);
-  box-shadow: 0 1rem 1rem#000000;
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #ffffff)) no-repeat;
-  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #fff)) no-repeat;
-  background-size: 8px 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: flick 3s infinite;
+  -webkit-text-stroke: 3px rgb(245, 246, 250);
+  box-shadow: 0rem 1rem 1rem #000000;
 }
 
 .movies__main__title h1:nth-child(2) {
-  color: #cccccc;
+  color: #000000;
 }
-
 
 .movies__section__title {
   position: relative;
@@ -51,20 +42,19 @@
 }
 
 .movies__section__title h2 {
-  color: #ff0000;
   font-size: 1.1rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 5.2rem;
+  letter-spacing: 0.2rem;
+  left: 4.8rem;
   top: -1.2rem;
-  letter-spacing: 0.3rem;
 }
 
 .movies__section__title h2:nth-child(1) {
   border-radius: 50%;
   color: transparent;
-  -webkit-text-stroke: 3px rgb(216, 52, 52);
+  -webkit-text-stroke: 3px rgb(194, 54, 22);
 }
 
 .movies__section__title h2:nth-child(2) {

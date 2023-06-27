@@ -16,8 +16,10 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
         <div className='trending__movies__container'>
           <Slider {...settings}>
             {trendingMovies.results?.map(movie => (
-              <div className='trending__movies__box' key={movie.id}>
-                <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+              <div className='trending__movies__wrapper'>
+                <div className='trending__movies__box' key={movie.id}>
+                  <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+                </div>
               </div>
             ))}
           </Slider>
@@ -31,8 +33,10 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
         <div className='trending__movies__container'>
           <Slider {...settings}>
             {trendingTv.results?.map(tv => (
-              <div className='trending__movies__box' key={tv.id}>
-                <img src={mediumImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
+              <div className='trending__movies__wrapper'>
+                <div className='trending__movies__box' key={tv.id}>
+                  <img src={mediumImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
+                </div>
               </div>
             ))}
           </Slider>

@@ -1,5 +1,6 @@
 import { useParams } from 'react-router';
 import './CollectionCard.scss';
+import Logo from '../Logo/Logo';
 
 const CollectionCard = () => {
   const params = useParams();

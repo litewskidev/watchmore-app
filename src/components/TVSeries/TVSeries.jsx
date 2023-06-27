@@ -40,8 +40,8 @@ const TVSeries = () => {
       </div>
       <ListTvSeries list={onTheAir} settings={settings4} />
       <div className='tvSeries__section__title'>
-        <h2>AIRING TODAY</h2>
-        <h2>AIRING TODAY</h2>
+        <h2>&nbsp;AIRING TODAY</h2>
+        <h2>&nbsp;AIRING TODAY</h2>
       </div>
       <ListTvSeries list={airingToday} settings={settings4} />
       <div className='tvSeries__section__title'>
