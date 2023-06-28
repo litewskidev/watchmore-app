@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -11,12 +11,14 @@ const Navbar = () => {
     dropdownMenu.classList.toggle('open');
   };
 
+  /*
   const closeMenu = () => {
     const dropdownMenu = document.querySelector('#dropdown');
     const dropdownMenuBtn = document.querySelector('.dropdown__toggle__btn');
     dropdownMenu.classList.remove('open');
     dropdownMenuBtn.classList.remove('active');
   };
+  */
 
   return(
     <div className='navbar'>
@@ -65,35 +67,35 @@ const Navbar = () => {
       <div id='dropdown' className='navbar__dropdown'>
         <li>
           <div className='dropdown__box'>
-            <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/" onClick={closeMenu}>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/home-icon.svg'} />
+            <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/">
+              <img src={process.env.PUBLIC_URL + '/assets/icons/home-icon.svg'} alt='home icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
-              <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/movies" onClick={closeMenu}>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/movie-icon.svg'} />
+              <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/movies">
+              <img src={process.env.PUBLIC_URL + '/assets/icons/movie-icon.svg'} alt='movie icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
-            <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/tvseries" onClick={closeMenu}>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} />
+            <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/tvseries">
+              <img src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
-            <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : 'dropdown__categories__icon'} to="/collections" onClick={closeMenu}>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/categories-icon.jpg'} />
+            <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : 'dropdown__categories__icon'} to="/collections">
+              <img src={process.env.PUBLIC_URL + '/assets/icons/categories-icon.jpg'} alt='categories icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
-          <NavLink className={({ isActive }) => isActive ? 'linkActiveSearch' : ''} to="/search" onClick={closeMenu}>
+          <NavLink className={({ isActive }) => isActive ? 'linkActiveSearch' : ''} to="/search">
               <img className='navbar__search__icon__mobile' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} alt='search icon' />
             </NavLink>
           </div>

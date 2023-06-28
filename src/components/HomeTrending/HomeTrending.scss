@@ -45,15 +45,15 @@
   margin: 1.7rem 0;
   width: 100%;
   box-shadow: 0rem 4rem 4rem 5rem #000000e1;
+  opacity: 0.95;
 }
 
 .home__section__title p {
-  color: #ff0000;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 7rem;
+  left: 7.5rem;
   top: -1.2rem;
   letter-spacing: 0.2rem;
 }
@@ -61,7 +61,7 @@
 .home__section__title p:nth-child(1) {
   border-radius: 50%;
   color: transparent;
-  -webkit-text-stroke: 3px rgb(194, 54, 22);
+  -webkit-text-stroke: 3px rgb(245, 246, 250);
 }
 
 .home__section__title p:nth-child(2) {

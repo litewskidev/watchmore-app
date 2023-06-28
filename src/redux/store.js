@@ -11,6 +11,7 @@ import searchStringReducer from "./searchStringRedux";
 import pageReducer from "./pageRedux";
 import movieReducer from "./movieRedux";
 import tvShowReducer from "./tvShowRedux";
+import hubsReducer from "./hubsRedux";
 
 const subreducers = {
   movie: movieReducer,
@@ -21,6 +22,7 @@ const subreducers = {
   people: peopleReducer,
   genres: genresReducer,
   search: searchReducer,
+  hubs: hubsReducer,
   searchString: searchStringReducer,
   page: pageReducer
 };

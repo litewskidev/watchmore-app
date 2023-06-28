@@ -9,17 +9,17 @@ const WatchMovie = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const watchId = params.title;
-  
+
   useEffect(() => dispatch(fetchVideosMovie(watchId)), [dispatch, watchId])
   const video = useSelector(getFetchedTrailerMovie);
 
   return(
     <div className='watch__movie__wrapper'>
       <div className='watch__movie__container'>
-        {video?.map(item => (
+        {video?.slice(0, 1).map(item => (
           (item.type === 'Trailer') ? (
           <div className='watch__movie__video' key={item.key}>
-            <iframe autoPlay={true} title={item.key} width="100%" height="100%" src={videoPath + item.key} />
+            <iframe title={item.key} width="100%" height="100%" src={videoPath + item.key + '?autoplay=1'} allow="autoplay; fullscreen"/>
           </div>) : (null)
         ))}
       </div>

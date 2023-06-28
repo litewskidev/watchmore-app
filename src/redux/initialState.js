@@ -57,6 +57,15 @@ const initialState = {
     person: {},
   },
 
+  hubs: {
+    marvel: {},
+    starwars: {},
+    pixar: {},
+    national: {},
+    a24: {},
+    disney: {}
+  },
+
   searchString: '',
 
   page: 1

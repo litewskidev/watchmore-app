@@ -23,6 +23,8 @@ import TvShowCard from "./components/TvShowCard/TvShowCard.jsx";
 import CollectionCard from "./components/CollectionCard/CollectionCard.jsx";
 import WatchMovie from "./components/WatchMovie/WatchMovie.jsx";
 import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
+import HubCard from "./components/HubCard/HubCard.jsx";
+import { fetchA24, fetchDisney, fetchMarvel, fetchNational, fetchPixar, fetchStarWars } from "./redux/hubsRedux.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +79,14 @@ function App() {
   //useEffect(() => dispatch(fetchSearchTv(searchString, page)), [dispatch, searchString, page]);
   //useEffect(() => dispatch(fetchSearchPerson(searchString, page)), [dispatch, searchString, page]);
 
+  //  HUBS
+  useEffect(() => dispatch(fetchMarvel()), [dispatch]);
+  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
+  useEffect(() => dispatch(fetchPixar()), [dispatch]);
+  useEffect(() => dispatch(fetchNational()), [dispatch]);
+  useEffect(() => dispatch(fetchA24()), [dispatch]);
+  useEffect(() => dispatch(fetchDisney()), [dispatch]);
+
   return(
     <main>
       <Navbar />
@@ -86,6 +96,7 @@ function App() {
         <Route path="/tvseries" element={ <TVSeries /> } />
         <Route path="/collections" element={ <Categories /> } />
         <Route path="/search" element={ <Search /> } />
+        <Route exact path="/hubs/:hub" element={ <HubCard /> } />
         <Route exact path="/movie/:id" element={ <MovieCard /> } />
         <Route exact path="/tv/:id" element={ <TvShowCard /> } />
         <Route exact path="/collection/:id" element={ <CollectionCard /> } />
