@@ -25,6 +25,7 @@ import WatchMovie from "./components/WatchMovie/WatchMovie.jsx";
 import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
 import { fetchA24, fetchDisney, fetchMarvel, fetchNational, fetchPixar, fetchStarWars } from "./redux/hubsRedux.js";
+import { fetchAlien, fetchAmericanpie, fetchApes, fetchBatman, fetchBourne, fetchCreed, fetchFf, fetchGodfather, fetchHangover, fetchHobbit, fetchHp, fetchJamesbond, fetchJohnwick, fetchJurrasic, fetchLotr, fetchMatrix, fetchMi, fetchRambo, fetchRocky, fetchTerminator } from "./redux/collectionsRedux.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -86,6 +87,28 @@ function App() {
   useEffect(() => dispatch(fetchNational()), [dispatch]);
   useEffect(() => dispatch(fetchA24()), [dispatch]);
   useEffect(() => dispatch(fetchDisney()), [dispatch]);
+
+  //  COLLECTIONS
+  useEffect(() => dispatch(fetchGodfather()), [dispatch]);
+  useEffect(() => dispatch(fetchAlien()), [dispatch]);
+  useEffect(() => dispatch(fetchTerminator()), [dispatch]);
+  useEffect(() => dispatch(fetchLotr()), [dispatch]);
+  useEffect(() => dispatch(fetchHobbit()), [dispatch]);
+  useEffect(() => dispatch(fetchMatrix()), [dispatch]);
+  useEffect(() => dispatch(fetchHp()), [dispatch]);
+  useEffect(() => dispatch(fetchBatman()), [dispatch]);
+  useEffect(() => dispatch(fetchApes()), [dispatch]);
+  useEffect(() => dispatch(fetchJurrasic()), [dispatch]);
+  useEffect(() => dispatch(fetchJohnwick()), [dispatch]);
+  useEffect(() => dispatch(fetchJamesbond()), [dispatch]);
+  useEffect(() => dispatch(fetchMi()), [dispatch]);
+  useEffect(() => dispatch(fetchBourne()), [dispatch]);
+  useEffect(() => dispatch(fetchRambo()), [dispatch]);
+  useEffect(() => dispatch(fetchRocky()), [dispatch]);
+  useEffect(() => dispatch(fetchCreed()), [dispatch]);
+  useEffect(() => dispatch(fetchFf()), [dispatch]);
+  useEffect(() => dispatch(fetchAmericanpie()), [dispatch]);
+  useEffect(() => dispatch(fetchHangover()), [dispatch]);
 
   return(
     <main>

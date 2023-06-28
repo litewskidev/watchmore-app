@@ -1,4 +1,4 @@
-.categories__wrapper {
+.categories {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,58 +35,28 @@
   color: #000000;
 }
 
-.movie__genres__container {
+.categories__container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  padding: 0.3rem 1rem;
+  padding-bottom: 2rem;
 }
 
-.movie__genres__item__wrapper {
+.categories__box {
+  padding: 0.3rem;
+  width: 50%;
+}
+
+.categories__poster {
+  padding: 0.15rem 0.2rem;
   background-color: rgb(47, 54, 64);
-  padding: 0.1rem;
   border-radius: 0.2rem;
-}
 
-.movie__genres__item {
-  background-color: rgba(34, 32, 28, 0.950);
-  width: 6.6rem;
-  height: 3rem;
-  border-radius: 0.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  p {
-    font-size: 1rem;
-  }
-}
-
-.tv__genres__container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.tv__genres__item__wrapper {
-  background-color: rgb(47, 54, 64);
-  padding: 0.1rem;
-  border-radius: 0.2rem;
-}
-
-.tv__genres__item {
-  background-color: rgba(34, 32, 28, 0.950);
-  width: 6.6rem;
-  height: 3rem;
-  border-radius: 0.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  p {
-    font-size: 1rem;
+  img {
+    width: 100%;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   }
 }

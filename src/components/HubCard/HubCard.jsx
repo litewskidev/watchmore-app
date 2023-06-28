@@ -25,6 +25,8 @@ const HubCard = () => {
   if(hub === 'a24') {movies = a24}
   if(hub === 'disney') {movies = disney}
 
+  console.log(movies);
+
   return(
     <div className='hub__card__wrapper'>
       <div className='hub__card__container'>

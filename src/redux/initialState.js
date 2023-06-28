@@ -66,6 +66,14 @@ const initialState = {
     disney: {}
   },
 
+  collections: [],
+
+  specific: {
+    movie: {},
+    tv: {},
+    collection: {}
+  },
+
   searchString: '',
 
   page: 1
