@@ -8,7 +8,6 @@ const HubCard = () => {
   const navigate = useNavigate();
   const params = useParams();
   const hub = params.hub;
-  console.log(hub);
 
   const marvel = useSelector(getFetchedMarvel);
   const starwars = useSelector(getFetchedStarWars);
@@ -24,8 +23,6 @@ const HubCard = () => {
   if(hub === 'national') {movies = national}
   if(hub === 'a24') {movies = a24}
   if(hub === 'disney') {movies = disney}
-
-  console.log(movies);
 
   return(
     <div className='hub__card__wrapper'>

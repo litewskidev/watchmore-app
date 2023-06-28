@@ -8,7 +8,6 @@ const Categories = () => {
   const navigate = useNavigate();
 
   const collections = useSelector(getAllCollections);
-  console.log(collections);
 
   return(
     <div className='categories'>
