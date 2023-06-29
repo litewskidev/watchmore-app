@@ -119,9 +119,9 @@ function App() {
         <Route path="/tvseries" element={ <TVSeries /> } />
         <Route path="/collections" element={ <Categories /> } />
         <Route path="/search" element={ <Search /> } />
-        <Route exact path="/hubs/:hub" element={ <HubCard /> } />
         <Route exact path="/movie/:id" element={ <MovieCard /> } />
         <Route exact path="/tv/:id" element={ <TvShowCard /> } />
+        <Route exact path="/hubs/:hub" element={ <HubCard /> } />
         <Route exact path="/collection/:id" element={ <CollectionCard /> } />
         <Route exact path="/watch/:title" element={ <WatchMovie /> } />
         <Route exact path="/watch/:name" element={ <WatchSeries /> } />

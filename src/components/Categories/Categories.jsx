@@ -20,7 +20,7 @@ const Categories = () => {
           {collections?.map(collection => (
             <div className='categories__box' key={collection.id}>
               <div className='categories__poster' onClick={() => navigate(`/collection/${collection.id}`)}>
-                <img src={mediumImagePath + collection.poster_path}/>
+                <img src={mediumImagePath + collection.poster_path} alt={collection.name}/>
               </div>
             </div>
           ))}

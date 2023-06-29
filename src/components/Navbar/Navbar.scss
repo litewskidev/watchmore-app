@@ -48,25 +48,10 @@ li {
   border-radius: 50%;
   color: transparent;
   -webkit-text-stroke: 4px rgb(194, 54, 22);
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #ffffff)) no-repeat;
-  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #fff)) no-repeat;
-  background-size: 8px 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: flick 3s infinite;
 }
 
 .logo__font h1:nth-child(2) {
   color: #000000;
-}
-
-@keyframes flick {
-  0% {
-    background-position: top left;
-  }
-  100% {
-    background-position: top right;
-  }
 }
 
 .navbar {
