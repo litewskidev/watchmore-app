@@ -1,0 +1,74 @@
+import { useNavigate } from 'react-router';
+import './HomeHubs.scss';
+
+const HomeHubs = () => {
+  const navigate = useNavigate();
+
+  return(
+    <div className='collections'>
+      <div className='collections__main__title'>
+        <h1>HUBS</h1>
+        <h1>HUBS</h1>
+      </div>
+      <div className='collections__wrapper'>
+        <div className='collections__container'>
+          <div className='collections__box'>
+            <div className='collections__logo' onClick={() => navigate('/hubs/marvel')}>
+              <img className='collections__img' src={process.env.PUBLIC_URL + '/assets/images/viewers-marvel.png'} alt='marvel logo'/>
+              <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
+                <source src={process.env.PUBLIC_URL + '/assets/videos/1564676115-marvel.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+          <div className='collections__box'>
+            <div className='collections__logo' onClick={() => navigate('/hubs/starwars')}>
+              <img className='collections__img' src={process.env.PUBLIC_URL + '/assets/images/viewers-starwars.png'} alt='star wars logo'/>
+              <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
+                <source src={process.env.PUBLIC_URL + '/assets/videos/1608229455-star-wars.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div className='collections__container'>
+          <div className='collections__box'>
+            <div className='collections__logo' onClick={() => navigate('/hubs/pixar')}>
+              <img className='collections__img' src={process.env.PUBLIC_URL + '/assets/images/viewers-pixar.png'} alt='pixar logo'/>
+              <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
+                <source src={process.env.PUBLIC_URL + '/assets/videos/1564676714-pixar.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+          <div className='collections__box'>
+            <div className='collections__logo' onClick={() => navigate('/hubs/national')}>
+              <img className='collections__img' src={process.env.PUBLIC_URL + '/assets/images/viewers-national.png'} alt='national geographic logo'/>
+              <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
+                <source src={process.env.PUBLIC_URL + '/assets/videos/1564676296-national-geographic.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div className='collections__container'>
+        <div className='collections__box'>
+            <div className='collections__logo' onClick={() => navigate('/hubs/a24')}>
+              <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
+                <source src={process.env.PUBLIC_URL + '/assets/videos/A24.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+          <div className='collections__box'>
+            <div className='collections__logo' onClick={() => navigate('/hubs/disney')}>
+              <img className='collections__img' src={process.env.PUBLIC_URL + '/assets/images/viewers-disney.png'} alt='disney logo'/>
+              <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
+                <source src={process.env.PUBLIC_URL + '/assets/videos/1564674844-disney.mp4'} type='video/mp4' />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+};
+
+export default HomeHubs;

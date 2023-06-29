@@ -59,11 +59,15 @@ const initialState = {
 
   hubs: {
     marvel: {},
-    starwars: {},
+    marvel_2: {},
     pixar: {},
-    national: {},
+    pixar_2: {},
     a24: {},
-    disney: {}
+    a24_2: {},
+    disney: {},
+    disney_2: {},
+    national: {},
+    starwars: {}
   },
 
   collections: [],

@@ -1,82 +1,65 @@
 @import '../../styles/settings.scss';
 
-.collections {
-  margin-top: -1.1rem;
-  margin-bottom: 2.3rem;
-  z-index: 99;
-}
-
-.collections__wrapper {
-  width: 100%;
+.categories {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.7rem 0.5rem;
-  background-color: rgba(34, 32, 28, 0.950);
+  padding: 1rem 0rem;
+  padding-top: 6rem;
 }
 
-.collections__container {
-  display: flex;
-  gap: 0.3rem;
-}
-
-.collections__box {
-  width: 100%;
-  border-radius: 0.3rem;
-  padding: 0.1rem;
-  background-color: rgb(47, 54, 64);
-  box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-}
-
-.collections__img {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  border-radius: 0.3rem;
-}
-
-.collections__logo {
+.categories__main__title {
   position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   width: 100%;
-  border-radius: 0.3rem;
-}
-
-.collections__video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 0.2rem;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-}
-
-.collections__main__title {
-  position: relative;
-  margin-top: 1.8rem;
-  margin-bottom: 3rem;
-  width: 100%;
+  filter: brightness(1.2);
   font-family: $font-text-1;
 }
 
-.collections__main__title h1 {
+.categories__main__title h1 {
   font-size: 1.6rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
+  top: -0.1rem;
   letter-spacing: 0.2rem;
 }
 
-
-.collections__main__title h1:nth-child(1) {
+.categories__main__title h1:nth-child(1) {
   border-radius: 50%;
   color: transparent;
-  -webkit-text-stroke: 3px $white;
-  box-shadow: 0 1rem 1rem#000000;
+  -webkit-text-stroke: 3px rgb(245, 246, 250);
+  box-shadow: 0rem 1rem 1rem #000000;
 }
 
-.collections__main__title h1:nth-child(2) {
+.categories__main__title h1:nth-child(2) {
   color: #000000;
+}
+
+.categories__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem 1rem;
+  padding-bottom: 2rem;
+}
+
+.categories__box {
+  padding: 0.3rem;
+  width: 50%;
+}
+
+.categories__poster {
+  padding: 0.15rem 0.2rem;
+  background-color: rgb(47, 54, 64);
+  border-radius: 0.2rem;
+
+  img {
+    width: 100%;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  }
 }

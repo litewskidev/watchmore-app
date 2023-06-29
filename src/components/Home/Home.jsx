@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux';
-import './Home.scss';
 import { getFetchedAllTrending, getFetchedMoviesTrending, getFetchedTvTrending } from '../../redux/trendingRedux';
-import HomeTrending from '../HomeTrending/HomeTrending';
-import Carousel from '../Carousel/Carousel';
-import Collections from '../Collections/Collections';
+import HomeTrending from '../HomeTrending/HomeTrending.jsx';
+import Carousel from '../Carousel/Carousel.jsx';
+import HomeHubs from '../HomeHubs/HomeHubs.jsx';
+import './Home.scss';
 
 const Home = () => {
   const trendingAll = useSelector(getFetchedAllTrending);
   const trendingMovies = useSelector(getFetchedMoviesTrending);
   const trendingTv = useSelector(getFetchedTvTrending);
-  
+
   const settings = {
     dots: false,
     infinite: true,
@@ -41,7 +41,7 @@ const Home = () => {
   return(
     <div className='home__container'>
       <Carousel settings={settings} list={trendingAll}/>
-      <Collections />
+      <HomeHubs />
       <HomeTrending trendingMovies={trendingMovies} trendingTv={trendingTv} settings={settings2}/>
     </div>
   )

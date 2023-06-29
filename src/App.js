@@ -17,14 +17,14 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import Movies from "./components/Movies/Movies.jsx";
 import TVSeries from "./components/TVSeries/TVSeries.jsx";
 import Search from "./components/Search/Search.jsx";
-import Categories from "./components/Categories/Categories.jsx";
+import Collections from "./components/Collections/Collections.jsx";
 import MovieCard from "./components/MovieCard/MovieCard.jsx";
 import TvShowCard from "./components/TvShowCard/TvShowCard.jsx";
 import CollectionCard from "./components/CollectionCard/CollectionCard.jsx";
 import WatchMovie from "./components/WatchMovie/WatchMovie.jsx";
 import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
-import { fetchA24, fetchDisney, fetchMarvel, fetchNational, fetchPixar, fetchStarWars } from "./redux/hubsRedux.js";
+import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchNationalTwo, fetchPixar, fetchPixarTwo, fetchStarWars, getPixarTwo } from "./redux/hubsRedux.js";
 import { fetchAlien, fetchAmericanpie, fetchApes, fetchBatman, fetchBourne, fetchCollection, fetchCreed, fetchFf, fetchGodfather, fetchHangover, fetchHobbit, fetchHp, fetchJamesbond, fetchJohnwick, fetchJurrasic, fetchLotr, fetchMatrix, fetchMi, fetchRambo, fetchRocky, fetchTerminator } from "./redux/collectionsRedux.js";
 
 function App() {
@@ -82,11 +82,15 @@ function App() {
 
   //  HUBS
   useEffect(() => dispatch(fetchMarvel()), [dispatch]);
-  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
+  useEffect(() => dispatch(fetchMarvelTwo()), [dispatch]);
   useEffect(() => dispatch(fetchPixar()), [dispatch]);
-  useEffect(() => dispatch(fetchNational()), [dispatch]);
+  useEffect(() => dispatch(fetchPixarTwo()), [dispatch]);
   useEffect(() => dispatch(fetchA24()), [dispatch]);
+  useEffect(() => dispatch(fetchA24Two()), [dispatch]);
   useEffect(() => dispatch(fetchDisney()), [dispatch]);
+  useEffect(() => dispatch(fetchDisneyTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchNational()), [dispatch]);
+  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
 
   //  COLLECTIONS
   //  GODFATHER
@@ -137,7 +141,7 @@ function App() {
         <Route exact path="/" element={ <Home /> } />
         <Route path="/movies" element={ <Movies /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
-        <Route path="/collections" element={ <Categories /> } />
+        <Route path="/collections" element={ <Collections /> } />
         <Route path="/search" element={ <Search /> } />
         <Route exact path="/movie/:id" element={ <MovieCard /> } />
         <Route exact path="/tv/:id" element={ <TvShowCard /> } />
