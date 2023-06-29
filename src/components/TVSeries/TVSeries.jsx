@@ -30,23 +30,19 @@ const TVSeries = () => {
         <h1>TV SERIES</h1>
       </div>
       <div className='tvSeries__section__title'>
-        <h2>POPULAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-        <h2>POPULAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2>POPULAR</h2>
       </div>
       <ListTvSeries list={popular} settings={settings4} />
       <div className='tvSeries__section__title'>
-        <h2>ON THE AIR&nbsp;&nbsp;&nbsp;</h2>
-        <h2>ON THE AIR&nbsp;&nbsp;&nbsp;</h2>
+        <h2>ON THE AIR</h2>
       </div>
       <ListTvSeries list={onTheAir} settings={settings4} />
       <div className='tvSeries__section__title'>
-        <h2>&nbsp;AIRING TODAY</h2>
-        <h2>&nbsp;AIRING TODAY</h2>
+        <h2>AIRING TODAY</h2>
       </div>
       <ListTvSeries list={airingToday} settings={settings4} />
       <div className='tvSeries__section__title'>
-        <h2>TOP RATED&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-        <h2>TOP RATED&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2>TOP RATED</h2>
       </div>
       <ListTvSeries list={topRated} settings={settings4} />
     </div>

@@ -10,8 +10,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
     <div  className='home__trending__wrapper'>
       <div className='home__trending__box'>
         <div className='home__section__title'>
-          <p>TRENDING MOVIES&nbsp;&nbsp;&nbsp;&nbsp;</p>
-          <p>TRENDING MOVIES&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <p>TRENDING MOVIES</p>
         </div>
         <div className='trending__movies__container'>
           <Slider {...settings}>
@@ -27,7 +26,6 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
       </div>
       <div className='home__trending__box'>
         <div className='home__section__title'>
-          <p>TRENDING TV SERIES</p>
           <p>TRENDING TV SERIES</p>
         </div>
         <div className='trending__movies__container'>

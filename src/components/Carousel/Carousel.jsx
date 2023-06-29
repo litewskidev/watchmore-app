@@ -20,8 +20,6 @@ const Carousel = ({ settings, list }) => {
                 <div className='title__container'>
                   <div className='title__box'>
                     <p>{item.title}</p>
-                    <p>{item.title}</p>
-                    <p>{item.name}</p>
                     <p>{item.name}</p>
                   </div>
                 </div>

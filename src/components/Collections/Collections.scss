@@ -1,3 +1,5 @@
+@import '../../styles/settings.scss';
+
 .collections {
   margin-top: -1.1rem;
   margin-bottom: 2.3rem;
@@ -55,6 +57,7 @@
   margin-top: 1.8rem;
   margin-bottom: 3rem;
   width: 100%;
+  font-family: $font-text-1;
 }
 
 .collections__main__title h1 {
@@ -70,7 +73,7 @@
 .collections__main__title h1:nth-child(1) {
   border-radius: 50%;
   color: transparent;
-  -webkit-text-stroke: 3px rgb(245, 246, 250);
+  -webkit-text-stroke: 3px $white;
   box-shadow: 0 1rem 1rem#000000;
 }
 

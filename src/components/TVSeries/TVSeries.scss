@@ -1,27 +1,30 @@
+@import '../../styles/settings.scss';
+
 .tvSeries__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0.5rem;
-  padding-top: 6.4rem;
+  padding-top: 6rem;
 }
 
 .tvSeries__main__title {
   position: relative;
-  margin-top: 1.7rem;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   width: 100%;
   filter: brightness(1.2);
+  font-family: $font-text-1;
 }
 
 .tvSeries__main__title h1 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: -0.1rem;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2rem;
 }
 
 
@@ -37,28 +40,16 @@
 }
 
 .tvSeries__section__title {
-  position: relative;
-  margin-top: 1.5rem;
   width: 100%;
-}
+  opacity: 0.99;
+  font-family: $font-text-4;
+  color: $white;
+  width: 100%;
+  padding: 0 0.2rem;
 
-.tvSeries__section__title h2 {
-  color: #ff0000;
-  font-size: 1.1rem;
-  font-weight: 100;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  letter-spacing: 0.2rem;
-  left: 4.8rem;
-  top: -1.2rem;
-}
-
-.tvSeries__section__title h2:nth-child(1) {
-  border-radius: 50%;
-  color: transparent;
-  -webkit-text-stroke: 3px rgb(194, 54, 22);
-}
-
-.tvSeries__section__title h2:nth-child(2) {
-  color: #000000;
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
 }

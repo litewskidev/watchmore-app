@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Manrope:wght@200;300;400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 $black: rgb(0, 0, 0);
 $white: rgb(245, 246, 250);
@@ -7,5 +7,9 @@ $red-main: rgb(194, 54, 22);
 $gray-border: rgb(47, 54, 64);
 $brown-menu: rgba(34, 32, 28, 0.950);
 
-$font-text: 'Manrope', sans-serif;
+$font-text-1: 'Manrope', sans-serif;
+$font-text-2: 'Anton', sans-serif;
+$font-text-3: 'Bebas Neue', sans-serif;
+$font-text-4: 'Oswald', sans-serif;
+$font-text-5: 'Quattrocento Sans', sans-serif;
 $base-size: 1rem;

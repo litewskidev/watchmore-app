@@ -12,6 +12,63 @@ li {
   display: none;
 }
 
+.navbar__logo {
+  font-family: $font-text-1;
+  line-height: 1rem;
+  left: 37%;
+  top: -1.5rem;
+
+  span {
+    img {
+      margin-bottom: -0.7rem;
+      margin-right: -0.5rem;
+      margin-left: 0.05rem;
+      width: 2.5rem;
+      filter: invert(100%);
+      opacity: 0.7;
+    }
+  }
+}
+
+.logo__font {
+  position: relative;
+  margin: 1.7rem 0;
+  width: 100%;
+  box-shadow: 0rem -5rem 10rem 5rem #000000e1;
+}
+
+.logo__font h1 {
+  font-size: 2.1rem;
+  font-weight: 100;
+  position: absolute;
+  letter-spacing: 0.2rem;
+}
+
+.logo__font h1:nth-child(1) {
+  border-radius: 50%;
+  color: transparent;
+  -webkit-text-stroke: 4px rgb(194, 54, 22);
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #ffffff)) no-repeat;
+  background: gradient(linear, left top, right top, from(#ffffff), to(#ffffff), color-stop(1, #fff)) no-repeat;
+  background-size: 8px 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: flick 3s infinite;
+}
+
+.logo__font h1:nth-child(2) {
+  color: #000000;
+}
+
+@keyframes flick {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -51,12 +108,13 @@ li {
   border: none;
   border-radius: 1rem;
   background-color: rgb(158, 33, 33);
-  font-family: $font-text;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
+  font-family: $font-text-4;
+  font-weight: 500;
+  color: $white;
   font-size: 1rem;
   cursor: pointer;
   z-index: 999;
+  text-shadow: 0.1rem 0.1rem 0.1rem black;
 }
 
 .navbar__links {
@@ -117,7 +175,7 @@ li {
     min-width: 3rem;
     min-height: 1.7rem;
     padding: 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .navbar__search__icon__mobile {
@@ -140,24 +198,24 @@ li {
     transition: transform 2s ease-out;
 
     .hamburger__one {
-      background-color: white;
+      background-color: $white;
       height: 0.3rem;
-      width: 100%;
-      border-radius: 20%;
+      width: 115%;
+      border-radius: 1rem;
     }
 
     .hamburger__two {
-      background-color: white;
+      background-color: $white;
       height: 0.3rem;
-      width: 100%;
-      border-radius: 20%;
+      width: 115%;
+      border-radius: 1rem;
     }
 
     .hamburger__three {
-      background-color: white;
+      background-color: $white;
       height: 0.3rem;
-      width: 100%;
-      border-radius: 20%;
+      width: 115%;
+      border-radius: 1rem;
     }
   }
 
