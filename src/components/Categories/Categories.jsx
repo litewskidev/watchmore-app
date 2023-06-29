@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import './Categories.scss';
 import { useNavigate } from 'react-router';
-import { getAllCollections } from '../../redux/collectionsRedux';
+import { getFetchedCollections } from '../../redux/collectionsRedux';
 import { mediumImagePath } from '../../utils/tmdbConfig';
 
 const Categories = () => {
   const navigate = useNavigate();
 
-  const collections = useSelector(getAllCollections);
+  const collections = useSelector(getFetchedCollections);
 
   return(
     <div className='categories'>

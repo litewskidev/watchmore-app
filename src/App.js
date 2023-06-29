@@ -25,7 +25,7 @@ import WatchMovie from "./components/WatchMovie/WatchMovie.jsx";
 import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
 import { fetchA24, fetchDisney, fetchMarvel, fetchNational, fetchPixar, fetchStarWars } from "./redux/hubsRedux.js";
-import { fetchAlien, fetchAmericanpie, fetchApes, fetchBatman, fetchBourne, fetchCreed, fetchFf, fetchGodfather, fetchHangover, fetchHobbit, fetchHp, fetchJamesbond, fetchJohnwick, fetchJurrasic, fetchLotr, fetchMatrix, fetchMi, fetchRambo, fetchRocky, fetchTerminator } from "./redux/collectionsRedux.js";
+import { fetchAlien, fetchAmericanpie, fetchApes, fetchBatman, fetchBourne, fetchCollection, fetchCreed, fetchFf, fetchGodfather, fetchHangover, fetchHobbit, fetchHp, fetchJamesbond, fetchJohnwick, fetchJurrasic, fetchLotr, fetchMatrix, fetchMi, fetchRambo, fetchRocky, fetchTerminator } from "./redux/collectionsRedux.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -89,26 +89,46 @@ function App() {
   useEffect(() => dispatch(fetchDisney()), [dispatch]);
 
   //  COLLECTIONS
-  useEffect(() => dispatch(fetchGodfather()), [dispatch]);
-  useEffect(() => dispatch(fetchAlien()), [dispatch]);
-  useEffect(() => dispatch(fetchTerminator()), [dispatch]);
-  useEffect(() => dispatch(fetchLotr()), [dispatch]);
-  useEffect(() => dispatch(fetchHobbit()), [dispatch]);
-  useEffect(() => dispatch(fetchMatrix()), [dispatch]);
-  useEffect(() => dispatch(fetchHp()), [dispatch]);
-  useEffect(() => dispatch(fetchBatman()), [dispatch]);
-  useEffect(() => dispatch(fetchApes()), [dispatch]);
-  useEffect(() => dispatch(fetchJurrasic()), [dispatch]);
-  useEffect(() => dispatch(fetchJohnwick()), [dispatch]);
-  useEffect(() => dispatch(fetchJamesbond()), [dispatch]);
-  useEffect(() => dispatch(fetchMi()), [dispatch]);
-  useEffect(() => dispatch(fetchBourne()), [dispatch]);
-  useEffect(() => dispatch(fetchRambo()), [dispatch]);
-  useEffect(() => dispatch(fetchRocky()), [dispatch]);
-  useEffect(() => dispatch(fetchCreed()), [dispatch]);
-  useEffect(() => dispatch(fetchFf()), [dispatch]);
-  useEffect(() => dispatch(fetchAmericanpie()), [dispatch]);
-  useEffect(() => dispatch(fetchHangover()), [dispatch]);
+  //  GODFATHER
+  useEffect(() => dispatch(fetchCollection(230)), [dispatch]);
+  //  ALIEN
+  useEffect(() => dispatch(fetchCollection(8091)), [dispatch]);
+  //  TERMINATOR
+  useEffect(() => dispatch(fetchCollection(528)), [dispatch]);
+  //  LORD OF THE RINGS
+  useEffect(() => dispatch(fetchCollection(119)), [dispatch]);
+  //  HOBBIT
+  useEffect(() => dispatch(fetchCollection(121938)), [dispatch]);
+  //  MATRIX
+  useEffect(() => dispatch(fetchCollection(2344)), [dispatch]);
+  //  HARRY POTTER
+  useEffect(() => dispatch(fetchCollection(1241)), [dispatch]);
+  //  DARK KNIGHT
+  useEffect(() => dispatch(fetchCollection(263)), [dispatch]);
+  //  PLANET OF THE APES
+  useEffect(() => dispatch(fetchCollection(173710)), [dispatch]);
+  //  JURRASIC PARK
+  useEffect(() => dispatch(fetchCollection(328)), [dispatch]);
+  //  JOHN WICK
+  useEffect(() => dispatch(fetchCollection(404609)), [dispatch]);
+  //  JAMES BOND
+  useEffect(() => dispatch(fetchCollection(645)), [dispatch]);
+  //  MISSION IMPOSSIBLE
+  useEffect(() => dispatch(fetchCollection(87359)), [dispatch]);
+  //  JASON BOURNE
+  useEffect(() => dispatch(fetchCollection(31562)), [dispatch]);
+  //  RAMBO
+  useEffect(() => dispatch(fetchCollection(5039)), [dispatch]);
+  //  ROCKY
+  useEffect(() => dispatch(fetchCollection(1575)), [dispatch]);
+  //  CREED
+  useEffect(() => dispatch(fetchCollection(553717)), [dispatch]);
+  //  FAST & FURIOUS
+  useEffect(() => dispatch(fetchCollection(9485)), [dispatch]);
+  //  AMERICAN PIE
+  useEffect(() => dispatch(fetchCollection(2806)), [dispatch]);
+  //  HANGOVER
+  useEffect(() => dispatch(fetchCollection(86119)), [dispatch]);
 
   return(
     <main>
