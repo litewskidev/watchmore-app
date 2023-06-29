@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from 'react-router';
-import './HubCard.scss';
 import { useSelector } from 'react-redux';
-import { getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedNationalTwo, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux';
-import { mediumImagePath } from '../../utils/tmdbConfig';
+import { getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux.js';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import './HubCard.scss';
 
 const HubCard = () => {
   const navigate = useNavigate();
@@ -36,28 +36,27 @@ const HubCard = () => {
   if(hub === 'national') {moviesPageTwo = national}
   if(hub === 'starwars') {moviesPageTwo= starwars}
 
-
   return(
     <div className='hub__card__wrapper'>
       <div className='hub__card__container'>
         {moviesPageOne.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}
         {moviesPageTwo.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}
         {moviesPageOne.parts?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}

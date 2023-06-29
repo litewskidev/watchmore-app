@@ -1,17 +1,7 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAllMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchTopRatedMovies, fetchUpcomingMovies } from "./redux/moviesRedux.js";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home/Home";
-import { fetchAiringTodayTv, fetchOnTheAirTv, fetchPopularTv, fetchTopRatedTv } from "./redux/tvSeriesRedux.js";
-import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
-import { fetchPopularPeople } from "./redux/peopleRedux.js";
-import { fetchMovieGenres, fetchTvGenres } from "./redux/genresRedux.js";
-import { getSearch } from "./redux/searchStringRedux.js";
-import { fetchSearchMovie, fetchSearchMulti, fetchSearchPerson, fetchSearchTv } from "./redux/searchRedux.js";
-import { getPage } from "./redux/pageRedux.js";
-import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchReleaseMovie, fetchReviewsMovie, fetchSimilarMovie, fetchVideosMovie } from "./redux/movieRedux.js";
-import { fetchCreditsTvShow, fetchDetailsTvShow, fetchImagesTvShow, fetchReviewsTvShow, fetchSimilarTvShow, fetchVideosTvShow } from "./redux/tvShowRedux.js";
+import Home from "./components/Home/Home.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Movies from "./components/Movies/Movies.jsx";
@@ -24,8 +14,19 @@ import CollectionCard from "./components/CollectionCard/CollectionCard.jsx";
 import WatchMovie from "./components/WatchMovie/WatchMovie.jsx";
 import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
-import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchNationalTwo, fetchPixar, fetchPixarTwo, fetchStarWars, getPixarTwo } from "./redux/hubsRedux.js";
-import { fetchAlien, fetchAmericanpie, fetchApes, fetchBatman, fetchBourne, fetchCollection, fetchCreed, fetchFf, fetchGodfather, fetchHangover, fetchHobbit, fetchHp, fetchJamesbond, fetchJohnwick, fetchJurrasic, fetchLotr, fetchMatrix, fetchMi, fetchRambo, fetchRocky, fetchTerminator } from "./redux/collectionsRedux.js";
+import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
+import { fetchCollection } from "./redux/collectionsRedux.js";
+import { fetchAllMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchTopRatedMovies, fetchUpcomingMovies } from "./redux/moviesRedux.js";
+import { fetchAiringTodayTv, fetchOnTheAirTv, fetchPopularTv, fetchTopRatedTv } from "./redux/tvSeriesRedux.js";
+import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
+import { fetchPopularPeople } from "./redux/peopleRedux.js";
+import { fetchMovieGenres, fetchTvGenres } from "./redux/genresRedux.js";
+import { getSearch } from "./redux/searchStringRedux.js";
+import { fetchSearchMovie, fetchSearchMulti, fetchSearchPerson, fetchSearchTv } from "./redux/searchRedux.js";
+import { getPage } from "./redux/pageRedux.js";
+import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchReleaseMovie, fetchReviewsMovie, fetchSimilarMovie, fetchVideosMovie } from "./redux/movieRedux.js";
+import { fetchCreditsTvShow, fetchDetailsTvShow, fetchImagesTvShow, fetchReviewsTvShow, fetchSimilarTvShow, fetchVideosTvShow } from "./redux/tvShowRedux.js";
+
 
 function App() {
   const dispatch = useDispatch();

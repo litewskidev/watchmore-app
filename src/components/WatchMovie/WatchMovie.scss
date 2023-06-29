@@ -1,6 +1,7 @@
 .watch__movie__wrapper {
   padding: 0.5rem;
   padding-top: 7rem;
+  height: 80vh;
 }
 
 .watch__movie__container {
@@ -11,7 +12,7 @@
 }
 
 .watch__movie__video {
-  iframe{
-  border-radius: 0.2rem;
+  iframe  {
+    border-radius: 0.2rem;
   }
 }
