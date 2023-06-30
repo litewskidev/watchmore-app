@@ -134,6 +134,26 @@ function App() {
   useEffect(() => dispatch(fetchCollection(2806)), [dispatch]);
   //  HANGOVER
   useEffect(() => dispatch(fetchCollection(86119)), [dispatch]);
+  //  CONJURING
+  useEffect(() => dispatch(fetchCollection(313086)), [dispatch]);
+  //  MEN IN BLACK
+  useEffect(() => dispatch(fetchCollection(86055)), [dispatch]);
+  //  HALLOWEEN
+  useEffect(() => dispatch(fetchCollection(91361)), [dispatch]);
+  //  MUMMY
+  useEffect(() => dispatch(fetchCollection(1733)), [dispatch]);
+  //  CHRONICLES OF NARNIA
+  useEffect(() => dispatch(fetchCollection(420)), [dispatch]);
+  //  RUSH HOUR
+  useEffect(() => dispatch(fetchCollection(90863)), [dispatch]);
+  // DIE HARD
+  useEffect(() => dispatch(fetchCollection(1570)), [dispatch]);
+  //  HOME ALONE
+  useEffect(() => dispatch(fetchCollection(9888)), [dispatch]);
+  //  LETHAL WEAPON
+  useEffect(() => dispatch(fetchCollection(945)), [dispatch]);
+  //  GHOSTBUSTERS
+  useEffect(() => dispatch(fetchCollection(2980)), [dispatch]);
 
   return(
     <main>

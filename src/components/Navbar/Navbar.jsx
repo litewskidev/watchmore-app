@@ -61,7 +61,7 @@ const Navbar = () => {
           <button className='navbar__login__button'>LOG IN</button>
         </div>
       </div>
-      <div className='navbar__pattern'></div>
+      <div id='navbar-pattern' className='navbar__pattern'></div>
 
       {/* DROPDOWN */}
       <div id='dropdown' className='navbar__dropdown'>

@@ -1,0 +1,22 @@
+.home__collections__container {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.home__collections__box {
+  width: 32%;
+  border-radius: 0.3rem;
+  padding: 0.15rem;
+  background-color: rgb(47, 54, 64);
+  box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  padding-bottom: 0;
+}
+
+.home__collections__poster img {
+  width: 100%;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+}

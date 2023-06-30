@@ -3,7 +3,7 @@ import './MovieCard.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedImagesMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux';
 import { useEffect } from 'react';
-import { imagePath, mediumImagePath, miniImagePath, originalImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
+import { imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
 import Slider from 'react-slick';
 
 const MovieCard = () => {
@@ -25,8 +25,6 @@ const MovieCard = () => {
   const movieTrailers = useSelector(getFetchedTrailerMovie);
   const movieImages = useSelector(getFetchedImagesMovie);
 
-  console.log(movieImages);
-
   const settings4 = {
     dots: false,
     infinite: true,
@@ -44,7 +42,7 @@ const MovieCard = () => {
   return(
     <div className='movie__wrapper'>
       <div className='movie__backdrop'>
-        <img src={imagePath + movieData.backdrop_path}/>
+        <img src={imagePath + movieData.backdrop_path} alt={movieData.title}/>
       </div>
       <div className='movie__main__info'>
         <div className='movie__title'>
@@ -86,13 +84,13 @@ const MovieCard = () => {
           </div>
         </div>
         <div className='movie__bottoms__wrapper'>
-          <p className='movie__section__name'>TO WATCH</p>
+          <p className='movie__section__name'>WATCH NEXT</p>
           <div className='movie__similar'>
             <Slider {...settings4}>
-              {movieSimilar?.slice(0, 8).map(similar => (
-                (similar.poster_path !== null) ? (
-                  <div className='movie__similar__container'>
-                    <div className='movie__similar__item' key={similar.id} onClick={() => navigate(`/movie/${similar.id}`)}>
+              {movieSimilar?.map(similar => (
+                (similar.poster_path !== null && similar.backdrop_path !== null) ? (
+                  <div className='movie__similar__container' key={similar.id}>
+                    <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
                       <img src={miniImagePath + similar.poster_path} alt='movie poster'/>
                     </div>
                   </div>) : (null)

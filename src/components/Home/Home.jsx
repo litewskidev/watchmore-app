@@ -4,6 +4,7 @@ import HomeTrending from '../HomeTrending/HomeTrending.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 import HomeHubs from '../HomeHubs/HomeHubs.jsx';
 import './Home.scss';
+import HomeCollections from '../HomeCollections/HomeCollections';
 
 const Home = () => {
   const trendingAll = useSelector(getFetchedAllTrending);
@@ -43,6 +44,7 @@ const Home = () => {
       <Carousel settings={settings} list={trendingAll}/>
       <HomeHubs />
       <HomeTrending trendingMovies={trendingMovies} trendingTv={trendingTv} settings={settings2}/>
+      <HomeCollections />
     </div>
   )
 };
