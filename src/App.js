@@ -34,10 +34,10 @@ function App() {
 
   //  MOVIES
   //useEffect(() => dispatch(fetchAllMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchNowPlayingMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPopularMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTopRatedMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchUpcomingMovies(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchNowPlayingMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch, page]);
 
   // MOVIE
   //useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
@@ -49,10 +49,10 @@ function App() {
   //useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
 
   //  TV SERIES
-  useEffect(() => dispatch(fetchAiringTodayTv(3)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAiringTodayTv(1)), [dispatch, page]);
   useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPopularTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTopRatedTv(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchPopularTv(3)), [dispatch, page]);
+  useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch, page]);
 
   //  TV SHOW
   //useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
@@ -63,10 +63,10 @@ function App() {
   //useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
 
   //  TRENDING
-  useEffect(() => dispatch(fetchAllTrending(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchMoviesTrending(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTvTrending(page)), [dispatch, page]);
-  //useEffect(() => dispatch(fetchPeopleTrending(page)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAllTrending(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchMoviesTrending(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchTvTrending(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchPeopleTrending(1)), [dispatch, page]);
 
   // PEOPLE
   //useEffect(() => dispatch(fetchPopularPeople(page)), [dispatch, page]);

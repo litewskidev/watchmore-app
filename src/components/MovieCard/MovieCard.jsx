@@ -56,6 +56,9 @@ const MovieCard = () => {
             <div className='movie__release__date'>
               <p>{movieData.release_date?.substring(0, 4)}</p>
             </div>
+            <div className='movie__watchlist__icon'>
+              <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon'/>
+            </div>
             <div className='movie__score'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
               <p>{movieData.vote_average}</p>
@@ -98,17 +101,17 @@ const MovieCard = () => {
             </Slider>
           </div>
         </div>
-        <div className='movie__bottoms__wrapper__trailer'>
-          <p className='movie__section__name'>TRAILER</p>
-          <div className='movie__video__container'>
-            {movieTrailers?.slice(0, 1).map(video => (
-              (video.type === 'Trailer') ? (
-              <div className='movie__video' key={video.key}>
-                <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} />
-              </div>) : (null)
-            ))}
-          </div>
-        </div>
+        {movieTrailers?.slice(0, 1).map(video => (
+          (video.type === 'Trailer') ? (
+            <div className='movie__bottoms__wrapper__trailer' key={video.key}>
+              <p className='movie__section__name'>TRAILER</p>
+              <div className='movie__video__container'>
+                <div className='movie__video'>
+                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} />
+                </div>
+              </div>
+            </div>) : (null)
+        ))}
       </div>
     </div>
   )

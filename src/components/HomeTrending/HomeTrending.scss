@@ -26,10 +26,10 @@
   }
 
   .trending__movies__box {
-    //width: 25%;
     padding: 0.15rem 0.2rem;
     background-color: rgb(47, 54, 64);
     border-radius: 0.2rem;
+    padding-bottom: 0.25rem;
 
     &:hover {
       scale: 100%;
@@ -52,4 +52,3 @@
   text-shadow: 0.1rem 0.1rem 0.1rem black;
   padding: 0 0.2rem;
 }
-

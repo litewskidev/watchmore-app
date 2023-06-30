@@ -59,6 +59,7 @@
 .movie__overview {
   max-width: 90%;
   text-align: center;
+  margin-top: 0.2rem;
 
   p {
     font-size: 0.8rem;
@@ -102,6 +103,25 @@
   p:first-of-type {
     color: $red-main;
     text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+}
+
+.movie__watchlist__icon {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+  margin-right: -7%;
+  border: 2px solid $gray-border;
+  border-radius: 1rem;
+  width: 4rem;
+  height: 2rem;
+  background-color: rgba(172, 47, 19, 0.98);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.1rem 0.2rem rgb(0, 0, 0);
+
+  img {
+    width: 50%;
   }
 }
 
@@ -164,6 +184,9 @@
 }
 
 .movie__bottoms__wrapper__trailer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   margin-top: -1.5rem;
 }
 
