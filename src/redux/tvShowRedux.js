@@ -7,6 +7,8 @@ export const getFetchedReviewsTvShow = ({ tvShow }) => tvShow.reviews;
 export const getFetchedImagesTvShow = ({ tvShow }) => tvShow.images;
 export const getFetchedVideosTvShow = ({ tvShow }) => tvShow.videos;
 export const getFetchedSimilarTvShow = ({ tvShow }) => tvShow.similar;
+export const getFetchedTvShowSeason = ({ tvShow }) => tvShow.season;
+export const getFetchedTvShowEpisode = ({ tvShow }) => tvShow.episode;
 
 export const getFetchedTrailerTvShow = ({ tvShow }) => tvShow.videos.results?.filter(video => video.type === 'Trailer');
 export const getFetchedSimilarWithPosterTvShow = ({ tvShow }) => tvShow.similar.results?.filter(similar => similar.poster_path !== null && similar.vote_average > 6);
@@ -19,6 +21,8 @@ const GET_REVIEWS = createActionName('GET_REVIEWS');
 const GET_IMAGES = createActionName('GET_IMAGES');
 const GET_VIDEOS = createActionName('GET_VIDEOS');
 const GET_SIMILAR = createActionName('GET_SIMILAR');
+const GET_SEASON = createActionName('GET_SEASON');
+const GET_EPISODE = createActionName('GET_EPISODE');
 
 //  ACTION CREATORS
 //  DETAILS
@@ -87,6 +91,28 @@ export const fetchSimilarTvShow = (tvShowId, page) => {
   }
 };
 
+//  SEASON
+export const getSeason = payload => ({ type: GET_SEASON, payload });
+export const fetchSeason = (tvShowId, season) => {
+  return(dispatch) => {
+    fetch(`https://api.themoviedb.org/3/tv/${tvShowId}/season/${season}?language=en-US`, options)
+    .then(res => res.json())
+    .then(season => { dispatch(getSeason(season)) })
+    .catch(err => console.log(err));
+  }
+};
+
+//  EPISODE
+export const getEpisode = payload => ({ type: GET_EPISODE, payload });
+export const fetchEpisode = (tvShowId, season, episode) => {
+  return(dispatch) => {
+    fetch(`https://api.themoviedb.org/3/tv/${tvShowId}/season/${season}/episode/${episode}?language=en-US`, options)
+    .then(res => res.json())
+    .then(episode => { dispatch(getEpisode(episode)) })
+    .catch(err => console.log(err));
+  }
+};
+
 const tvShowReducer = ( state = {}, action ) => {
   switch(action.type) {
     case GET_DETAILS:
@@ -101,6 +127,10 @@ const tvShowReducer = ( state = {}, action ) => {
       return {...state, videos: { ...action.payload }}
     case GET_SIMILAR:
       return {...state, similar: { ...action.payload }}
+    case GET_SEASON:
+      return {...state, season: { ...action.payload }}
+    case GET_EPISODE:
+      return {...state, episode: { ...action.payload }}
     default:
       return state
   }

@@ -7,8 +7,9 @@
   flex-direction: column;
 }
 
-.tvShow__backdrop{
+.tvShow__backdrop {
   position: relative;
+  z-index: 9;
 
   img {
     width: 100%;
@@ -47,7 +48,9 @@
   width: 100%;
   text-align: center;
   font-family: $font-text-4;
-  margin-top: -0.2rem;
+  font-weight: 400;
+  margin-top: -1rem;
+  z-index: 10;
 
   p {
     font-size: 1.5rem;
@@ -59,7 +62,7 @@
 .tvShow__overview {
   max-width: 90%;
   text-align: center;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 
   p {
@@ -84,11 +87,13 @@
   padding-top: 0.12rem;
   border-radius: 2rem;
   box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  height: 45.5px;
 }
 
 .tvShow__date__score {
   background-color: $black-main;
   padding: 0.5rem;
+  padding-bottom: 0.8rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -107,15 +112,103 @@
   }
 }
 
+#select-season {
+  cursor: pointer;
+}
+
+.tvShow__option {
+  color: $red-main;
+  border: none;
+  background-color: inherit;
+  font-family: $font-text-4;
+  outline: none;
+  font-size: 1rem;
+  text-shadow: 0.1rem 0.1rem 0.1rem black;
+  margin-left: -15px;
+}
+
+.tvShow__episodes__down__icon {
+  scale: 49%;
+  margin-right: -0.5rem;
+}
+
+#episodes-list {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.05s ease-in-out;
+
+  &.show {
+    height: 100%;
+  }
+}
+
+.tvShow__episode__wrapper {
+  margin: 0 1rem;
+  padding: 0.12rem;
+  padding-bottom: 0.25rem;
+  background-color: $gray-border;
+  border-radius: 0.3rem;
+}
+
+.tvShow__episode__container {
+  background-color: $black-main;
+  width: 100%;
+  padding: 0.3rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.1rem 0.4rem rgb(0, 0, 0)
+}
+
+.tvShow__episode__image {
+  width: 100%;
+
+  img {
+    border-radius: 0.3rem;
+    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0)
+  }
+}
+
+.tvShow__episode__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  text-shadow: 0.1rem 0.1rem 0.1rem black;
+
+  p:first-of-type {
+    text-align: center;
+    font-family: $font-text-4;
+    font-size: 1rem;
+  }
+}
+
+.tvShow__episode__info__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .tvShow__watchlist__icon {
   margin-top: -0.5rem;
-  margin-bottom: -0.5rem;
+  margin-bottom: -0.6rem;
   margin-right: -7%;
   border: 2px solid $gray-border;
   border-radius: 1rem;
   width: 4rem;
   height: 2rem;
-  background-color: rgba(172, 47, 19, 0.98);;
+  background-color: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,6 +224,8 @@
   align-items: center;
   gap: 0.5rem;
   text-shadow: 0.1rem 0.1rem 0.1rem black;
+  font-family: $font-text-4;
+  font-size: 1rem;
 
   img {
     width: 1.7rem;

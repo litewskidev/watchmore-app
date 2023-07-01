@@ -24,7 +24,9 @@ const initialState = {
     reviews: {},
     images: {},
     videos: {},
-    similar: {}
+    similar: {},
+    season: {},
+    episode: {}
   },
 
   tvSeries: {

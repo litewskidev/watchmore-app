@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
+import { imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
 import './TvShowCard.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow } from '../../redux/tvShowRedux';
+import { useEffect, useState } from 'react';
+import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux';
 import Slider from 'react-slick';
 
 const TvShowCard = () => {
@@ -13,15 +13,20 @@ const TvShowCard = () => {
   const tvShowId = params.id;
   const page = 1;
 
+  const [season, setSeason] = useState(1);
+  const [episode, setEpisode] = useState(1);
+
   useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchVideosTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
+  useEffect(() => dispatch(fetchSeason(tvShowId, season)), [dispatch, tvShowId, season]);
 
   const tvShowData = useSelector(getFetchedDetailsTvShow);
   const tvShowCredits = useSelector(getFetchedCreditsTvShow);
   const tvShowSimilar = useSelector(getFetchedSimilarWithPosterTvShow);
   const tvShowTrailers = useSelector(getFetchedTrailerTvShow);
+  const tvShowSeason = useSelector(getFetchedTvShowSeason);
 
   const settings4 = {
     dots: false,
@@ -37,7 +42,22 @@ const TvShowCard = () => {
     pauseOnDotsHover: false
   };
 
-  console.log(tvShowData);
+  const handleSeasons = (e) => {
+    e.preventDefault();
+    setSeason(e.target.value);
+  };
+
+  const handleNavigate = (id) => {
+    setSeason(1);
+    navigate(`/tv/${id}`);
+  };
+
+  const toggleEpisodes = () => {
+    const episodesBtn = document.querySelector('#episodes-list');
+    episodesBtn.classList.toggle('show');
+  }
+
+  console.log(tvShowSeason);
 
   return(
     <div className='tvShow__wrapper'>
@@ -54,16 +74,6 @@ const TvShowCard = () => {
         <div className='tvShow__date__score__container'>
           <div className='tvShow__date__score'>
             <div className='tvShow__release__date'>
-              <p>SEASONS</p>
-            </div>
-            <div className='tvShow__score'>
-              <p>EPISODES</p>
-            </div>
-          </div>
-        </div>
-        <div className='tvShow__date__score__container'>
-          <div className='tvShow__date__score'>
-            <div className='tvShow__release__date'>
               <p>{tvShowData.first_air_date?.substring(0, 4)}</p>
             </div>
             <div className='tvShow__watchlist__icon'>
@@ -75,12 +85,58 @@ const TvShowCard = () => {
             </div>
           </div>
         </div>
-        <div className='tvShow__watch__container' onClick={() => navigate(`/watch/${tvShowId}`)}>
-          <div className='tvShow__watch__button'>
-            <img src={process.env.PUBLIC_URL + '/assets/icons/popcorn.svg'} alt='play icon'/>
-            <p>WATCH NOW</p>
+        <div className='tvShow__date__score__container'>
+          <div className='tvShow__date__score'>
+            <div className='tvShow__release__date'>
+              <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
+                {tvShowData.seasons?.map(so => (
+                  (so.season_number > 0) ? (
+                  <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
+                  ) : (null)
+                ))}
+              </select>
+            </div>
+            <div className='tvShow__score'>
+              <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
+              <p onClick={toggleEpisodes}>EPISODES</p>
+            </div>
           </div>
         </div>
+      </div>
+      <div id='episodes-list'>
+        {tvShowSeason.episodes?.map(ep => (
+          (ep.still_path !== null) ? (
+            <div className='tvShow__episode__wrapper' key={ep.name}>
+              <div className='tvShow__episode__container'>
+                <div className='tvShow__episode__image'>
+                  <img src={mediumImagePath + ep.still_path} alt={ep.name}/>
+                </div>
+                <div className='tvShow__episode__info'>
+                  <div className='tvShow__episode__info__title'>
+                    <p>{ep.episode_number}. {ep.name}</p>
+                    <p>{ep.air_date} &#8226; {ep.runtime} min</p>
+                  </div>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className='tvShow__episode__wrapper' key={ep.name}>
+              <div className='tvShow__episode__container'>
+                <div className='tvShow__episode__image'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
+                </div>
+                <div className='tvShow__episode__info'>
+                  <div className='tvShow__episode__info__title'>
+                    <p>{ep.name}</p>
+                    <p>{ep.air_date}</p>
+                  </div>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                </div>
+              </div>
+            </div>
+          )
+        ))}
       </div>
       <div className='tvShow__bottom__section'>
         <div className='tvShow__bottoms__wrapper'>
@@ -103,7 +159,7 @@ const TvShowCard = () => {
               {tvShowSimilar?.map(similar => (
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='tvShow__similar__container' key={similar.id}>
-                    <div className='tvShow__similar__item' onClick={() => navigate(`/tv/${similar.id}`)}>
+                    <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
                       <img src={miniImagePath + similar.poster_path} alt='movie poster'/>
                     </div>
                   </div>) : (null)

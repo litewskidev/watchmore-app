@@ -9,6 +9,7 @@
 
 .movie__backdrop{
   position: relative;
+  z-index: 9;
 
   img {
     width: 100%;
@@ -47,7 +48,9 @@
   width: 100%;
   text-align: center;
   font-family: $font-text-4;
-  margin-top: -0.2rem;
+  font-weight: 400;
+  margin-top: -1rem;
+  z-index: 10;
 
   p {
     font-size: 1.5rem;
@@ -59,7 +62,8 @@
 .movie__overview {
   max-width: 90%;
   text-align: center;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
   p {
     font-size: 0.8rem;
@@ -77,17 +81,19 @@
 }
 
 .movie__date__score__container {
-  margin-top: 0.5rem;
   width: 100%;
   background-color: $gray-border;
   padding: 0.1rem;
+  padding-top: 0.12rem;
   border-radius: 2rem;
   box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  height: 45.5px;
 }
 
 .movie__date__score {
   background-color: $black-main;
   padding: 0.5rem;
+  padding-bottom: 0.8rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -99,6 +105,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  font-family: $font-text-4;
+  font-size: 1rem;
 
   p:first-of-type {
     color: $red-main;
@@ -107,14 +115,14 @@
 }
 
 .movie__watchlist__icon {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.6rem;
   margin-right: -7%;
   border: 2px solid $gray-border;
   border-radius: 1rem;
   width: 4rem;
   height: 2rem;
-  background-color: rgba(172, 47, 19, 0.98);;
+  background-color: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,6 +138,8 @@
   align-items: center;
   gap: 0.5rem;
   text-shadow: 0.1rem 0.1rem 0.1rem black;
+  font-family: $font-text-4;
+  font-size: 1rem;
 
   img {
     width: 1.7rem;
