@@ -7,7 +7,7 @@ const initialState = {
     reviews: {},
     images: {},
     videos: {},
-    similar: {},
+    similar: {}
   },
 
   movies: {
@@ -42,7 +42,6 @@ const initialState = {
     onTheAir: {},
     popular: {},
     topRated: {},
-
     action: {},
     comedy: {},
     mystery: {},
@@ -73,7 +72,7 @@ const initialState = {
     multi: {},
     movie: {},
     tv: {},
-    person: {},
+    person: {}
   },
 
   hubs: {

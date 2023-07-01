@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import './MovieCard.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedImagesMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux';
 import { useEffect } from 'react';
-import { imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
+import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
+import { imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
+import './MovieCard.scss';
 
 const MovieCard = () => {
   const navigate = useNavigate();
@@ -23,12 +23,11 @@ const MovieCard = () => {
   const movieCredits = useSelector(getFetchedCreditsMovie);
   const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
   const movieTrailers = useSelector(getFetchedTrailerMovie);
-  const movieImages = useSelector(getFetchedImagesMovie);
 
   const settings4 = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: false,

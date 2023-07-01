@@ -1,18 +1,18 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from 'redux-thunk';
-import initialState from "./initialState";
-import moviesReducer from "./moviesRedux";
-import tvSeriesReducer from "./tvSeriesRedux";
-import trendingReducer from "./trendingRedux";
-import peopleReducer from "./peopleRedux";
-import genresReducer from "./genresRedux";
-import searchReducer from "./searchRedux";
-import searchStringReducer from "./searchStringRedux";
-import movieReducer from "./movieRedux";
-import tvShowReducer from "./tvShowRedux";
-import hubsReducer from "./hubsRedux";
-import collectionsReducer from "./collectionsRedux";
-import specificReducer from "./specificRedux";
+import initialState from "./initialState.js";
+import moviesReducer from "./moviesRedux.js";
+import tvSeriesReducer from "./tvSeriesRedux.js";
+import trendingReducer from "./trendingRedux.js";
+import peopleReducer from "./peopleRedux.js";
+import genresReducer from "./genresRedux.js";
+import searchReducer from "./searchRedux.js";
+import searchStringReducer from "./searchStringRedux.js";
+import movieReducer from "./movieRedux.js";
+import tvShowReducer from "./tvShowRedux.js";
+import hubsReducer from "./hubsRedux.js";
+import collectionsReducer from "./collectionsRedux.js";
+import specificReducer from "./specificRedux.js";
 
 const subreducers = {
   movie: movieReducer,

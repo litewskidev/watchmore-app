@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { getFetchedCollections } from '../../redux/collectionsRedux';
-import { mediumImagePath } from '../../utils/tmdbConfig';
+import { getFetchedCollections } from '../../redux/collectionsRedux.js';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import './Collections.scss';
 
-const Categories = () => {
+const Collections = () => {
   const navigate = useNavigate();
 
   const collections = useSelector(getFetchedCollections);
@@ -30,4 +30,4 @@ const Categories = () => {
   )
 };
 
-export default Categories;
+export default Collections;

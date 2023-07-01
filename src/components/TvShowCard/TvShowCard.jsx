@@ -1,10 +1,10 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig';
-import './TvShowCard.scss';
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux.js';
+import { imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
+import './TvShowCard.scss';
 
 const TvShowCard = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const TvShowCard = () => {
   const page = 1;
 
   const [season, setSeason] = useState(1);
-  const [episode, setEpisode] = useState(1);
+  //const [episode, setEpisode] = useState(1);
 
   useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
   useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
@@ -31,7 +31,7 @@ const TvShowCard = () => {
   const settings4 = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: false,
@@ -48,7 +48,7 @@ const TvShowCard = () => {
     infinite: true,
     centerPadding: "0",
     slidesToShow: 3,
-    speed: 500
+    speed: 600
   };
 
   const handleSeasons = (e) => {
@@ -64,7 +64,7 @@ const TvShowCard = () => {
   const toggleEpisodes = () => {
     const episodesBtn = document.querySelector('#episodes-list');
     episodesBtn.classList.toggle('show');
-  }
+  };
 
   return(
     <div className='tvShow__wrapper'>
@@ -117,41 +117,43 @@ const TvShowCard = () => {
           </div>
         </div>
       </div>
-      <div id='episodes-list'>
+      <div id='episodes-list' className='show'>
         <Slider {...settings5}>
           {tvShowSeason.episodes?.map(ep => (
             (ep.still_path !== null) ? (
                 <div className='tvShow__episode__wrapper' key={ep.name}>
                   <div className='tvShow__episode__container'>
-                    <div className='tvShow__episode__image'>
-                      <img src={mediumImagePath + ep.still_path} alt={ep.name}/>
-                    </div>
                     <div className='tvShow__episode__info'>
+                      <div className='tvShow__episode__image'>
+                        <img src={mediumImagePath + ep.still_path} alt={ep.name}/>
+                      </div>
                       <div className='tvShow__episode__info__title'>
-                        <p>{ep.episode_number}. {ep.name}</p>
-                        <p>{ep.air_date} &#8226; {ep.runtime} min</p>
+                          <p>{ep.episode_number}. {ep.name}</p>
+                          <p>{ep.air_date} &#8226; {ep.runtime} min</p>
                       </div>
-                      <div className='tvShow__play__button'>
-                        <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
-                      </div>
+                    </div>
+                    <div className='tvShow__play__button'>
+                      <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
                     </div>
                   </div>
                 </div>
             ) : (
               <div className='tvShow__episode__wrapper' key={ep.name}>
                 <div className='tvShow__episode__container'>
-                  <div className='tvShow__episode__image'>
-                    <img className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
-                  </div>
                   <div className='tvShow__episode__info'>
-                    <div className='tvShow__episode__info__title'>
-                      <p>{ep.name}</p>
-                      <p>{ep.air_date}</p>
+                    <div className='tvShow__episode__image'>
+                      <img className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
                     </div>
+                    <div className='tvShow__episode__info__title'>
+                      <p>{ep.episode_number}. {ep.name}</p>
+                      <p>{ep.air_date} &#8226; {ep.runtime} min</p>
+                    </div>
+                  </div>
+                  <div className='tvShow__play__button'>
                     <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
                   </div>
+                  </div>
                 </div>
-              </div>
             )
           ))}
         </Slider>

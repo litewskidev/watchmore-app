@@ -95,7 +95,7 @@ const Navbar = () => {
         </li>
         <li>
           <div className='dropdown__box'>
-          <NavLink className={({ isActive }) => isActive ? 'linkActiveSearch' : ''} to="/search">
+            <NavLink className={({ isActive }) => isActive ? 'linkActiveSearch' : ''} to="/search">
               <img className='navbar__search__icon__mobile' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} alt='search icon' />
             </NavLink>
           </div>

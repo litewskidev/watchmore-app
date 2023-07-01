@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import './Search.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchMulti, getSearchedMulti } from '../../redux/searchRedux';
-import { getSearch, updateSearchString } from '../../redux/searchStringRedux';
-import { miniImagePath } from '../../utils/tmdbConfig';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSearchMulti, getSearchedMulti } from '../../redux/searchRedux.js';
+import { getSearch, updateSearchString } from '../../redux/searchStringRedux.js';
+import { miniImagePath } from '../../utils/tmdbConfig.js';
+import './Search.scss';
 
 const Search = () => {
   const dispatch = useDispatch();

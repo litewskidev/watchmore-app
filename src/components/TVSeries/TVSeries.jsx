@@ -1,9 +1,10 @@
-import './TVSeries.scss';
 import { useSelector } from 'react-redux';
-import { getFetchedActionTv, getFetchedAiringTodayTv, getFetchedAnimeTv, getFetchedComedyTv, getFetchedCrimeTv, getFetchedDramaTv, getFetchedMysteryTv, getFetchedOnTheAirTv, getFetchedPopularTv, getFetchedScifiTv, getFetchedTopRatedTv, getFetchedWesternTv } from '../../redux/tvSeriesRedux';
-import ListTvSeries from '../ListTvSeries/ListTvSeries';
+import { getFetchedActionTv, getFetchedAiringTodayTv, getFetchedAnimeTv, getFetchedComedyTv, getFetchedCrimeTv, getFetchedDramaTv, getFetchedMysteryTv, getFetchedOnTheAirTv, getFetchedPopularTv, getFetchedScifiTv, getFetchedTopRatedTv, getFetchedWesternTv } from '../../redux/tvSeriesRedux.js';
+import ListTvSeries from '../ListTvSeries/ListTvSeries.jsx';
+import './TVSeries.scss';
 
 const TVSeries = () => {
+
   const airingToday = useSelector(getFetchedAiringTodayTv);
   const onTheAir = useSelector(getFetchedOnTheAirTv);
   const popular = useSelector(getFetchedPopularTv);
@@ -20,7 +21,7 @@ const TVSeries = () => {
   const settings4 = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,

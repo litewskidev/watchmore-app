@@ -1,10 +1,9 @@
-import React from 'react';
+import { useNavigate } from 'react-router';
+import { imagePath } from '../../utils/tmdbConfig.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { imagePath } from '../../utils/tmdbConfig';
 import './Carousel.scss';
-import { useNavigate } from 'react-router';
 
 const Carousel = ({ settings, list }) => {
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ const Carousel = ({ settings, list }) => {
         ))}
       </Slider>
     </div>
-  );
-}
+  )
+};
 
 export default Carousel;

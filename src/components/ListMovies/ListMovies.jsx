@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { mediumImagePath } from '../../utils/tmdbConfig';
-import './ListMovies.scss';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
+import './ListMovies.scss';
 
 const ListMovies = ({ list, settings }) => {
   const navigate = useNavigate();
 
-  return (
+  return(
     <div className='movie__box'>
       <Slider {...settings}>
         {list.results?.map(movie => (

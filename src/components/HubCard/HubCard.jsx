@@ -54,7 +54,7 @@ const HubCard = () => {
   return(
     <div className='hub__card__wrapper'>
       <div className='hub__card__logo'>
-        <img src={process.env.PUBLIC_URL + logoMain}/>
+        <img src={process.env.PUBLIC_URL + logoMain} alt={hub}/>
       </div>
       <div className='hub__card__container'>
         {moviesPageOne.results?.map(movie => (

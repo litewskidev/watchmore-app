@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
-import { getFetchedAllTrending, getFetchedMoviesTrending, getFetchedPeopleTrending, getFetchedTvTrending } from '../../redux/trendingRedux';
+import { getFetchedAllTrending, getFetchedMoviesTrending, getFetchedPeopleTrending, getFetchedTvTrending } from '../../redux/trendingRedux.js';
 import HomeTrending from '../HomeTrending/HomeTrending.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 import HomeHubs from '../HomeHubs/HomeHubs.jsx';
+import HomeCollections from '../HomeCollections/HomeCollections.jsx';
+import HomeTrendingPeople from '../HomeTrendingPeople/HomeTrendingPeople.jsx';
 import './Home.scss';
-import HomeCollections from '../HomeCollections/HomeCollections';
-import HomeTrendingPeople from '../HomeTrendingPeople/HomeTrendingPeople';
 
 const Home = () => {
+  
   const trendingAll = useSelector(getFetchedAllTrending);
   const trendingMovies = useSelector(getFetchedMoviesTrending);
   const trendingTv = useSelector(getFetchedTvTrending);
@@ -16,11 +17,11 @@ const Home = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 3700,
     arrows: false,
     pauseOnFocus: false,
     pauseOnHover: false,
@@ -30,7 +31,7 @@ const Home = () => {
   const settings2 = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,

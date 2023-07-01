@@ -140,11 +140,22 @@
   &.show {
     height: 213px;
     transition: height 0.3s ease-in-out;
+    position: relative;
+
+    &:after {
+      content:"";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, rgba(23, 23, 23, 0) 0%,rgb(23, 23, 23, 1) 80%);
+      height: 20%;
+    }
   }
 }
 
 .tvShow__episode__wrapper {
-  padding: 0.3rem 0.2rem;
+  padding: 0.2rem 0.15rem;
   padding-bottom: 0.35rem;
   background-color: $gray-border;
   height: 213px;
@@ -153,18 +164,20 @@
 .tvShow__episode__container {
   height: 200px;
   background-color: $black-main;
-  padding: 0.3rem;
+  padding: 0.2rem;
   border-radius: 0.3rem;
   box-shadow: 0 0.1rem 0.4rem rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
 .tvShow__episode__image {
   img {
     width: 100%;
+    height: 71.3px;
     border-radius: 0.3rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0)
   }
@@ -178,7 +191,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 0.7rem;
   font-size: 0.7rem;
@@ -187,7 +200,7 @@
   p:first-of-type {
     text-align: center;
     font-family: $font-text-4;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 0.9rem;
     margin-bottom: 0.5rem;
   }

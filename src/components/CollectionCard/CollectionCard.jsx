@@ -1,9 +1,9 @@
-import { useNavigate, useParams } from 'react-router';
-import './CollectionCard.scss';
 import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCollection, getFetchedCollection } from '../../redux/specificRedux';
-import { mediumImagePath } from '../../utils/tmdbConfig';
+import { fetchCollection, getFetchedCollection } from '../../redux/specificRedux.js';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import './CollectionCard.scss';
 
 const CollectionCard = () => {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import './HomeCollections.scss';
-import { getFetchedCollections } from '../../redux/collectionsRedux';
 import { useNavigate } from 'react-router';
-import { mediumImagePath } from '../../utils/tmdbConfig';
+import { getFetchedCollections } from '../../redux/collectionsRedux.js';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import './HomeCollections.scss';
 
 const HomeCollections = () => {
   const navigate = useNavigate();

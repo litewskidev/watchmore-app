@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { mediumImagePath } from '../../utils/tmdbConfig';
-import './HomeTrending.scss';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
+import './HomeTrending.scss';
 
 const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
   const navigate = useNavigate();

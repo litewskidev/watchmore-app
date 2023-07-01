@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
+import { getFetchedActionMovies, getFetchedAnimeMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux.js';
+import ListMovies from '../ListMovies/ListMovies.jsx';
 import './Movies.scss';
-import { getFetchedActionMovies, getFetchedAnimeMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux';
-import ListMovies from '../ListMovies/ListMovies';
 
 const Movies = () => {
+
   const nowPlaying = useSelector(getFetchedNowPlayingMovies);
   const popular = useSelector(getFetchedPopularMovies);
   const topRated = useSelector(getFetchedTopRatedMovies);
@@ -20,7 +21,7 @@ const Movies = () => {
   const settings3 = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,

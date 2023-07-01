@@ -1,10 +1,10 @@
 import Slider from 'react-slick';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import './HomeTrendingPeople.scss';
-import { mediumImagePath } from '../../utils/tmdbConfig';
 
 const HomeTrendingPeople = ({ trendingPeople, settings }) => {
   return(
-    <div  className='home__trending__wrapper'>
+    <div className='home__trending__wrapper'>
       <div className='home__trending__box'>
         <div className='home__section__title'>
           <p>TRENDING PEOPLE</p>

@@ -5,7 +5,7 @@ const HomeHubs = () => {
   const navigate = useNavigate();
 
   return(
-    <div className='collections'>
+    <div className='hubs'>
       <div className='collections__main__title'>
         <h1>HUBS</h1>
         <h1>HUBS</h1>
@@ -29,7 +29,6 @@ const HomeHubs = () => {
             </div>
           </div>
         </div>
-
         <div className='collections__container'>
           <div className='collections__box'>
             <div className='collections__logo' onClick={() => navigate('/hubs/pixar')}>
@@ -48,7 +47,6 @@ const HomeHubs = () => {
             </div>
           </div>
         </div>
-
         <div className='collections__container'>
         <div className='collections__box'>
             <div className='collections__logo' onClick={() => navigate('/hubs/a24')}>
