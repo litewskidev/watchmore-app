@@ -7,7 +7,7 @@ const initialState = {
     reviews: {},
     images: {},
     videos: {},
-    similar: {}
+    similar: {},
   },
 
   movies: {
@@ -15,7 +15,14 @@ const initialState = {
     nowPlaying: {},
     popular: {},
     topRated: {},
-    upcoming: {}
+    upcoming: {},
+    action: {},
+    comedy: {},
+    scifi: {},
+    drama: {},
+    thriller: {},
+    horror: {},
+    war: {}
   },
 
   tvShow: {

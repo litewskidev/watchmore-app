@@ -16,7 +16,7 @@ import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
 import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
 import { fetchCollection } from "./redux/collectionsRedux.js";
-import { fetchAllMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchTopRatedMovies, fetchUpcomingMovies } from "./redux/moviesRedux.js";
+import { fetchActionMovies, fetchAllMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
 import { fetchAiringTodayTv, fetchOnTheAirTv, fetchPopularTv, fetchTopRatedTv } from "./redux/tvSeriesRedux.js";
 import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
 import { fetchPopularPeople } from "./redux/peopleRedux.js";
@@ -38,6 +38,13 @@ function App() {
   useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch, page]);
   useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch, page]);
   useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchActionMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchComedyMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchScifiMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchThrillerMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchWarMovies(1)), [dispatch, page]);
 
   // MOVIE
   //useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);

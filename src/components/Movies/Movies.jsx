@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import './Movies.scss';
-import { getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies } from '../../redux/moviesRedux';
+import { getFetchedActionMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux';
 import ListMovies from '../ListMovies/ListMovies';
 
 const Movies = () => {
@@ -8,6 +8,13 @@ const Movies = () => {
   const popular = useSelector(getFetchedPopularMovies);
   const topRated = useSelector(getFetchedTopRatedMovies);
   const upcoming = useSelector(getFetchedUpcomingMovies);
+  const action = useSelector(getFetchedActionMovies);
+  const comedy = useSelector(getFetchedComedyMovies);
+  const scifi = useSelector(getFetchedScifiMovies);
+  const drama = useSelector(getFetchedDramaMovies);
+  const thriller = useSelector(getFetchedThrillerMovies);
+  const horror = useSelector(getFetchedHorrorMovies);
+  const war = useSelector(getFetchedWarMovies);
 
   const settings3 = {
     dots: false,
@@ -45,6 +52,34 @@ const Movies = () => {
         <h2>UPCOMING</h2>
       </div>
       <ListMovies list={upcoming} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>ACTION</h2>
+      </div>
+      <ListMovies list={action} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>COMEDY</h2>
+      </div>
+      <ListMovies list={comedy} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>SCIENCE FICTION</h2>
+      </div>
+      <ListMovies list={scifi} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>DRAMA</h2>
+      </div>
+      <ListMovies list={drama} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>THRILLER</h2>
+      </div>
+      <ListMovies list={thriller} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>HORROR</h2>
+      </div>
+      <ListMovies list={horror} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>WAR</h2>
+      </div>
+      <ListMovies list={war} settings={settings3} />
     </div>
   )
 };
