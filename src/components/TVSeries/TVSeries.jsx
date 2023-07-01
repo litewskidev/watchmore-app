@@ -1,6 +1,6 @@
 import './TVSeries.scss';
 import { useSelector } from 'react-redux';
-import { getFetchedAiringTodayTv, getFetchedOnTheAirTv, getFetchedPopularTv, getFetchedTopRatedTv } from '../../redux/tvSeriesRedux';
+import { getFetchedActionTv, getFetchedAiringTodayTv, getFetchedAnimeTv, getFetchedComedyTv, getFetchedCrimeTv, getFetchedDramaTv, getFetchedMysteryTv, getFetchedOnTheAirTv, getFetchedPopularTv, getFetchedScifiTv, getFetchedTopRatedTv, getFetchedWesternTv } from '../../redux/tvSeriesRedux';
 import ListTvSeries from '../ListTvSeries/ListTvSeries';
 
 const TVSeries = () => {
@@ -8,6 +8,14 @@ const TVSeries = () => {
   const onTheAir = useSelector(getFetchedOnTheAirTv);
   const popular = useSelector(getFetchedPopularTv);
   const topRated = useSelector(getFetchedTopRatedTv);
+  const action = useSelector(getFetchedActionTv);
+  const comedy = useSelector(getFetchedComedyTv);
+  const mystery = useSelector(getFetchedMysteryTv);
+  const scifi = useSelector(getFetchedScifiTv);
+  const western = useSelector(getFetchedWesternTv);
+  const crime = useSelector(getFetchedCrimeTv);
+  const drama = useSelector(getFetchedDramaTv);
+  const anime = useSelector(getFetchedAnimeTv);
 
   const settings4 = {
     dots: false,
@@ -45,7 +53,38 @@ const TVSeries = () => {
         <h2>AIRING TODAY</h2>
       </div>
       <ListTvSeries list={airingToday} settings={settings4} />
-
+      <div className='tvSeries__section__title'>
+        <h2>ACTION & ADVENTURE</h2>
+      </div>
+      <ListTvSeries list={action} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>COMEDY</h2>
+      </div>
+      <ListTvSeries list={comedy} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>ANIMATION</h2>
+      </div>
+      <ListTvSeries list={anime} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>MYSTERY</h2>
+      </div>
+      <ListTvSeries list={mystery} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>SCI-FI & FANTASY</h2>
+      </div>
+      <ListTvSeries list={scifi} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>WESTERN</h2>
+      </div>
+      <ListTvSeries list={western} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>CRIME</h2>
+      </div>
+      <ListTvSeries list={crime} settings={settings4} />
+      <div className='tvSeries__section__title'>
+        <h2>DRAMA</h2>
+      </div>
+      <ListTvSeries list={drama} settings={settings4} />
     </div>
   )
 };

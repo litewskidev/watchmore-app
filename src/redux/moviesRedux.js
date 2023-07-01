@@ -13,6 +13,7 @@ export const getFetchedThrillerMovies = ({ movies }) => movies.thriller;
 export const getFetchedDramaMovies = ({ movies }) => movies.drama;
 export const getFetchedHorrorMovies = ({ movies }) => movies.horror;
 export const getFetchedWarMovies = ({ movies }) => movies.war;
+export const getFetchedAnimeMovies = ({ movies }) => movies.anime;
 
 //  ACTIONS
 const createActionName = actionName => `app/movies/${actionName}`;
@@ -28,6 +29,7 @@ const GET_DRAMA = createActionName('GET_DRAMA');
 const GET_THRILLER = createActionName('GET_THRILLER');
 const GET_HORROR = createActionName('GET_HORROR');
 const GET_WAR = createActionName('GET_WAR');
+const GET_ANIME = createActionName('GET_ANIME');
 
 //  ACTION CREATORS
 //  ALL
@@ -154,7 +156,21 @@ export const fetchHorrorMovies = (page) => {
 export const getWarMovies = payload => ({ type: GET_WAR, payload });
 export const fetchWarMovies = (page) => {
   return(dispatch) => {
-    fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_count.desc&with_genres=10752&without_genres=14`, options).then(res => res.json()).then(war => { dispatch(getWarMovies(war)) }).catch(err => console.log(err));
+    fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_count.desc&with_genres=10752&without_genres=14`, options)
+    .then(res => res.json())
+    .then(war => { dispatch(getWarMovies(war)) })
+    .catch(err => console.log(err));
+  }
+};
+
+//  ANIMATION
+export const getAnimeMovies = payload => ({ type: GET_ANIME, payload });
+export const fetchAnimeMovies = (page) => {
+  return(dispatch) => {
+    fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_count.desc&with_genres=16`, options)
+    .then(res => res.json())
+    .then(anime => { dispatch(getAnimeMovies(anime)) })
+    .catch(err => console.log(err));
   }
 };
 
@@ -184,6 +200,8 @@ const moviesReducer = ( state = {}, action ) => {
       return {...state, horror: { ...action.payload }}
     case GET_WAR:
       return {...state, war: { ...action.payload }}
+    case GET_ANIME:
+      return {...state, anime: { ...action.payload }}
     default:
       return state
   }

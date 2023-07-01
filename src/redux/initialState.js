@@ -22,7 +22,8 @@ const initialState = {
     drama: {},
     thriller: {},
     horror: {},
-    war: {}
+    war: {},
+    anime: {}
   },
 
   tvShow: {
@@ -40,7 +41,16 @@ const initialState = {
     airingToday: {},
     onTheAir: {},
     popular: {},
-    topRated: {}
+    topRated: {},
+    
+    action: {},
+    comedy: {},
+    mystery: {},
+    scifi: {},
+    western: {},
+    crime: {},
+    drama: {},
+    anime: {}
   },
 
   trending: {

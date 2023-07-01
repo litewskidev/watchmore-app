@@ -16,8 +16,8 @@ import WatchSeries from "./components/WatchSeries/WatchSeries.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
 import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
 import { fetchCollection } from "./redux/collectionsRedux.js";
-import { fetchActionMovies, fetchAllMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
-import { fetchAiringTodayTv, fetchOnTheAirTv, fetchPopularTv, fetchTopRatedTv } from "./redux/tvSeriesRedux.js";
+import { fetchActionMovies, fetchAllMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
+import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
 import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
 import { fetchPopularPeople } from "./redux/peopleRedux.js";
 import { fetchMovieGenres, fetchTvGenres } from "./redux/genresRedux.js";
@@ -45,6 +45,7 @@ function App() {
   useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch, page]);
   useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch, page]);
   useEffect(() => dispatch(fetchWarMovies(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAnimeMovies(1)), [dispatch, page]);
 
   // MOVIE
   //useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
@@ -60,6 +61,14 @@ function App() {
   useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch, page]);
   useEffect(() => dispatch(fetchPopularTv(3)), [dispatch, page]);
   useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchActionTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchComedyTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchMysteryTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchScifiTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchWesternTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchCrimeTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchDramaTv(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAnimeTv(1)), [dispatch, page]);
 
   //  TV SHOW
   //useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);

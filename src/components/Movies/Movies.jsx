@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import './Movies.scss';
-import { getFetchedActionMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux';
+import { getFetchedActionMovies, getFetchedAnimeMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux';
 import ListMovies from '../ListMovies/ListMovies';
 
 const Movies = () => {
@@ -10,6 +10,7 @@ const Movies = () => {
   const upcoming = useSelector(getFetchedUpcomingMovies);
   const action = useSelector(getFetchedActionMovies);
   const comedy = useSelector(getFetchedComedyMovies);
+  const animation = useSelector(getFetchedAnimeMovies);
   const scifi = useSelector(getFetchedScifiMovies);
   const drama = useSelector(getFetchedDramaMovies);
   const thriller = useSelector(getFetchedThrillerMovies);
@@ -60,6 +61,10 @@ const Movies = () => {
         <h2>COMEDY</h2>
       </div>
       <ListMovies list={comedy} settings={settings3} />
+      <div className='movies__section__title'>
+        <h2>ANIMATION</h2>
+      </div>
+      <ListMovies list={animation} settings={settings3} />
       <div className='movies__section__title'>
         <h2>SCIENCE FICTION</h2>
       </div>
