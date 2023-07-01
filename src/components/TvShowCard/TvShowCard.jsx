@@ -66,7 +66,7 @@ const TvShowCard = () => {
     episodesBtn.classList.toggle('show');
   }
 
-  console.log(tvShowSeason);
+  console.log(tvShowData);
 
   return(
     <div className='tvShow__wrapper'>
@@ -79,6 +79,13 @@ const TvShowCard = () => {
         </div>
         <div className='tvShow__overview'>
           <p>{tvShowData.overview}</p>
+        </div>
+        <div className='movie__genres__container'>
+          {tvShowData.genres?.slice(0, 3).map(genre => (
+            <div className='movie__genres__item' key={genre.id}>
+              <p>{genre.name}</p>
+            </div>
+          ))}
         </div>
         <div className='tvShow__date__score__container'>
           <div className='tvShow__date__score'>

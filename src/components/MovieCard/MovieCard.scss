@@ -72,6 +72,28 @@
   }
 }
 
+.movie__genres__container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.movie__genres__item {
+  width: 100%;
+  border: 1px solid $gray-border;
+  border-radius: 1rem;
+  padding: 0.1rem 0.1rem;
+  text-align: center;
+
+  p {
+    opacity: 0.6;
+    font-weight: 100;
+    font-size: 0.72rem;
+    line-height: 1.1rem;
+  }
+}
+
 .movie__inner {
   width: 100%;
 }
@@ -103,8 +125,8 @@
 
 .movie__release__date {
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  align-items: center;
+  gap: 0.2rem;
   font-family: $font-text-4;
   font-size: 1rem;
 
@@ -112,12 +134,17 @@
     color: $red-main;
     text-shadow: 0.1rem 0.1rem 0.1rem black;
   }
+
+  p:last-of-type {
+    font-weight: 100;
+    font-size: 0.9rem;
+  }
 }
 
 .movie__watchlist__icon {
   margin-top: -0.5rem;
-  margin-bottom: -0.6rem;
-  margin-right: -7%;
+  margin-bottom: -0.8rem;
+  margin-left: -8.5%;
   border: 2px solid $gray-border;
   border-radius: 1rem;
   width: 4rem;

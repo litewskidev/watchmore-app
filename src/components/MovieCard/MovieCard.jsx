@@ -51,10 +51,19 @@ const MovieCard = () => {
         <div className='movie__overview'>
           <p>{movieData.overview}</p>
         </div>
+        <div className='movie__genres__container'>
+          {movieData.genres?.slice(0, 3).map(genre => (
+            <div className='movie__genres__item' key={genre.id}>
+              <p>{genre.name}</p>
+            </div>
+          ))}
+        </div>
         <div className='movie__date__score__container'>
           <div className='movie__date__score'>
             <div className='movie__release__date'>
               <p>{movieData.release_date?.substring(0, 4)}</p>
+              <p>&#8226;</p>
+              <p>{movieData.runtime} min</p>
             </div>
             <div className='movie__watchlist__icon'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon'/>
