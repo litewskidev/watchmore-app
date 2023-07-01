@@ -42,6 +42,15 @@ const TvShowCard = () => {
     pauseOnDotsHover: false
   };
 
+  const settings5 = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "0",
+    slidesToShow: 3,
+    speed: 500
+  };
+
   const handleSeasons = (e) => {
     e.preventDefault();
     setSeason(e.target.value);
@@ -81,7 +90,7 @@ const TvShowCard = () => {
             </div>
             <div className='tvShow__score'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
-              <p>{tvShowData.vote_average}</p>
+              <p>{tvShowData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
         </div>
@@ -104,39 +113,43 @@ const TvShowCard = () => {
         </div>
       </div>
       <div id='episodes-list'>
-        {tvShowSeason.episodes?.map(ep => (
-          (ep.still_path !== null) ? (
-            <div className='tvShow__episode__wrapper' key={ep.name}>
-              <div className='tvShow__episode__container'>
-                <div className='tvShow__episode__image'>
-                  <img src={mediumImagePath + ep.still_path} alt={ep.name}/>
-                </div>
-                <div className='tvShow__episode__info'>
-                  <div className='tvShow__episode__info__title'>
-                    <p>{ep.episode_number}. {ep.name}</p>
-                    <p>{ep.air_date} &#8226; {ep.runtime} min</p>
+        <Slider {...settings5}>
+          {tvShowSeason.episodes?.map(ep => (
+            (ep.still_path !== null) ? (
+                <div className='tvShow__episode__wrapper' key={ep.name}>
+                  <div className='tvShow__episode__container'>
+                    <div className='tvShow__episode__image'>
+                      <img src={mediumImagePath + ep.still_path} alt={ep.name}/>
+                    </div>
+                    <div className='tvShow__episode__info'>
+                      <div className='tvShow__episode__info__title'>
+                        <p>{ep.episode_number}. {ep.name}</p>
+                        <p>{ep.air_date} &#8226; {ep.runtime} min</p>
+                      </div>
+                      <div className='tvShow__play__button'>
+                        <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                      </div>
+                    </div>
                   </div>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                </div>
+            ) : (
+              <div className='tvShow__episode__wrapper' key={ep.name}>
+                <div className='tvShow__episode__container'>
+                  <div className='tvShow__episode__image'>
+                    <img className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
+                  </div>
+                  <div className='tvShow__episode__info'>
+                    <div className='tvShow__episode__info__title'>
+                      <p>{ep.name}</p>
+                      <p>{ep.air_date}</p>
+                    </div>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <div className='tvShow__episode__wrapper' key={ep.name}>
-              <div className='tvShow__episode__container'>
-                <div className='tvShow__episode__image'>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
-                </div>
-                <div className='tvShow__episode__info'>
-                  <div className='tvShow__episode__info__title'>
-                    <p>{ep.name}</p>
-                    <p>{ep.air_date}</p>
-                  </div>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
-                </div>
-              </div>
-            </div>
-          )
-        ))}
+            )
+          ))}
+        </Slider>
       </div>
       <div className='tvShow__bottom__section'>
         <div className='tvShow__bottoms__wrapper'>

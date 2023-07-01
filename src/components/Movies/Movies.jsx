@@ -30,6 +30,10 @@ const Movies = () => {
         <h1>MOVIES</h1>
       </div>
       <div className='movies__section__title'>
+        <h2>TOP RATED</h2>
+      </div>
+      <ListMovies list={topRated} settings={settings3} />
+      <div className='movies__section__title'>
         <h2>POPULAR</h2>
       </div>
       <ListMovies list={popular} settings={settings3}/>
@@ -37,10 +41,6 @@ const Movies = () => {
         <h2>NOW PLAYING</h2>
       </div>
       <ListMovies list={nowPlaying} settings={settings3} />
-      <div className='movies__section__title'>
-        <h2>TOP RATED</h2>
-      </div>
-      <ListMovies list={topRated} settings={settings3} />
       <div className='movies__section__title'>
         <h2>UPCOMING</h2>
       </div>

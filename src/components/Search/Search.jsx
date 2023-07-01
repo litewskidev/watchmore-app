@@ -34,6 +34,7 @@ const Search = () => {
 
   useEffect(() => dispatch(fetchSearchMulti(searchString, page)), [dispatch, searchString, page]);
   const searchResults = useSelector(getSearchedMulti);
+  console.log(searchResults)
 
   return(
     <div className='search__wrapper'>
@@ -45,7 +46,7 @@ const Search = () => {
       </div>
       <div className='search__results__container'>
         {searchResults.results?.map(result => (
-          (result.poster_path !== null && result.media_type !== 'person') ? (
+          (result.poster_path !== null && result.media_type !== 'person' && result.backdrop_path !== null) ? (
           <div className='search__result__item' key={result.id}>
             <img src={miniImagePath + result.poster_path} alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
           </div>) : (null)

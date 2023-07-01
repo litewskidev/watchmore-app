@@ -61,11 +61,11 @@ const MovieCard = () => {
             </div>
             <div className='movie__score'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
-              <p>{movieData.vote_average}</p>
+              <p>{movieData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
         </div>
-        <div className='movie__watch__container' onClick={() => navigate(`/watch/${movieId}`)}>
+        <div className='movie__watch__container'>
           <div className='movie__watch__button'>
             <img src={process.env.PUBLIC_URL + '/assets/icons/popcorn.svg'} alt='play icon'/>
             <p>WATCH NOW</p>

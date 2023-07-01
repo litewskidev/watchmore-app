@@ -30,6 +30,10 @@ const TVSeries = () => {
         <h1>TV SERIES</h1>
       </div>
       <div className='tvSeries__section__title'>
+        <h2>TOP RATED</h2>
+      </div>
+      <ListTvSeries list={topRated} settings={settings4} />
+      <div className='tvSeries__section__title'>
         <h2>POPULAR</h2>
       </div>
       <ListTvSeries list={popular} settings={settings4} />
@@ -41,10 +45,7 @@ const TVSeries = () => {
         <h2>AIRING TODAY</h2>
       </div>
       <ListTvSeries list={airingToday} settings={settings4} />
-      <div className='tvSeries__section__title'>
-        <h2>TOP RATED</h2>
-      </div>
-      <ListTvSeries list={topRated} settings={settings4} />
+
     </div>
   )
 };

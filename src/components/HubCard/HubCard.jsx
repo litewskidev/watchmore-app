@@ -19,6 +19,21 @@ const HubCard = () => {
   const disneyPageTwo = useSelector(getFetchedDisneyTwo);
   const national = useSelector(getFetchedNational);
   const starwars = useSelector(getFetchedStarWars);
+  const marvelLogo = '/assets/hubs/marvel.png';
+  const pixarLogo = '/assets/hubs/pixar.png'
+  const a24Logo = '/assets/hubs/a24.png';
+  const disneyLogo = '/assets/hubs/disney.png';
+  const nationalLogo = '/assets/hubs/national.png';
+  const starwarsLogo = '/assets/hubs/star-wars.png';
+
+
+  let logoMain;
+  if(hub === 'marvel') {logoMain = marvelLogo}
+  if(hub === 'pixar') {logoMain = pixarLogo}
+  if(hub === 'a24') {logoMain = a24Logo}
+  if(hub === 'disney') {logoMain = disneyLogo}
+  if(hub === 'national') {logoMain = nationalLogo}
+  if(hub === 'starwars') {logoMain = starwarsLogo}
 
   let moviesPageOne;
   if(hub === 'marvel') {moviesPageOne = marvelPageOne}
@@ -38,6 +53,9 @@ const HubCard = () => {
 
   return(
     <div className='hub__card__wrapper'>
+      <div className='hub__card__logo'>
+        <img src={process.env.PUBLIC_URL + logoMain}/>
+      </div>
       <div className='hub__card__container'>
         {moviesPageOne.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>

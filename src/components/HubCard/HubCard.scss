@@ -1,5 +1,14 @@
 .hub__card__wrapper {
-  padding-top: 7rem;
+  padding-top: 6.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hub__card__logo img {
+  width: 10rem;
 }
 
 .hub__card__container {
@@ -12,7 +21,7 @@
 }
 
 .hub__card__item__container {
-  padding: 0.3rem;
+  padding: 0.2rem;
   width: 50%;
 }
 

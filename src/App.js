@@ -156,7 +156,7 @@ function App() {
   useEffect(() => dispatch(fetchCollection(2980)), [dispatch]);
 
   return(
-    <main>
+    <main className="main__container">
       <Navbar />
       <Routes>
         <Route exact path="/" element={ <Home /> } />
