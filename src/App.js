@@ -23,79 +23,57 @@ import { fetchPopularPeople } from "./redux/peopleRedux.js";
 import { fetchMovieGenres, fetchTvGenres } from "./redux/genresRedux.js";
 import { getSearch } from "./redux/searchStringRedux.js";
 import { fetchSearchMovie, fetchSearchMulti, fetchSearchPerson, fetchSearchTv } from "./redux/searchRedux.js";
-import { getPage } from "./redux/pageRedux.js";
-import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchReleaseMovie, fetchReviewsMovie, fetchSimilarMovie, fetchVideosMovie } from "./redux/movieRedux.js";
-import { fetchCreditsTvShow, fetchDetailsTvShow, fetchImagesTvShow, fetchReviewsTvShow, fetchSimilarTvShow, fetchVideosTvShow } from "./redux/tvShowRedux.js";
-
 
 function App() {
   const dispatch = useDispatch();
-  const page = 1;
 
   //  MOVIES
-  //useEffect(() => dispatch(fetchAllMovies(page)), [dispatch, page]);
-  useEffect(() => dispatch(fetchNowPlayingMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchActionMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchComedyMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchScifiMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchThrillerMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchWarMovies(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchAnimeMovies(1)), [dispatch, page]);
-
-  // MOVIE
-  //useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchReviewsMovie(movieId, page)), [dispatch, movieId, page]);
-  //useEffect(() => dispatch(fetchImagesMovie(movieId)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchSimilarMovie(movieId, page)), [dispatch, movieId, page]);
+  //useEffect(() => dispatch(fetchAllMovie)), [dispatch]);
+  useEffect(() => dispatch(fetchNowPlayingMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchActionMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchComedyMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchScifiMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchThrillerMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchWarMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchAnimeMovies(1)), [dispatch]);
 
   //  TV SERIES
-  useEffect(() => dispatch(fetchAiringTodayTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPopularTv(3)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchActionTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchComedyTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchMysteryTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchScifiTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchWesternTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchCrimeTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchDramaTv(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchAnimeTv(1)), [dispatch, page]);
-
-  //  TV SHOW
-  //useEffect(() => dispatch(fetchDetailsTvShow(tvShowId)), [dispatch, tvShowId]);
-  //useEffect(() => dispatch(fetchCreditsTvShow(tvShowId)), [dispatch, tvShowId]);
-  //useEffect(() => dispatch(fetchReviewsTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
-  //useEffect(() => dispatch(fetchImagesTvShow(tvShowId)), [dispatch, tvShowId]);
-  //useEffect(() => dispatch(fetchVideosTvShow(tvShowId)), [dispatch, tvShowId]);
-  //useEffect(() => dispatch(fetchSimilarTvShow(tvShowId, page)), [dispatch, tvShowId, page]);
+  useEffect(() => dispatch(fetchAiringTodayTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch]);
+  useEffect(() => dispatch(fetchPopularTv(3)), [dispatch]);
+  useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchActionTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchComedyTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchMysteryTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchScifiTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchWesternTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchCrimeTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchDramaTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchAnimeTv(1)), [dispatch]);
 
   //  TRENDING
-  useEffect(() => dispatch(fetchAllTrending(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchMoviesTrending(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchTvTrending(1)), [dispatch, page]);
-  useEffect(() => dispatch(fetchPeopleTrending(1)), [dispatch, page]);
+  useEffect(() => dispatch(fetchAllTrending(1)), [dispatch]);
+  useEffect(() => dispatch(fetchMoviesTrending(1)), [dispatch]);
+  useEffect(() => dispatch(fetchTvTrending(1)), [dispatch]);
+  useEffect(() => dispatch(fetchPeopleTrending(1)), [dispatch]);
 
   // PEOPLE
-  //useEffect(() => dispatch(fetchPopularPeople(page)), [dispatch, page]);
+  //useEffect(() => dispatch(fetchPopularPeopl)), [dispatch]);
 
   //  GENRES
   //useEffect(() => dispatch(fetchMovieGenres()), [dispatch]);
   //useEffect(() => dispatch(fetchTvGenres()), [dispatch]);
 
   //  SEARCH
-  //useEffect(() => dispatch(fetchSearchMulti(searchString, page)), [dispatch, searchString, page]);
-  //useEffect(() => dispatch(fetchSearchMovie(searchString, page)), [dispatch, searchString, page]);
-  //useEffect(() => dispatch(fetchSearchTv(searchString, page)), [dispatch, searchString, page]);
-  //useEffect(() => dispatch(fetchSearchPerson(searchString, page)), [dispatch, searchString, page]);
+  //useEffect(() => dispatch(fetchSearchMulti(searchString)), [dispatch, searchString]);
+  //useEffect(() => dispatch(fetchSearchMovie(searchString)), [dispatch, searchString]);
+  //useEffect(() => dispatch(fetchSearchTv(searchString)), [dispatch, searchString]);
+  //useEffect(() => dispatch(fetchSearchPerson(searchString)), [dispatch, searchString]);
 
   //  HUBS
   useEffect(() => dispatch(fetchMarvel()), [dispatch]);

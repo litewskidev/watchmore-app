@@ -8,7 +8,6 @@ import peopleReducer from "./peopleRedux";
 import genresReducer from "./genresRedux";
 import searchReducer from "./searchRedux";
 import searchStringReducer from "./searchStringRedux";
-import pageReducer from "./pageRedux";
 import movieReducer from "./movieRedux";
 import tvShowReducer from "./tvShowRedux";
 import hubsReducer from "./hubsRedux";
@@ -27,8 +26,7 @@ const subreducers = {
   hubs: hubsReducer,
   collections: collectionsReducer,
   specific: specificReducer,
-  searchString: searchStringReducer,
-  page: pageReducer
+  searchString: searchStringReducer
 };
 
 const reducer = combineReducers(subreducers);

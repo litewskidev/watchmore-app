@@ -42,7 +42,7 @@ const initialState = {
     onTheAir: {},
     popular: {},
     topRated: {},
-    
+
     action: {},
     comedy: {},
     mystery: {},
@@ -98,9 +98,6 @@ const initialState = {
   },
 
   searchString: '',
-
-  page: 1
-
 };
 
 export default initialState;

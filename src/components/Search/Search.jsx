@@ -34,7 +34,6 @@ const Search = () => {
 
   useEffect(() => dispatch(fetchSearchMulti(searchString, page)), [dispatch, searchString, page]);
   const searchResults = useSelector(getSearchedMulti);
-  console.log(searchResults)
 
   return(
     <div className='search__wrapper'>

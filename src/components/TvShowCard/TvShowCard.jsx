@@ -66,8 +66,6 @@ const TvShowCard = () => {
     episodesBtn.classList.toggle('show');
   }
 
-  console.log(tvShowData);
-
   return(
     <div className='tvShow__wrapper'>
       <div className='tvShow__backdrop'>

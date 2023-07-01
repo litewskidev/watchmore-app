@@ -12,7 +12,6 @@ const Home = () => {
   const trendingMovies = useSelector(getFetchedMoviesTrending);
   const trendingTv = useSelector(getFetchedTvTrending);
   const trendingPeople = useSelector(getFetchedPeopleTrending);
-  console.log(trendingPeople);
 
   const settings = {
     dots: false,
