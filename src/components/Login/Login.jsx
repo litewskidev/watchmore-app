@@ -19,7 +19,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
+      // Loged in
       const user = userCredential.user;
       console.log(user);
       dispatch({ type: 'LOGIN', payload: user });
@@ -29,17 +29,17 @@ const Login = () => {
       setError(true);
     });
 
-    setEmail("")
-    setPassword("")
+    setEmail("");
+    setPassword("");
   };
 
   return(
     <div className='login__wrapper'>
       <h2>LOGIN</h2>
-      <form className='form__wrapper' onSubmit={handleLogin}>
+      <form className='login__form__wrapper' onSubmit={handleLogin}>
         <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)}></input>
         <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}></input>
-        <button type='submit'>Login</button>
+        <button type='submit'>Log In</button>
         {error && <span>Wrong email or password!</span>}
       </form>
       <p>Don't have an account yet?<Link to="/signup"> Sign Up</Link></p>
