@@ -1,5 +1,40 @@
-.watchlist__wrapper {
+.watchlist {
   margin-top: 7rem;
+  text-align: center;
+}
+
+.watchlist__wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.3rem;
+}
+
+.watchlist__item__container {
+  width: 45%;
+  position: relative;
+
+  img {
+    width: 100%;
+    border-radius: 0.3rem;
+  }
+}
+
+.remove__icon__container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }

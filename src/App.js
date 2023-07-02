@@ -103,7 +103,7 @@ function App() {
   useEffect(() => dispatch(fetchCollection(945)), [dispatch]);  //  LETHAL WEAPON
   useEffect(() => dispatch(fetchCollection(2980)), [dispatch]);  //  GHOSTBUSTERS
 
-  //  LOGIN
+  //  LOGGED USER
   const { currentUser } = useContext(AuthContext);
   const RequrieAuth = ({children}) => {
     return currentUser ? children : <Navigate to="/login" />;
@@ -122,11 +122,11 @@ function App() {
         <Route path="/search" element={ <Search /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/signup" element={ <Signup /> } />
-        <Route exact path="/movie/:id" element={ <MovieCard /> } />
+        <Route exact path="/movie/:id" element={ <MovieCard user={currentUser} /> } />
         <Route exact path="/tv/:id" element={ <TvShowCard /> } />
         <Route exact path="/hubs/:hub" element={ <HubCard /> } />
         <Route exact path="/collection/:id" element={ <CollectionCard /> } />
-        <Route path="/watchlist" element={ <RequrieAuth><WatchList /></RequrieAuth> } />
+        <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />
       </Routes>
       <Footer />
     </main>

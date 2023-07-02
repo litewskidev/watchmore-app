@@ -5,6 +5,25 @@
   padding-top: 5.5rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.must__be__logged__pop {
+  display: none;
+}
+
+.must__be__logged__pop.show {
+  display: block;
+  width: 50%;
+  text-align: center;
+  position: absolute;
+  top: 30vh;
+  left: 25%;
+  z-index: 99;
+  background-color: $red-main;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 0.85rem;
 }
 
 .movie__backdrop{

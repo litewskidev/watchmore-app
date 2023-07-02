@@ -19,11 +19,11 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Loged in
+      //  Logged in
       const user = userCredential.user;
-      console.log(user);
+      console.log('Log-in successful!');
       dispatch({ type: 'LOGIN', payload: user });
-      navigate('/watchlist');
+      navigate('/');
     })
     .catch(() => {
       setError(true);

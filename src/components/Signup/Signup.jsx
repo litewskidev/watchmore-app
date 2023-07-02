@@ -1,31 +1,40 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase.js";
+import { auth, db } from "../../firebase.js";
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.scss';
+import { addDoc, doc, setDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 const Signup = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [data, setData] = useState({});
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed up
-      const user = userCredential.user;
-      console.log(user);
-      navigate("/login");
-    })
-    .catch((err) => {
+    try {
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await setDoc(doc(db, "users", res.user.uid), {
+        email: email,
+        password: password,
+        timeStamp: serverTimestamp(),
+        watchlist: []
+      }, { merge: true });
+    }
+    catch (err) {
       console.log(err);
-    });
+    };
 
+    console.log("Sign-up successful!");
     setEmail("");
     setPassword("");
+    navigate("/login");
   };
 
   return(

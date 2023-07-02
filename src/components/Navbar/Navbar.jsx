@@ -21,13 +21,13 @@ const Navbar = ({ user }) => {
     e.preventDefault();
 
     signOut(auth).then(() => {
+      // Logged out
       dispatch({ type: 'LOGOUT', payload: null});
-      console.log('Log-out successful');
+      console.log('Log-out successful!');
+      navigate('/');
     }).catch(err => {
       console.log(err);
     });
-
-    navigate('/');
   };
 
   /*

@@ -5,8 +5,10 @@ import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMov
 import { imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import './MovieCard.scss';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase.js';
 
-const MovieCard = () => {
+const MovieCard = ({ user }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
@@ -38,8 +40,37 @@ const MovieCard = () => {
     pauseOnDotsHover: false
   };
 
+  const addToWatch = async (e) => {
+    e.preventDefault();
+    try {
+      await updateDoc(doc(db, "users", user.uid), {
+        watchlist: arrayUnion({
+          id: movieId,
+          title: movieData.title,
+          poster: movieData.poster_path
+        })
+      }, { merge: true });
+    }
+    catch (err) {
+      console.log(err);
+    };
+    console.log("Movie added to watchlist successful!");
+  };
+
+  const mustBeLogged = (e) => {
+    e.preventDefault();
+    const modal = document.querySelector('#must-be-logged');
+    modal.classList.add('show');
+    setTimeout(() => {
+    modal.classList.remove('show');
+    }, 3000);
+  };
+
   return(
     <div className='movie__wrapper'>
+      <div id='must-be-logged' className='must__be__logged__pop'>
+        <p>You must be logged in to add movie to watchlist!</p>
+      </div>
       <div className='movie__backdrop'>
         <img src={imagePath + movieData.backdrop_path} alt={movieData.title}/>
       </div>
@@ -64,9 +95,15 @@ const MovieCard = () => {
               <p>&#8226;</p>
               <p>{movieData.runtime} min</p>
             </div>
-            <div className='movie__watchlist__icon'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon'/>
-            </div>
+            {(user !== null) ? (
+              <div className='movie__watchlist__icon'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+              </div>
+            ) : (
+              <div className='movie__watchlist__icon'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+              </div>
+            )}
             <div className='movie__score'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
               <p>{movieData.vote_average?.toFixed(1)}</p>
