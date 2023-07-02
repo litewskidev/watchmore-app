@@ -155,7 +155,6 @@ li {
 
   .navbar__logo {
     margin-right: -45px;
-    //margin-left: -27.19px;
     text-align: end;
   }
 
@@ -169,7 +168,6 @@ li {
 
   .navbar__login__button {
     background-color: transparent;
-    border-radius: 10%;
     width: 3.1rem;
     min-height: 1.7rem;
     padding: 0;
@@ -177,10 +175,9 @@ li {
   }
 
   .navbar__search__icon__mobile {
-    margin-top: 85%;
     margin-left: 10%;
     cursor: pointer;
-    max-width: 2.5rem;
+    max-width: 2.3rem;
     opacity: 1;
     filter: invert(100%);
   }

@@ -33,11 +33,12 @@ const TVSeries = () => {
   };
 
   return(
-    <div className='tvSeries__container'>
-      <div className='tvSeries__main__title'>
+    <div className='tvSeries__wrapper'>
+            <div className='tvSeries__main__title'>
         <h1>TV SERIES</h1>
         <h1>TV SERIES</h1>
       </div>
+    <div className='tvSeries__container'>
       <div className='tvSeries__section__title'>
         <h2>TOP RATED</h2>
       </div>
@@ -86,6 +87,7 @@ const TVSeries = () => {
         <h2>DRAMA</h2>
       </div>
       <ListTvSeries list={drama} settings={settings4} />
+    </div>
     </div>
   )
 };

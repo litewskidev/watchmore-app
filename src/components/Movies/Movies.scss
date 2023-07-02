@@ -1,17 +1,20 @@
 @import '../../styles/settings.scss';
 
+.movies__wrapper {
+  padding-top: 5.8rem;
+}
+
 .movies__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0.5rem;
-  padding-top: 5.8rem;
 }
 
 .movies__main__title {
   position: relative;
   margin-top: 2rem;
-  margin-bottom: 1.7rem;
+  margin-bottom: 3rem;
   width: 100%;
   filter: brightness(1.2);
   font-family: $font-text-1;
@@ -25,10 +28,12 @@
   left: 50%;
   top: -0.1rem;
   letter-spacing: 0.2rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 0;
 }
 
 .movies__main__title h1:nth-child(1) {
-  border-radius: 50%;
   color: transparent;
   -webkit-text-stroke: 3px $white;
   box-shadow: 0rem 1rem 1rem #000000;

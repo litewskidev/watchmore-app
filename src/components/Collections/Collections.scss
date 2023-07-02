@@ -11,7 +11,7 @@
 .categories__main__title {
   position: relative;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   width: 100%;
   filter: brightness(1.2);
   font-family: $font-text-1;
@@ -25,10 +25,12 @@
   left: 50%;
   top: -0.1rem;
   letter-spacing: 0.2rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 0;
 }
 
 .categories__main__title h1:nth-child(1) {
-  border-radius: 50%;
   color: transparent;
   -webkit-text-stroke: 3px rgb(245, 246, 250);
   box-shadow: 0rem 1rem 1rem #000000;

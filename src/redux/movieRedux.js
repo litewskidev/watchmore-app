@@ -8,7 +8,6 @@ export const getFetchedReviewsMovie = ({ movie }) => movie.reviews;
 export const getFetchedImagesMovie = ({ movie }) => movie.images;
 export const getFetchedVideosMovie = ({ movie }) => movie.videos;
 export const getFetchedSimilarMovie = ({ movie }) => movie.similar;
-
 export const getFetchedTrailerMovie = ({ movie }) => movie.videos.results?.filter(video => video.type === 'Trailer');
 export const getFetchedSimilarWithPosterMovie = ({ movie }) => movie.similar.results?.filter(similar => similar.poster_path !== null && similar.vote_average > 6);
 

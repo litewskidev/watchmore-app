@@ -2,6 +2,7 @@
 
 .watchlist {
   padding-top: 5.8rem;
+  padding-bottom: 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -25,10 +26,12 @@
   left: 50%;
   top: -0.1rem;
   letter-spacing: 0.2rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 0;
 }
 
 .watchlist__main__title h1:nth-child(1) {
-  border-radius: 50%;
   color: transparent;
   -webkit-text-stroke: 3px rgb(245, 246, 250);
   box-shadow: 0rem 1rem 1rem #000000;
@@ -53,6 +56,7 @@
     text-shadow: 0.1rem 0.1rem 0.1rem black;
     margin-bottom: -1rem;
     color: $red-main;
+    text-shadow: 0rem 0.2rem 0.2rem black;
   }
 }
 
@@ -83,6 +87,7 @@
   img {
     width: 100%;
     border-radius: 0.3rem;
+    box-shadow: 0 0.2rem 0.1rem rgb(0, 0, 0);
   }
 }
 

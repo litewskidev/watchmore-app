@@ -1,6 +1,7 @@
 @import '../../styles/settings.scss';
 
 .login__wrapper {
+  width: 100%;
   padding-top: 10rem;
   padding-bottom: 12rem;
   display: flex;
@@ -11,6 +12,11 @@
 
   a {
     color: $red-main;
+  }
+
+  p {
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -39,6 +45,7 @@
     font-size: 0.9rem;
     letter-spacing: 0.02rem;
     color: $black-main;
+    background-color: $white;
   }
 
   span {

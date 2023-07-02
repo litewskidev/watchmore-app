@@ -5,6 +5,7 @@ export const getSearchedMulti = ({ search }) => search.multi;
 export const getSearchedMovie = ({ search }) => search.movie;
 export const getSearchedTv = ({ search }) => search.tv;
 export const getSearchedPerson = ({ search }) => search.person;
+export const getSearchedMultiFiltered = ({ search }) => search.multi.results?.filter(result => result.poster_path !== null && result.media_type !== 'person' && result.backdrop_path !== null);
 
 //  ACTIONS
 const createActionName = actionName => `app/search/${actionName}`;
