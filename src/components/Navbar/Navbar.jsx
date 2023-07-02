@@ -1,7 +1,11 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from '../../firebase.js';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 import './Navbar.scss';
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -9,6 +13,21 @@ const Navbar = () => {
     const dropdownMenu = document.querySelector('#dropdown');
     dropdownMenuBtn.classList.toggle('active');
     dropdownMenu.classList.toggle('open');
+  };
+
+  const { dispatch } = useContext(AuthContext);
+
+  const handleLogOut = (e) => {
+    e.preventDefault();
+
+    signOut(auth).then(() => {
+      dispatch({ type: 'LOGOUT', payload: null});
+      console.log('Log-out successful');
+    }).catch(err => {
+      console.log(err);
+    });
+
+    navigate('/');
   };
 
   /*
@@ -58,7 +77,12 @@ const Navbar = () => {
           <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/search'>
             <img className='navbar__search__icon__desktop' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} alt='search icon' />
           </NavLink>
-          <button className='navbar__login__button'>LOG IN</button>
+          {(user !== null ) ? (
+          <button className='navbar__login__button' onClick={handleLogOut}>LOG OUT</button>
+          ) : (
+          <button className='navbar__login__button' onClick={(() => navigate('/login'))}>LOG IN</button>
+          )
+          }
         </div>
       </div>
       <div id='navbar-pattern' className='navbar__pattern'></div>
@@ -90,6 +114,13 @@ const Navbar = () => {
           <div className='dropdown__box'>
             <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : 'dropdown__categories__icon'} to="/collections">
               <img src={process.env.PUBLIC_URL + '/assets/icons/categories-icon.jpg'} alt='categories icon' />
+            </NavLink>
+          </div>
+        </li>
+        <li>
+          <div className='dropdown__box'>
+            <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : ''} to="/watchlist">
+              <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' />
             </NavLink>
           </div>
         </li>

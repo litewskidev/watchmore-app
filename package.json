@@ -38,14 +38,17 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "firebase": "^9.23.0",
     "font-awesome": "^4.7.0",
     "react-redux": "^8.1.0",
     "react-router-dom": "^6.13.0",
+    "react-slick": "^0.29.0",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
     "sass": "^1.63.4",
     "shortid": "^2.2.16",
+    "slick-carousel": "^1.8.1",
     "thunk": "^0.0.1"
   }
 }

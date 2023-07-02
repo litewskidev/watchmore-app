@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
 import { fetchCollection } from "./redux/collectionsRedux.js";
 import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
 import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
 import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
+import { AuthContext } from "./context/AuthContext.js";
 import Home from "./components/Home/Home.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
@@ -17,6 +18,9 @@ import MovieCard from "./components/MovieCard/MovieCard.jsx";
 import TvShowCard from "./components/TvShowCard/TvShowCard.jsx";
 import CollectionCard from "./components/CollectionCard/CollectionCard.jsx";
 import HubCard from "./components/HubCard/HubCard.jsx";
+import Login from "./components/Login/Login.jsx";
+import Signup from "./components/Signup/Signup.jsx";
+import WatchList from "./components/WatchList/WatchList.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -99,19 +103,30 @@ function App() {
   useEffect(() => dispatch(fetchCollection(945)), [dispatch]);  //  LETHAL WEAPON
   useEffect(() => dispatch(fetchCollection(2980)), [dispatch]);  //  GHOSTBUSTERS
 
+  //  LOGIN
+  const { currentUser } = useContext(AuthContext);
+  const RequrieAuth = ({children}) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
+
+  console.log(currentUser);
+
   return(
     <main className="main__container">
-      <Navbar />
+      <Navbar user={currentUser} />
       <Routes>
         <Route exact path="/" element={ <Home /> } />
         <Route path="/movies" element={ <Movies /> } />
         <Route path="/tvseries" element={ <TVSeries /> } />
         <Route path="/collections" element={ <Collections /> } />
         <Route path="/search" element={ <Search /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/signup" element={ <Signup /> } />
         <Route exact path="/movie/:id" element={ <MovieCard /> } />
         <Route exact path="/tv/:id" element={ <TvShowCard /> } />
         <Route exact path="/hubs/:hub" element={ <HubCard /> } />
         <Route exact path="/collection/:id" element={ <CollectionCard /> } />
+        <Route path="/watchlist" element={ <RequrieAuth><WatchList /></RequrieAuth> } />
       </Routes>
       <Footer />
     </main>
