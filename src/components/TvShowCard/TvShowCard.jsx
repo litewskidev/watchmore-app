@@ -5,8 +5,10 @@ import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow
 import { imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import './TvShowCard.scss';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase.js';
 
-const TvShowCard = () => {
+const TvShowCard = ({ user }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
@@ -51,6 +53,39 @@ const TvShowCard = () => {
     speed: 600
   };
 
+  const addToWatch = async (e) => {
+    e.preventDefault();
+    try {
+      await updateDoc(doc(db, "users", user.uid), {
+        watchlistTv: arrayUnion({
+          id: tvShowId,
+          title: tvShowData.name,
+          poster: tvShowData.poster_path
+        })
+      }, { merge: true });
+    }
+    catch (err) {
+      console.log(err);
+    };
+
+    const watchlistBtn = document.querySelector('#watchlist-btn-tv');
+    watchlistBtn.classList.add('added');
+    setTimeout(() => {
+      watchlistBtn.classList.remove('added');
+    }, 180);
+
+    console.log("Show added to watchlist successfully!");
+  };
+
+  const mustBeLogged = (e) => {
+    e.preventDefault();
+    const modal = document.querySelector('#must-be-logged');
+    modal.classList.add('show');
+    setTimeout(() => {
+    modal.classList.remove('show');
+    }, 3000);
+  };
+
   const handleSeasons = (e) => {
     e.preventDefault();
     setSeason(e.target.value);
@@ -68,6 +103,9 @@ const TvShowCard = () => {
 
   return(
     <div className='tvShow__wrapper'>
+      <div id='must-be-logged' className='must__be__logged__pop'>
+        <p>You must be logged in to add show to watchlist!</p>
+      </div>
       <div className='tvShow__backdrop'>
         <img src={imagePath + tvShowData.backdrop_path} alt={tvShowData.title}/>
       </div>
@@ -90,9 +128,15 @@ const TvShowCard = () => {
             <div className='tvShow__release__date'>
               <p>{tvShowData.first_air_date?.substring(0, 4)}</p>
             </div>
-            <div className='tvShow__watchlist__icon'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon'/>
-            </div>
+            {(user !== null) ? (
+              <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+              </div>
+            ) : (
+              <div className='tvShow__watchlist__icon'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+              </div>
+            )}
             <div className='tvShow__score'>
               <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
               <p>{tvShowData.vote_average?.toFixed(1)}</p>

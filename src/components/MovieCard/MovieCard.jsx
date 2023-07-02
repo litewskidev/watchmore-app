@@ -44,7 +44,7 @@ const MovieCard = ({ user }) => {
     e.preventDefault();
     try {
       await updateDoc(doc(db, "users", user.uid), {
-        watchlist: arrayUnion({
+        watchlistMovie: arrayUnion({
           id: movieId,
           title: movieData.title,
           poster: movieData.poster_path
@@ -54,7 +54,14 @@ const MovieCard = ({ user }) => {
     catch (err) {
       console.log(err);
     };
-    console.log("Movie added to watchlist successful!");
+
+    const watchlistBtn = document.querySelector('#watchlist-btn');
+    watchlistBtn.classList.add('added');
+    setTimeout(() => {
+      watchlistBtn.classList.remove('added');
+    }, 180);
+
+    console.log("Movie added to watchlist successfully!");
   };
 
   const mustBeLogged = (e) => {
@@ -96,7 +103,7 @@ const MovieCard = ({ user }) => {
               <p>{movieData.runtime} min</p>
             </div>
             {(user !== null) ? (
-              <div className='movie__watchlist__icon'>
+              <div id='watchlist-btn' className='movie__watchlist__icon'>
                 <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
               </div>
             ) : (

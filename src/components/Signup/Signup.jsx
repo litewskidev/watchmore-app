@@ -3,14 +3,14 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase.js";
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.scss';
-import { addDoc, doc, setDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 const Signup = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [data, setData] = useState({});
+  const [userName, setUserName] = useState('');
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -24,7 +24,9 @@ const Signup = () => {
         email: email,
         password: password,
         timeStamp: serverTimestamp(),
-        watchlist: []
+        name: userName,
+        watchlistMovie: [],
+        watchlistTv: []
       }, { merge: true });
     }
     catch (err) {
@@ -43,6 +45,7 @@ const Signup = () => {
       <form className='signup__form__wrapper' onSubmit={handleSignUp}>
         <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)}></input>
         <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}></input>
+        <input type='text' value={userName} placeholder='name' onChange={e => setUserName(e.target.value)}></input>
         <button type='submit'>Sign Up</button>
       </form>
       <p>Have an account?<Link to="/login"> Log In</Link></p>

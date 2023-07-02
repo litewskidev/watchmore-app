@@ -92,6 +92,15 @@ li {
   gap: 1.5rem;
 }
 
+.navbar__logged__user {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    color: white;
+  }
+}
+
 .navbar__login__button {
   padding: 0.5rem 2.5rem;
   border: none;

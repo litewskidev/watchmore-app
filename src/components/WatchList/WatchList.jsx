@@ -21,10 +21,10 @@ const WatchList = ({ user }) => {
     getData()
   }, []);
 
-  const removeFromWatch = async (id, title, poster) => {
+  const removeMovieFromWatch = async (id, title, poster) => {
     try {
       await updateDoc(doc(db, "users", user.uid), {
-        watchlist: arrayRemove({
+        watchlistMovie: arrayRemove({
           id: id,
           title: title,
           poster: poster
@@ -34,27 +34,66 @@ const WatchList = ({ user }) => {
     catch (err) {
       console.log(err);
     };
-    console.log("Movie removed from watchlist successful!");
-    setData(data.watchlist.filter((item) => item.id !== id));
+    console.log("Movie removed from watchlist successfully!");
+    setData(data.watchlistMovie.filter((item) => item.id !== id));
+    getData();
+  };
+
+  const removeTvFromWatch = async (id, title, poster) => {
+    try {
+      await updateDoc(doc(db, "users", user.uid), {
+        watchlistTv: arrayRemove({
+          id: id,
+          title: title,
+          poster: poster
+        })
+      }, { merge: true });
+    }
+    catch (err) {
+      console.log(err);
+    };
+    console.log("Show removed from watchlist successfully!");
+    setData(data.watchlistTv.filter((item) => item.id !== id));
     getData();
   };
 
   return(
     <div className="watchlist">
-      <h1>WATCHLIST</h1>
+      <div className="watchlist__main__title">
+        <h1>WATCH LIST</h1>
+        <h1>WATCH LIST</h1>
+      </div>
       <div className='watchlist__wrapper'>
-      {(data.watchlist?.length > 0) ? (
-        data.watchlist?.map(movie => (
-            <div className='watchlist__item__container' key={movie.id}>
-              <div className='remove__icon__container' onClick={e => removeFromWatch(movie.id, movie.title, movie.poster)}>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
-              </div>
-              <img src={mediumImagePath + movie.poster} alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
-            </div>
-        ))
-      ) : (
-        <p>Your Watchlist is empty!</p>
-      )}
+        <h2>MOVIES</h2>
+        <div className="watchlist__movies__container">
+          {(data.watchlistMovie?.length > 0) ? (
+            data.watchlistMovie?.map(movie => (
+                <div className='watchlist__item__container' key={movie.id}>
+                  <div className='remove__icon__container' onClick={e => removeMovieFromWatch(movie.id, movie.title, movie.poster)}>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
+                  </div>
+                  <img src={mediumImagePath + movie.poster} alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
+                </div>
+            ))
+          ) : (
+            <p>Your Movies Watch List is Empty!</p>
+          )}
+        </div>
+        <h2>TV SERIES</h2>
+        <div className="watchlist__tvseries__container">
+          {(data.watchlistTv?.length > 0) ? (
+            data.watchlistTv?.map(tv => (
+                <div className='watchlist__item__container' key={tv.id}>
+                  <div className='remove__icon__container' onClick={e => removeTvFromWatch(tv.id, tv.title, tv.poster)}>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
+                  </div>
+                  <img src={mediumImagePath + tv.poster} alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
+                </div>
+            ))
+          ) : (
+            <p>Your TV Series Watch lList is Empty!</p>
+          )}
+        </div>
       </div>
     </div>
   )

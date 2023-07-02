@@ -109,8 +109,6 @@ function App() {
     return currentUser ? children : <Navigate to="/login" />;
   };
 
-  console.log(currentUser);
-
   return(
     <main className="main__container">
       <Navbar user={currentUser} />
@@ -123,7 +121,7 @@ function App() {
         <Route path="/login" element={ <Login /> } />
         <Route path="/signup" element={ <Signup /> } />
         <Route exact path="/movie/:id" element={ <MovieCard user={currentUser} /> } />
-        <Route exact path="/tv/:id" element={ <TvShowCard /> } />
+        <Route exact path="/tv/:id" element={ <TvShowCard user={currentUser} /> } />
         <Route exact path="/hubs/:hub" element={ <HubCard /> } />
         <Route exact path="/collection/:id" element={ <CollectionCard /> } />
         <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />

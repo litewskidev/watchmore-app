@@ -78,9 +78,12 @@ const Navbar = ({ user }) => {
             <img className='navbar__search__icon__desktop' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} alt='search icon' />
           </NavLink>
           {(user !== null ) ? (
-          <button className='navbar__login__button' onClick={handleLogOut}>LOG OUT</button>
+            <div className='navbar__logged__user'>
+              <h2>{user.name}</h2>
+              <button className='navbar__login__button' onClick={handleLogOut}>LOG OUT</button>
+            </div>
           ) : (
-          <button className='navbar__login__button' onClick={(() => navigate('/login'))}>LOG IN</button>
+            <button className='navbar__login__button' onClick={(() => navigate('/login'))}>LOG IN</button>
           )
           }
         </div>
