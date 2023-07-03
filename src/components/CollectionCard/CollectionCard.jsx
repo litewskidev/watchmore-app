@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCollection, getFetchedCollection } from '../../redux/specificRedux.js';
-import { image185Path, mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image185Path } from '../../utils/tmdbConfig.js';
 import './CollectionCard.scss';
 
 const CollectionCard = () => {

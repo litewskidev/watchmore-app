@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux.js';
-import { image185Path, image700Path, imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
+import { image185Path, image700Path, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import './TvShowCard.scss';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';

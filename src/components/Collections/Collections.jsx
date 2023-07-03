@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getFetchedCollections } from '../../redux/collectionsRedux.js';
-import { image185Path, mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image185Path } from '../../utils/tmdbConfig.js';
 import './Collections.scss';
 
 const Collections = () => {

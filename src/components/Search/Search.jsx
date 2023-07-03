@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchMulti, getSearchedMulti } from '../../redux/searchRedux.js';
 import { getSearch, updateSearchString } from '../../redux/searchStringRedux.js';
-import { mediumImagePath, miniImagePath } from '../../utils/tmdbConfig.js';
+import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import './Search.scss';
 
 const Search = () => {

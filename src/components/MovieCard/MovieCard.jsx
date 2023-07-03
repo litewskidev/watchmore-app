@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
-import { image700Path, imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
+import { image700Path, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import './MovieCard.scss';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
