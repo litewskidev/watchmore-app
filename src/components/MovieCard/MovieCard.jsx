@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
-import { imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
+import { image700Path, imagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import './MovieCard.scss';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
@@ -79,7 +79,7 @@ const MovieCard = ({ user }) => {
         <p>You must be logged in to add movie to watchlist!</p>
       </div>
       <div className='movie__backdrop'>
-        <img src={imagePath + movieData.backdrop_path} alt={movieData.title}/>
+        <img src={image700Path + movieData.backdrop_path} loading='lazy' alt={movieData.title}/>
       </div>
       <div className='movie__main__info'>
         <div className='movie__title'>
@@ -104,22 +104,22 @@ const MovieCard = ({ user }) => {
             </div>
             {(user !== null) ? (
               <div id='watchlist-btn' className='movie__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={addToWatch}/>
               </div>
             ) : (
               <div className='movie__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={mustBeLogged}/>
               </div>
             )}
             <div className='movie__score'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
+              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} loading="lazy" alt='star icon'/>
               <p>{movieData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
         </div>
         <div className='movie__watch__container'>
           <div className='movie__watch__button'>
-            <img src={process.env.PUBLIC_URL + '/assets/icons/popcorn.svg'} alt='play icon'/>
+            <img src={process.env.PUBLIC_URL + '/assets/icons/popcorn.svg'} loading="lazy" alt='play icon'/>
             <p>WATCH NOW</p>
           </div>
         </div>
@@ -132,7 +132,7 @@ const MovieCard = ({ user }) => {
               {movieCredits.cast?.slice(0, 6).map(person => (
                 (person.profile_path !== null) ? (
                 <div className='movie__cast__person' key={person.id}>
-                  <img src={profileImagePath + person.profile_path} alt='profile avatar'/>
+                  <img src={profileImagePath + person.profile_path} loading='lazy' alt='profile avatar'/>
                 </div>) : (null)
               ))}
             </div>
@@ -146,7 +146,7 @@ const MovieCard = ({ user }) => {
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='movie__similar__container' key={similar.id}>
                     <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
-                      <img src={miniImagePath + similar.poster_path} alt='movie poster'/>
+                      <img src={miniImagePath + similar.poster_path} loading='lazy' alt='movie poster'/>
                     </div>
                   </div>) : (null)
               ))}

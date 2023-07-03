@@ -34,7 +34,7 @@ const TVSeries = () => {
 
   return(
     <div className='tvSeries__wrapper'>
-            <div className='tvSeries__main__title'>
+      <div className='tvSeries__main__title'>
         <h1>TV SERIES</h1>
         <h1>TV SERIES</h1>
       </div>

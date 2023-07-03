@@ -54,27 +54,27 @@ const HubCard = () => {
   return(
     <div className='hub__card__wrapper'>
       <div className='hub__card__logo'>
-        <img src={process.env.PUBLIC_URL + logoMain} alt={hub}/>
+        <img src={process.env.PUBLIC_URL + logoMain} loading="lazy" alt={hub}/>
       </div>
       <div className='hub__card__container'>
         {moviesPageOne.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}
         {moviesPageTwo.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}
         {moviesPageOne.parts?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchMulti, getSearchedMulti } from '../../redux/searchRedux.js';
 import { getSearch, updateSearchString } from '../../redux/searchStringRedux.js';
-import { miniImagePath } from '../../utils/tmdbConfig.js';
+import { mediumImagePath, miniImagePath } from '../../utils/tmdbConfig.js';
 import './Search.scss';
 
 const Search = () => {
@@ -47,7 +47,7 @@ const Search = () => {
         {searchResults.results?.map(result => (
           (result.poster_path !== null && result.media_type !== 'person' && result.backdrop_path !== null) ? (
           <div className='search__result__item' key={result.id}>
-            <img src={miniImagePath + result.poster_path} alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
+            <img src={mediumImagePath + result.poster_path} loading="lazy" alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
           </div>) : (null)
         ))}
       </div>

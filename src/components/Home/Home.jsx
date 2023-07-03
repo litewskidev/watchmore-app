@@ -8,7 +8,7 @@ import HomeTrendingPeople from '../HomeTrendingPeople/HomeTrendingPeople.jsx';
 import './Home.scss';
 
 const Home = () => {
-  
+
   const trendingAll = useSelector(getFetchedAllTrending);
   const trendingMovies = useSelector(getFetchedMoviesTrending);
   const trendingTv = useSelector(getFetchedTvTrending);

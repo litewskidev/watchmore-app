@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCollection, getFetchedCollection } from '../../redux/specificRedux.js';
-import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image185Path, mediumImagePath } from '../../utils/tmdbConfig.js';
 import './CollectionCard.scss';
 
 const CollectionCard = () => {
@@ -27,7 +27,7 @@ const CollectionCard = () => {
           (part.backdrop_path !== null) ? (
           <div className='collection__card__box' key={part.id}>
             <div className='collection__card__poster'>
-              <img src={mediumImagePath + part.poster_path} onClick={() => navigate(`/movie/${part.id}`)} alt={part.title}/>
+              <img src={image185Path + part.poster_path} loading="lazy" onClick={() => navigate(`/movie/${part.id}`)} alt={part.title}/>
             </div>
           </div>
           ) : (null)

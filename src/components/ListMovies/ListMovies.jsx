@@ -12,7 +12,7 @@ const ListMovies = ({ list, settings }) => {
         {list.results?.map(movie => (
           <div className='movie__item__wrapper' key={movie.id}>
             <div className='movie__item__box'>
-              <img src={mediumImagePath+movie.poster_path} alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
+              <img src={mediumImagePath+movie.poster_path} loading='lazy' alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
             </div>
           </div>
         ))}

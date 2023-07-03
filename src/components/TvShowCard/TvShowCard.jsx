@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux.js';
-import { imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
+import { image185Path, image700Path, imagePath, mediumImagePath, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import './TvShowCard.scss';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
@@ -107,7 +107,7 @@ const TvShowCard = ({ user }) => {
         <p>You must be logged in to add show to watchlist!</p>
       </div>
       <div className='tvShow__backdrop'>
-        <img src={imagePath + tvShowData.backdrop_path} alt={tvShowData.title}/>
+        <img src={image700Path + tvShowData.backdrop_path} loading='lazy' alt={tvShowData.title}/>
       </div>
       <div className='tvShow__main__info'>
         <div className='tvShow__title'>
@@ -130,15 +130,15 @@ const TvShowCard = ({ user }) => {
             </div>
             {(user !== null) ? (
               <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={addToWatch}/>
               </div>
             ) : (
               <div className='tvShow__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={mustBeLogged}/>
               </div>
             )}
             <div className='tvShow__score'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
+              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} loading="lazy" alt='star icon'/>
               <p>{tvShowData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
@@ -155,7 +155,7 @@ const TvShowCard = ({ user }) => {
               </select>
             </div>
             <div className='tvShow__score'>
-              <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
+              <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} loading="lazy" alt='down icon'/>
               <p onClick={toggleEpisodes}>EPISODES</p>
             </div>
           </div>
@@ -169,7 +169,7 @@ const TvShowCard = ({ user }) => {
                   <div className='tvShow__episode__container'>
                     <div className='tvShow__episode__info'>
                       <div className='tvShow__episode__image'>
-                        <img src={mediumImagePath + ep.still_path} alt={ep.name}/>
+                        <img src={image185Path + ep.still_path} loading='lazy' alt={ep.name}/>
                       </div>
                       <div className='tvShow__episode__info__title'>
                           <p>{ep.episode_number}. {ep.name}</p>
@@ -177,7 +177,7 @@ const TvShowCard = ({ user }) => {
                       </div>
                     </div>
                     <div className='tvShow__play__button'>
-                      <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                      <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} loading='lazy' alt='play icon'/>
                     </div>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const TvShowCard = ({ user }) => {
                 <div className='tvShow__episode__container'>
                   <div className='tvShow__episode__info'>
                     <div className='tvShow__episode__image'>
-                      <img className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
+                      <img className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} loading='lazy' alt='series icon' />
                     </div>
                     <div className='tvShow__episode__info__title'>
                       <p>{ep.episode_number}. {ep.name}</p>
@@ -194,7 +194,7 @@ const TvShowCard = ({ user }) => {
                     </div>
                   </div>
                   <div className='tvShow__play__button'>
-                    <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} loading='lazy' alt='play icon'/>
                   </div>
                   </div>
                 </div>
@@ -210,7 +210,7 @@ const TvShowCard = ({ user }) => {
               {tvShowCredits.cast?.slice(0, 6).map(person => (
                 (person.profile_path !== null) ? (
                 <div className='tvShow__cast__person' key={person.id}>
-                  <img src={profileImagePath + person.profile_path} alt='profile avatar'/>
+                  <img src={profileImagePath + person.profile_path} loading='lazy' alt='profile avatar'/>
                 </div>) : (null)
               ))}
             </div>
@@ -224,7 +224,7 @@ const TvShowCard = ({ user }) => {
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='tvShow__similar__container' key={similar.id}>
                     <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
-                      <img src={miniImagePath + similar.poster_path} alt='movie poster'/>
+                      <img src={miniImagePath + similar.poster_path} loading='lazy' alt='movie poster'/>
                     </div>
                   </div>) : (null)
               ))}

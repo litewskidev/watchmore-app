@@ -36,15 +36,16 @@ const actionSanitizer = (action) => (
   { ...action, data: '<<LONG_BLOB>>' } : action
 );
 
+
 const store = createStore(
   reducer,
   initialState,
   compose(
     applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE_ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE_({
       actionSanitizer,
       stateSanitizer: (state) => state.data ? { ...state, data: '<<LONG_BLOB>>' } : state
-    })
+    }) : compose
   )
 );
 

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getFetchedCollections } from '../../redux/collectionsRedux.js';
-import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image185Path, mediumImagePath } from '../../utils/tmdbConfig.js';
 import './Collections.scss';
 
 const Collections = () => {
@@ -20,7 +20,7 @@ const Collections = () => {
           {collections?.map(collection => (
             <div className='categories__box' key={collection.id}>
               <div className='categories__poster' onClick={() => navigate(`/collection/${collection.id}`)}>
-                <img src={mediumImagePath + collection.poster_path} alt={collection.name}/>
+                <img src={image185Path + collection.poster_path} loading="lazy" alt={collection.name}/>
               </div>
             </div>
           ))}
