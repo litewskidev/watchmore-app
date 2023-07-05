@@ -1,14 +1,29 @@
 import { useNavigate, useParams } from 'react-router';
-import { useSelector } from 'react-redux';
-import { getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars, getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux.js';
 import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import './HubCard.scss';
+import { useEffect } from 'react';
 
 const HubCard = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
   const hub = params.hub;
 
+  //  FETCH HUBS
+  useEffect(() => dispatch(fetchMarvel()), [dispatch]);
+  useEffect(() => dispatch(fetchMarvelTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchPixar()), [dispatch]);
+  useEffect(() => dispatch(fetchPixarTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchA24()), [dispatch]);
+  useEffect(() => dispatch(fetchA24Two()), [dispatch]);
+  useEffect(() => dispatch(fetchDisney()), [dispatch]);
+  useEffect(() => dispatch(fetchDisneyTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchNational()), [dispatch]);
+  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
+
+  //  GET HUBS
   const marvelPageOne = useSelector(getFetchedMarvel);
   const pixarPageOne = useSelector(getFetchedPixar);
   const a24PageOne = useSelector(getFetchedA24);
@@ -25,7 +40,6 @@ const HubCard = () => {
   const disneyLogo = '/assets/hubs/disney.png';
   const nationalLogo = '/assets/hubs/national.png';
   const starwarsLogo = '/assets/hubs/star-wars.png';
-
 
   let logoMain;
   if(hub === 'marvel') {logoMain = marvelLogo}

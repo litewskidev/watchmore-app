@@ -7,6 +7,7 @@ import App from './App.js';
 import ScrollToTop from './utils/ScrollToTop.js';
 import store from './redux/store.js';
 import './styles/global.scss';
+export { default as Home } from "../src/components/Home/Home.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,77 +1,28 @@
-import { useContext, useEffect } from "react";
+import React, { Suspense, useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
 import { fetchCollection } from "./redux/collectionsRedux.js";
-import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
-import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
-import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
 import { AuthContext } from "./context/AuthContext.js";
-import Home from "./components/Home/Home.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
-import Movies from "./components/Movies/Movies.jsx";
-import TVSeries from "./components/TVSeries/TVSeries.jsx";
-import Search from "./components/Search/Search.jsx";
-import Collections from "./components/Collections/Collections.jsx";
-import MovieCard from "./components/MovieCard/MovieCard.jsx";
-import TvShowCard from "./components/TvShowCard/TvShowCard.jsx";
-import CollectionCard from "./components/CollectionCard/CollectionCard.jsx";
-import HubCard from "./components/HubCard/HubCard.jsx";
-import Login from "./components/Login/Login.jsx";
-import Signup from "./components/Signup/Signup.jsx";
-import WatchList from "./components/WatchList/WatchList.jsx";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
+const Home = React.lazy(() => import("./components/Home/Home.jsx"));
+const Movies = React.lazy(() => import("./components/Movies/Movies.jsx"));
+const TVSeries = React.lazy(() => import("./components/TVSeries/TVSeries.jsx"));
+const MovieCard = React.lazy(() => import("./components/MovieCard/MovieCard.jsx"));
+const TvShowCard = React.lazy(() => import("./components/TvShowCard/TvShowCard.jsx"));
+const HubCard = React.lazy(() => import("./components/HubCard/HubCard.jsx"));
+const Collections = React.lazy(() => import("./components/Collections/Collections.jsx"));
+const CollectionCard = React.lazy(() => import("./components/CollectionCard/CollectionCard.jsx"));
+const WatchList = React.lazy(() => import("./components/WatchList/WatchList.jsx"));
+const Search = React.lazy(() => import("./components/Search/Search.jsx"));
+const Login = React.lazy(() => import("./components/Login/Login.jsx"));
+const Signup = React.lazy(() => import("./components/Signup/Signup.jsx"));
+const Footer = React.lazy(() => import("./components/Footer/Footer.jsx"));
 
 function App() {
   const dispatch = useDispatch();
 
-  //  MOVIES
-  useEffect(() => dispatch(fetchNowPlayingMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchActionMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchComedyMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchScifiMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchThrillerMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchWarMovies(1)), [dispatch]);
-  useEffect(() => dispatch(fetchAnimeMovies(1)), [dispatch]);
-
-  //  TV SERIES
-  useEffect(() => dispatch(fetchAiringTodayTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch]);
-  useEffect(() => dispatch(fetchPopularTv(3)), [dispatch]);
-  useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchActionTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchComedyTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchMysteryTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchScifiTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchWesternTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchCrimeTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchDramaTv(1)), [dispatch]);
-  useEffect(() => dispatch(fetchAnimeTv(1)), [dispatch]);
-
-  //  TRENDING
-  useEffect(() => dispatch(fetchAllTrending(1)), [dispatch]);
-  useEffect(() => dispatch(fetchMoviesTrending(1)), [dispatch]);
-  useEffect(() => dispatch(fetchTvTrending(1)), [dispatch]);
-  useEffect(() => dispatch(fetchPeopleTrending(1)), [dispatch]);
-
-  //  HUBS
-  useEffect(() => dispatch(fetchMarvel()), [dispatch]);
-  useEffect(() => dispatch(fetchMarvelTwo()), [dispatch]);
-  useEffect(() => dispatch(fetchPixar()), [dispatch]);
-  useEffect(() => dispatch(fetchPixarTwo()), [dispatch]);
-  useEffect(() => dispatch(fetchA24()), [dispatch]);
-  useEffect(() => dispatch(fetchA24Two()), [dispatch]);
-  useEffect(() => dispatch(fetchDisney()), [dispatch]);
-  useEffect(() => dispatch(fetchDisneyTwo()), [dispatch]);
-  useEffect(() => dispatch(fetchNational()), [dispatch]);
-  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
-
-  //  COLLECTIONS
+  //  FETCH COLLECTIONS
   useEffect(() => dispatch(fetchCollection(230)), [dispatch]);  //  GODFATHER
   useEffect(() => dispatch(fetchCollection(8091)), [dispatch]);  //  ALIEN
   useEffect(() => dispatch(fetchCollection(528)), [dispatch]);  //  TERMINATOR
@@ -103,7 +54,7 @@ function App() {
   useEffect(() => dispatch(fetchCollection(945)), [dispatch]);  //  LETHAL WEAPON
   useEffect(() => dispatch(fetchCollection(2980)), [dispatch]);  //  GHOSTBUSTERS
 
-  //  LOGGED USER
+  //  GET LOGGED USER
   const { currentUser } = useContext(AuthContext);
   const RequrieAuth = ({children}) => {
     return currentUser ? children : <Navigate to="/login" />;
@@ -112,20 +63,22 @@ function App() {
   return(
     <main className="main__container">
       <Navbar user={currentUser} />
-      <Routes>
-        <Route exact path="/" element={ <Home /> } />
-        <Route path="/movies" element={ <Movies /> } />
-        <Route path="/tvseries" element={ <TVSeries /> } />
-        <Route path="/collections" element={ <Collections /> } />
-        <Route path="/search" element={ <Search /> } />
-        <Route path="/login" element={ <Login /> } />
-        <Route path="/signup" element={ <Signup /> } />
-        <Route exact path="/movie/:id" element={ <MovieCard user={currentUser} /> } />
-        <Route exact path="/tv/:id" element={ <TvShowCard user={currentUser} /> } />
-        <Route exact path="/hubs/:hub" element={ <HubCard /> } />
-        <Route exact path="/collection/:id" element={ <CollectionCard /> } />
-        <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />
-      </Routes>
+      <Suspense fallback={ <div><LoadingSpinner /></div> }>
+        <Routes>
+          <Route exact path="/" element={ <Home /> } />
+          <Route path="/movies" element={ <Movies /> } />
+          <Route path="/tvseries" element={ <TVSeries /> } />
+          <Route path="/collections" element={ <Collections /> } />
+          <Route path="/search" element={ <Search /> } />
+          <Route path="/login" element={ <Login /> } />
+          <Route path="/signup" element={ <Signup /> } />
+          <Route exact path="/movie/:id" element={ <MovieCard user={currentUser} /> } />
+          <Route exact path="/tv/:id" element={ <TvShowCard user={currentUser} /> } />
+          <Route exact path="/hubs/:hub" element={ <HubCard /> } />
+          <Route exact path="/collection/:id" element={ <CollectionCard /> } />
+          <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />
+        </Routes>
+      </Suspense>
       <Footer />
     </main>
   );

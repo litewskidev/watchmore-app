@@ -1,10 +1,27 @@
-import { useSelector } from 'react-redux';
-import { getFetchedActionMovies, getFetchedAnimeMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies, getFetchedActionMovies, getFetchedAnimeMovies, getFetchedComedyMovies, getFetchedDramaMovies, getFetchedHorrorMovies, getFetchedNowPlayingMovies, getFetchedPopularMovies, getFetchedScifiMovies, getFetchedThrillerMovies, getFetchedTopRatedMovies, getFetchedUpcomingMovies, getFetchedWarMovies } from '../../redux/moviesRedux.js';
 import ListMovies from '../ListMovies/ListMovies.jsx';
 import './Movies.scss';
+import { useEffect } from 'react';
 
 const Movies = () => {
+  const dispatch = useDispatch();
 
+  //  FETCH MOVIES
+  useEffect(() => dispatch(fetchNowPlayingMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchActionMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchComedyMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchScifiMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchThrillerMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchWarMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchAnimeMovies(1)), [dispatch]);
+
+  //  GET MOVIES
   const nowPlaying = useSelector(getFetchedNowPlayingMovies);
   const popular = useSelector(getFetchedPopularMovies);
   const topRated = useSelector(getFetchedTopRatedMovies);

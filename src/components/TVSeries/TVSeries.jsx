@@ -1,10 +1,27 @@
-import { useSelector } from 'react-redux';
-import { getFetchedActionTv, getFetchedAiringTodayTv, getFetchedAnimeTv, getFetchedComedyTv, getFetchedCrimeTv, getFetchedDramaTv, getFetchedMysteryTv, getFetchedOnTheAirTv, getFetchedPopularTv, getFetchedScifiTv, getFetchedTopRatedTv, getFetchedWesternTv } from '../../redux/tvSeriesRedux.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv, getFetchedActionTv, getFetchedAiringTodayTv, getFetchedAnimeTv, getFetchedComedyTv, getFetchedCrimeTv, getFetchedDramaTv, getFetchedMysteryTv, getFetchedOnTheAirTv, getFetchedPopularTv, getFetchedScifiTv, getFetchedTopRatedTv, getFetchedWesternTv } from '../../redux/tvSeriesRedux.js';
 import ListTvSeries from '../ListTvSeries/ListTvSeries.jsx';
 import './TVSeries.scss';
+import { useEffect } from 'react';
 
 const TVSeries = () => {
+  const dispatch = useDispatch();
 
+  //  FETCH TV SERIES
+  useEffect(() => dispatch(fetchAiringTodayTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch]);
+  useEffect(() => dispatch(fetchPopularTv(3)), [dispatch]);
+  useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchActionTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchComedyTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchMysteryTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchScifiTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchWesternTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchCrimeTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchDramaTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchAnimeTv(1)), [dispatch]);
+
+  //  GET TV SERIES
   const airingToday = useSelector(getFetchedAiringTodayTv);
   const onTheAir = useSelector(getFetchedOnTheAirTv);
   const popular = useSelector(getFetchedPopularTv);
