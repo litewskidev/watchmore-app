@@ -22,7 +22,7 @@ const Movies = () => {
   const settings3 = {
     dots: false,
     infinite: true,
-    speed: 600,
+    speed: 700,
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,

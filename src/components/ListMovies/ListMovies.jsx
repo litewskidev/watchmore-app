@@ -14,7 +14,7 @@ const ListMovies = ({ list, settings }) => {
         {list.results?.map(movie => (
           <div className='movie__item__wrapper' key={movie.id}>
             <div className='movie__item__box'>
-            <LazyLoadImage src={mediumImagePath+movie.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
+            <LazyLoadImage src={mediumImagePath+movie.poster_path} effect='blur' visibleByDefault alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
             </div>
           </div>
         ))}

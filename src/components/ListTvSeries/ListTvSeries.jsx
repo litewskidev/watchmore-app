@@ -14,7 +14,7 @@ const ListTvSeries = ({ list, settings }) => {
         {list.results?.map(tv => (
           <div className='tv__item__wrapper' key={tv.id}>
             <div className='tv__item__box'>
-            <LazyLoadImage src={mediumImagePath+tv.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
+            <LazyLoadImage src={mediumImagePath+tv.poster_path} effect='blur' visibleByDefault alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
             </div>
           </div>
         ))}

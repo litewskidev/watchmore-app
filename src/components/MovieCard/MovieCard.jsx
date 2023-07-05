@@ -32,7 +32,7 @@ const MovieCard = ({ user }) => {
   const settings4 = {
     dots: false,
     infinite: true,
-    speed: 600,
+    speed: 700,
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: false,
