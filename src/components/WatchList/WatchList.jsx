@@ -1,9 +1,11 @@
 import { arrayRemove, doc, getDoc, updateDoc } from "firebase/firestore";
-import './WatchList.scss';
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { mediumImagePath } from "../../utils/tmdbConfig";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import './WatchList.scss';
 
 const WatchList = ({ user }) => {
   const navigate = useNavigate();
@@ -70,9 +72,9 @@ const WatchList = ({ user }) => {
             data.watchlistMovie?.map(movie => (
                 <div className='watchlist__item__container' key={movie.id}>
                   <div className='remove__icon__container' onClick={e => removeMovieFromWatch(movie.id, movie.title, movie.poster)}>
-                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
+                    <LazyLoadImage className="lazy__delete__icon" src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} effect='blur' alt="delete icon"/>
                   </div>
-                  <img src={mediumImagePath + movie.poster} loading="lazy" alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
+                  <LazyLoadImage src={mediumImagePath + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
                 </div>
             ))
           ) : (
@@ -85,9 +87,9 @@ const WatchList = ({ user }) => {
             data.watchlistTv?.map(tv => (
                 <div className='watchlist__item__container' key={tv.id}>
                   <div className='remove__icon__container' onClick={e => removeTvFromWatch(tv.id, tv.title, tv.poster)}>
-                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
+                    <LazyLoadImage className="lazy__delete__icon" src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} effect='blur' alt="delete icon"/>
                   </div>
-                  <img src={mediumImagePath + tv.poster} loading="lazy" alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
+                  <LazyLoadImage src={mediumImagePath + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
                 </div>
             ))
           ) : (

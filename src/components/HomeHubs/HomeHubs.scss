@@ -24,7 +24,7 @@
 .collections__box {
   width: 100%;
   border-radius: 0.3rem;
-  padding: 0.1rem;
+  padding: 0.15rem;
   background-color: rgb(47, 54, 64);
   box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
 }
@@ -35,12 +35,14 @@
   top: 0;
   border-radius: 0.3rem;
   z-index: 10;
+  aspect-ratio: 16/9;
 }
 
 .collections__logo {
   position: relative;
   width: 100%;
   border-radius: 0.3rem;
+  aspect-ratio: 16/9;
 }
 
 .collections__video {

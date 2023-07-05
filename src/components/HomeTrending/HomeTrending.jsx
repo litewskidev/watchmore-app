@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Slider from 'react-slick';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import './HomeTrending.scss';
 
 const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
@@ -17,7 +19,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
             {trendingMovies.results?.map(movie => (
               <div className='trending__movies__wrapper' key={movie.id}>
                 <div className='trending__movies__box'>
-                  <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+                  <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
                 </div>
               </div>
             ))}
@@ -33,7 +35,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
             {trendingTv.results?.map(tv => (
               <div className='trending__movies__wrapper' key={tv.id}>
                 <div className='trending__movies__box'>
-                  <img src={mediumImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
+                  <LazyLoadImage src={mediumImagePath + tv.poster_path} effect='blur' alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
                 </div>
               </div>
             ))}

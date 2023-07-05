@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getFetchedCollections } from '../../redux/collectionsRedux.js';
 import { image185Path } from '../../utils/tmdbConfig.js';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import './Collections.scss';
 
 const Collections = () => {
@@ -20,7 +22,7 @@ const Collections = () => {
           {collections?.map(collection => (
             <div className='categories__box' key={collection.id}>
               <div className='categories__poster' onClick={() => navigate(`/collection/${collection.id}`)}>
-                <img src={image185Path + collection.poster_path} alt={collection.name}/>
+              <LazyLoadImage src={image185Path + collection.poster_path} effect='blur' alt={collection.name}/>
               </div>
             </div>
           ))}

@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Slider from 'react-slick';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import './ListTvSeries.scss';
 
 const ListTvSeries = ({ list, settings }) => {
@@ -12,7 +14,7 @@ const ListTvSeries = ({ list, settings }) => {
         {list.results?.map(tv => (
           <div className='tv__item__wrapper' key={tv.id}>
             <div className='tv__item__box'>
-              <img src={mediumImagePath+tv.poster_path} alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
+            <LazyLoadImage src={mediumImagePath+tv.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
             </div>
           </div>
         ))}

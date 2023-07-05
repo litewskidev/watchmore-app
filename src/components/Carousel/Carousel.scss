@@ -13,13 +13,12 @@
     max-height: 50rem !important;
     object-fit: cover;
     object-position: middle;
-    border-radius: 0.2rem;
   }
 }
 
 .image__border {
-  padding: 0.15rem;
-  border-radius: 0.2rem;
+  padding: 0.1rem 0;
+  border-radius: 0rem;
   background-color: rgb(47, 54, 64);
   box-shadow: 0 0.4rem 0.5rem rgb(0, 0, 0);
 }
@@ -32,7 +31,7 @@
 }
 
 .title__box p {
-  font-size: 7rem;
+  font-size: 4rem;
   text-transform: uppercase;
   font-family: $font-text-4;
   font-weight: 700;
@@ -43,10 +42,6 @@
 
 .image__box {
   position: relative;
-
-  img {
-    border-radius: 0.3rem;
-  }
 }
 
 //  SLICK ARROWS
@@ -71,17 +66,13 @@
 @media (max-width: 1024px) {
 
   .carousel__box {
-    padding: 0.5rem;
+    padding: 0rem;
     padding-top: 1rem;
-
-    img {
-      border-radius: 0.2rem;
-    }
   }
 
   .title__box {
     p {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 }

@@ -4,9 +4,12 @@ import { useEffect } from 'react';
 import { fetchCreditsMovie, fetchDetailsMovie, fetchImagesMovie, fetchSimilarMovie, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
 import { image700Path, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
-import './MovieCard.scss';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase.js';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/black-and-white.css';
+import './MovieCard.scss';
 
 const MovieCard = ({ user }) => {
   const navigate = useNavigate();
@@ -79,7 +82,7 @@ const MovieCard = ({ user }) => {
         <p>You must be logged in to add movie to watchlist!</p>
       </div>
       <div className='movie__backdrop'>
-        <img src={image700Path + movieData.backdrop_path} loading='lazy' alt={movieData.title}/>
+        <LazyLoadImage src={image700Path + movieData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={movieData.title}/>
       </div>
       <div className='movie__main__info'>
         <div className='movie__title'>
@@ -132,7 +135,7 @@ const MovieCard = ({ user }) => {
               {movieCredits.cast?.slice(0, 6).map(person => (
                 (person.profile_path !== null) ? (
                 <div className='movie__cast__person' key={person.id}>
-                  <img src={profileImagePath + person.profile_path} loading='lazy' alt='profile avatar'/>
+                  <LazyLoadImage src={profileImagePath + person.profile_path} effect='black-and-white' alt='profile avatar'/>
                 </div>) : (null)
               ))}
             </div>
@@ -146,7 +149,7 @@ const MovieCard = ({ user }) => {
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='movie__similar__container' key={similar.id}>
                     <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
-                      <img src={miniImagePath + similar.poster_path} loading='lazy' alt='movie poster'/>
+                      <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='movie poster'/>
                     </div>
                   </div>) : (null)
               ))}
@@ -159,7 +162,7 @@ const MovieCard = ({ user }) => {
               <p className='movie__section__name'>TRAILER</p>
               <div className='movie__video__container'>
                 <div className='movie__video'>
-                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} />
+                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} loading='lazy' />
                 </div>
               </div>
             </div>) : (null)

@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux.js';
 import { image185Path, image700Path, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
-import './TvShowCard.scss';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase.js';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/black-and-white.css';
+import './TvShowCard.scss';
 
 const TvShowCard = ({ user }) => {
   const navigate = useNavigate();
@@ -107,7 +110,7 @@ const TvShowCard = ({ user }) => {
         <p>You must be logged in to add show to watchlist!</p>
       </div>
       <div className='tvShow__backdrop'>
-        <img src={image700Path + tvShowData.backdrop_path} loading='lazy' alt={tvShowData.title}/>
+        <LazyLoadImage src={image700Path + tvShowData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={tvShowData.title}/>
       </div>
       <div className='tvShow__main__info'>
         <div className='tvShow__title'>
@@ -169,7 +172,7 @@ const TvShowCard = ({ user }) => {
                   <div className='tvShow__episode__container'>
                     <div className='tvShow__episode__info'>
                       <div className='tvShow__episode__image'>
-                        <img src={image185Path + ep.still_path} loading='lazy' alt={ep.name}/>
+                        <LazyLoadImage src={image185Path + ep.still_path} effect='blur' alt={ep.name}/>
                       </div>
                       <div className='tvShow__episode__info__title'>
                           <p>{ep.episode_number}. {ep.name}</p>
@@ -186,7 +189,7 @@ const TvShowCard = ({ user }) => {
                 <div className='tvShow__episode__container'>
                   <div className='tvShow__episode__info'>
                     <div className='tvShow__episode__image'>
-                      <img className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} loading='lazy' alt='series icon' />
+                      <LazyLoadImage className='tvShow__nostill__img' src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} effect='blur' alt='series icon' />
                     </div>
                     <div className='tvShow__episode__info__title'>
                       <p>{ep.episode_number}. {ep.name}</p>
@@ -210,7 +213,7 @@ const TvShowCard = ({ user }) => {
               {tvShowCredits.cast?.slice(0, 6).map(person => (
                 (person.profile_path !== null) ? (
                 <div className='tvShow__cast__person' key={person.id}>
-                  <img src={profileImagePath + person.profile_path} loading='lazy' alt='profile avatar'/>
+                  <LazyLoadImage src={profileImagePath + person.profile_path} effect='black-and-white' alt='profile avatar'/>
                 </div>) : (null)
               ))}
             </div>
@@ -224,7 +227,7 @@ const TvShowCard = ({ user }) => {
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='tvShow__similar__container' key={similar.id}>
                     <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
-                      <img src={miniImagePath + similar.poster_path} loading='lazy' alt='movie poster'/>
+                      <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='movie poster'/>
                     </div>
                   </div>) : (null)
               ))}
@@ -237,7 +240,7 @@ const TvShowCard = ({ user }) => {
               <p className='tvShow__section__name'>TRAILER</p>
               <div className='tvShow__video__container'>
                 <div className='tvShow__video'>
-                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} />
+                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} loading='lazy' />
                 </div>
               </div>
             </div>) : (null)
