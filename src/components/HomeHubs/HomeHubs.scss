@@ -34,6 +34,7 @@
   position: absolute;
   top: 0;
   border-radius: 0.3rem;
+  z-index: 10;
 }
 
 .collections__logo {
@@ -43,6 +44,16 @@
 }
 
 .collections__video {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 0.2rem;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.collections__mobile__background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +61,7 @@
   border-radius: 0.2rem;
   aspect-ratio: 16/9;
   object-fit: cover;
+  filter: brightness(0.9)
 }
 
 .collections__main__title {
