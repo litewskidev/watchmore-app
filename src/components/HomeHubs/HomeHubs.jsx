@@ -18,7 +18,7 @@ const HomeHubs = () => {
               <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
                 <source src={process.env.PUBLIC_URL + '/assets/videos/1564676115-marvel.mp4'} type='video/mp4' />
               </video>
-              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/marvel-mobile.jpg'} loading="lazy" alt='marvel background' />
+              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/marvel-mobile.webp'} loading="lazy" alt='marvel background' />
             </div>
           </div>
           <div className='collections__box'>
@@ -27,7 +27,7 @@ const HomeHubs = () => {
               <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
                 <source src={process.env.PUBLIC_URL + '/assets/videos/1608229455-star-wars.mp4'} type='video/mp4' />
               </video>
-              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/starwars-mobile.avif'} loading="lazy" alt='star wars background' />
+              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/starwars-mobile.webp'} loading="lazy" alt='star wars background' />
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ const HomeHubs = () => {
               <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
                 <source src={process.env.PUBLIC_URL + '/assets/videos/1564676296-national-geographic.mp4'} type='video/mp4' />
               </video>
-              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/national-mobile.jpg'} loading="lazy" alt='national geographic background' />
+              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/national-mobile.webp'} loading="lazy" alt='national geographic background' />
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@ const HomeHubs = () => {
               <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
                 <source src={process.env.PUBLIC_URL + '/assets/videos/A24.mp4'} type='video/mp4' />
               </video>
-              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/a24-mobile.jpg'} loading="lazy" alt='a24 background' />
+              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/a24-mobile.webp'} loading="lazy" alt='a24 background' />
             </div>
           </div>
           <div className='collections__box'>
@@ -66,7 +66,7 @@ const HomeHubs = () => {
               <video className='collections__video' autoPlay={true} loop={true} playsInline={true} muted>
                 <source src={process.env.PUBLIC_URL + '/assets/videos/1564674844-disney.mp4'} type='video/mp4' />
               </video>
-              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/disney-mobile.jpg'} loading="lazy" alt='disney background' />
+              <img className='collections__mobile__background' src={process.env.PUBLIC_URL + '/assets/images/disney-mobile.webp'} loading="lazy" alt='disney background' />
             </div>
           </div>
         </div>

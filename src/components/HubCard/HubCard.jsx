@@ -34,12 +34,12 @@ const HubCard = () => {
   const disneyPageTwo = useSelector(getFetchedDisneyTwo);
   const national = useSelector(getFetchedNational);
   const starwars = useSelector(getFetchedStarWars);
-  const marvelLogo = '/assets/hubs/marvel.png';
-  const pixarLogo = '/assets/hubs/pixar.png'
-  const a24Logo = '/assets/hubs/a24.png';
-  const disneyLogo = '/assets/hubs/disney.png';
-  const nationalLogo = '/assets/hubs/national.png';
-  const starwarsLogo = '/assets/hubs/star-wars.png';
+  const marvelLogo = '/assets/hubs/marvel.webp';
+  const pixarLogo = '/assets/hubs/pixar.webp'
+  const a24Logo = '/assets/hubs/a24.webp';
+  const disneyLogo = '/assets/hubs/disney.webp';
+  const nationalLogo = '/assets/hubs/national.webp';
+  const starwarsLogo = '/assets/hubs/star-wars.webp';
 
   let logoMain;
   if(hub === 'marvel') {logoMain = marvelLogo}

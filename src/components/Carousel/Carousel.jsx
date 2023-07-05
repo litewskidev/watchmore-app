@@ -15,7 +15,7 @@ const Carousel = ({ settings, list }) => {
           <div className='carousel__box' key={item.id}>
             <div className='image__border'>
               <div className='image__box'>
-                <img src={image700Path + item.backdrop_path} alt='poster' onClick={() => navigate(`${item.media_type}/${item.id}`)}/>
+                <img src={image700Path + item.backdrop_path} alt='poster' onClick={() => navigate(`${item.media_type}/${item.id}`)} />
                 <div className='title__container'>
                   <div className='title__box'>
                     <p>{item.title}</p>
