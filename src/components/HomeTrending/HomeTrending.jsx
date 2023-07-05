@@ -17,7 +17,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
             {trendingMovies.results?.map(movie => (
               <div className='trending__movies__wrapper' key={movie.id}>
                 <div className='trending__movies__box'>
-                  <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+                  <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
                 </div>
               </div>
             ))}
@@ -33,7 +33,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
             {trendingTv.results?.map(tv => (
               <div className='trending__movies__wrapper' key={tv.id}>
                 <div className='trending__movies__box'>
-                  <img src={mediumImagePath + tv.poster_path} loading="lazy" alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
+                  <img src={mediumImagePath + tv.poster_path} alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
                 </div>
               </div>
             ))}

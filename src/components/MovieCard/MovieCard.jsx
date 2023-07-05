@@ -104,22 +104,22 @@ const MovieCard = ({ user }) => {
             </div>
             {(user !== null) ? (
               <div id='watchlist-btn' className='movie__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={addToWatch}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
               </div>
             ) : (
               <div className='movie__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={mustBeLogged}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
               </div>
             )}
             <div className='movie__score'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} loading="lazy" alt='star icon'/>
+              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
               <p>{movieData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
         </div>
         <div className='movie__watch__container'>
           <div className='movie__watch__button'>
-            <img src={process.env.PUBLIC_URL + '/assets/icons/popcorn.svg'} loading="lazy" alt='play icon'/>
+            <img src={process.env.PUBLIC_URL + '/assets/icons/popcorn.svg'} alt='play icon'/>
             <p>WATCH NOW</p>
           </div>
         </div>

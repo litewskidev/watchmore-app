@@ -70,7 +70,7 @@ const WatchList = ({ user }) => {
             data.watchlistMovie?.map(movie => (
                 <div className='watchlist__item__container' key={movie.id}>
                   <div className='remove__icon__container' onClick={e => removeMovieFromWatch(movie.id, movie.title, movie.poster)}>
-                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} loading="lazy" alt="delete icon"/>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
                   </div>
                   <img src={mediumImagePath + movie.poster} loading="lazy" alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
                 </div>
@@ -85,7 +85,7 @@ const WatchList = ({ user }) => {
             data.watchlistTv?.map(tv => (
                 <div className='watchlist__item__container' key={tv.id}>
                   <div className='remove__icon__container' onClick={e => removeTvFromWatch(tv.id, tv.title, tv.poster)}>
-                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} loading="lazy" alt="delete icon"/>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} alt="delete icon"/>
                   </div>
                   <img src={mediumImagePath + tv.poster} loading="lazy" alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
                 </div>

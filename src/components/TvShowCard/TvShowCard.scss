@@ -92,6 +92,31 @@
   }
 }
 
+.movie__genres__container {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.movie__genres__item {
+  width: 100%;
+  border: 1px solid $gray-border;
+  border-radius: 1rem;
+  padding: 0.1rem 0.1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    opacity: 0.6;
+    font-weight: 100;
+    font-size: 0.72rem;
+    line-height: 0.9rem;
+  }
+}
+
 .tvShow__inner {
   width: 100%;
 }

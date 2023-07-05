@@ -75,7 +75,7 @@ const Navbar = ({ user }) => {
         </ul>
         <div className='navbar__log__search'>
           <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/search'>
-            <img className='navbar__search__icon__desktop' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} loading="lazy" alt='search icon' />
+            <img className='navbar__search__icon__desktop' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} alt='search icon' />
           </NavLink>
           {(user !== null ) ? (
             <div className='navbar__logged__user'>
@@ -95,42 +95,42 @@ const Navbar = ({ user }) => {
         <li>
           <div className='dropdown__box'>
             <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/">
-              <img src={process.env.PUBLIC_URL + '/assets/icons/home-icon.svg'} loading="lazy" alt='home icon' />
+              <img src={process.env.PUBLIC_URL + '/assets/icons/home-icon.svg'} alt='home icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
               <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/movies">
-              <img src={process.env.PUBLIC_URL + '/assets/icons/movie-icon.svg'} loading="lazy" alt='movie icon' />
+              <img src={process.env.PUBLIC_URL + '/assets/icons/movie-icon.svg'} alt='movie icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
             <NavLink className={({ isActive }) => isActive ? 'linkActive' : 'dropdown__link'} to="/tvseries">
-              <img src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} loading="lazy" alt='series icon' />
+              <img src={process.env.PUBLIC_URL + '/assets/icons/series-icon.svg'} alt='series icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
             <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : 'dropdown__categories__icon'} to="/collections">
-              <img src={process.env.PUBLIC_URL + '/assets/icons/categories-icon.jpg'} loading="lazy" alt='categories icon' />
+              <img src={process.env.PUBLIC_URL + '/assets/icons/categories-icon.jpg'} alt='categories icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
             <NavLink className={({ isActive }) => isActive ? 'linkActiveCategories' : ''} to="/watchlist">
-              <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' />
+              <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' />
             </NavLink>
           </div>
         </li>
         <li>
           <div className='dropdown__box'>
             <NavLink className={({ isActive }) => isActive ? 'linkActiveSearch' : ''} to="/search">
-              <img className='navbar__search__icon__mobile' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} loading="lazy" alt='search icon' />
+              <img className='navbar__search__icon__mobile' src={process.env.PUBLIC_URL + '/assets/icons/magnifying-glass-solid.svg'} alt='search icon' />
             </NavLink>
           </div>
         </li>

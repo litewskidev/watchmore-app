@@ -15,7 +15,7 @@ const HomeTrendingPeople = ({ trendingPeople, settings }) => {
               (person.profile_path !== null) ? (
                 <div className='trending__movies__wrapper' key={person.id}>
                   <div className='trending__movies__box'>
-                    <img src={mediumImagePath + person.profile_path} loading="lazy" alt={person.name}/>
+                    <img src={mediumImagePath + person.profile_path} alt={person.name}/>
                   </div>
                 </div>
               ) : (null)

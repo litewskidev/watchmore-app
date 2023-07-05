@@ -5,6 +5,10 @@ import { fetchCollection } from "./redux/collectionsRedux.js";
 import { AuthContext } from "./context/AuthContext.js";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
+import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending } from "./redux/trendingRedux.js";
+import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
+import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
+import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
 const Home = React.lazy(() => import("./components/Home/Home.jsx"));
 const Movies = React.lazy(() => import("./components/Movies/Movies.jsx"));
 const TVSeries = React.lazy(() => import("./components/TVSeries/TVSeries.jsx"));
@@ -21,6 +25,52 @@ const Footer = React.lazy(() => import("./components/Footer/Footer.jsx"));
 
 function App() {
   const dispatch = useDispatch();
+
+  //  FETCH TRENDING
+  useEffect(() => dispatch(fetchAllTrending(1)), [dispatch]);
+  useEffect(() => dispatch(fetchMoviesTrending(1)), [dispatch]);
+  useEffect(() => dispatch(fetchTvTrending(1)), [dispatch]);
+  useEffect(() => dispatch(fetchPeopleTrending(1)), [dispatch]);
+
+  //  FETCH HUBS
+  useEffect(() => dispatch(fetchMarvel()), [dispatch]);
+  useEffect(() => dispatch(fetchMarvelTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchPixar()), [dispatch]);
+  useEffect(() => dispatch(fetchPixarTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchA24()), [dispatch]);
+  useEffect(() => dispatch(fetchA24Two()), [dispatch]);
+  useEffect(() => dispatch(fetchDisney()), [dispatch]);
+  useEffect(() => dispatch(fetchDisneyTwo()), [dispatch]);
+  useEffect(() => dispatch(fetchNational()), [dispatch]);
+  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
+
+  //  FETCH MOVIES
+  useEffect(() => dispatch(fetchNowPlayingMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchPopularMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchTopRatedMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchUpcomingMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchActionMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchComedyMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchScifiMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchThrillerMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchDramaMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchHorrorMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchWarMovies(1)), [dispatch]);
+  useEffect(() => dispatch(fetchAnimeMovies(1)), [dispatch]);
+
+  //  FETCH TV SERIES
+  useEffect(() => dispatch(fetchAiringTodayTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchOnTheAirTv(2)), [dispatch]);
+  useEffect(() => dispatch(fetchPopularTv(3)), [dispatch]);
+  useEffect(() => dispatch(fetchTopRatedTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchActionTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchComedyTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchMysteryTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchScifiTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchWesternTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchCrimeTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchDramaTv(1)), [dispatch]);
+  useEffect(() => dispatch(fetchAnimeTv(1)), [dispatch]);
 
   //  FETCH COLLECTIONS
   useEffect(() => dispatch(fetchCollection(230)), [dispatch]);  //  GODFATHER

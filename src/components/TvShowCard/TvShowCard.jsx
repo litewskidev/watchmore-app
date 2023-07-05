@@ -130,15 +130,15 @@ const TvShowCard = ({ user }) => {
             </div>
             {(user !== null) ? (
               <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={addToWatch}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
               </div>
             ) : (
               <div className='tvShow__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} loading="lazy" alt='watchlist icon' onClick={mustBeLogged}/>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
               </div>
             )}
             <div className='tvShow__score'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} loading="lazy" alt='star icon'/>
+              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
               <p>{tvShowData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
@@ -155,7 +155,7 @@ const TvShowCard = ({ user }) => {
               </select>
             </div>
             <div className='tvShow__score'>
-              <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} loading="lazy" alt='down icon'/>
+              <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
               <p onClick={toggleEpisodes}>EPISODES</p>
             </div>
           </div>
@@ -177,7 +177,7 @@ const TvShowCard = ({ user }) => {
                       </div>
                     </div>
                     <div className='tvShow__play__button'>
-                      <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} loading='lazy' alt='play icon'/>
+                      <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
                     </div>
                   </div>
                 </div>
@@ -194,7 +194,7 @@ const TvShowCard = ({ user }) => {
                     </div>
                   </div>
                   <div className='tvShow__play__button'>
-                    <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} loading='lazy' alt='play icon'/>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
                   </div>
                   </div>
                 </div>

@@ -1,27 +1,13 @@
 import { useNavigate, useParams } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars, getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux.js';
+import { useSelector } from 'react-redux';
+import { getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux.js';
 import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import './HubCard.scss';
-import { useEffect } from 'react';
 
 const HubCard = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
   const hub = params.hub;
-
-  //  FETCH HUBS
-  useEffect(() => dispatch(fetchMarvel()), [dispatch]);
-  useEffect(() => dispatch(fetchMarvelTwo()), [dispatch]);
-  useEffect(() => dispatch(fetchPixar()), [dispatch]);
-  useEffect(() => dispatch(fetchPixarTwo()), [dispatch]);
-  useEffect(() => dispatch(fetchA24()), [dispatch]);
-  useEffect(() => dispatch(fetchA24Two()), [dispatch]);
-  useEffect(() => dispatch(fetchDisney()), [dispatch]);
-  useEffect(() => dispatch(fetchDisneyTwo()), [dispatch]);
-  useEffect(() => dispatch(fetchNational()), [dispatch]);
-  useEffect(() => dispatch(fetchStarWars()), [dispatch]);
 
   //  GET HUBS
   const marvelPageOne = useSelector(getFetchedMarvel);
@@ -68,27 +54,27 @@ const HubCard = () => {
   return(
     <div className='hub__card__wrapper'>
       <div className='hub__card__logo'>
-        <img src={process.env.PUBLIC_URL + logoMain} loading="lazy" alt={hub}/>
+        <img src={process.env.PUBLIC_URL + logoMain} alt={hub}/>
       </div>
       <div className='hub__card__container'>
         {moviesPageOne.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}
         {moviesPageTwo.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}
         {moviesPageOne.parts?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <img src={mediumImagePath + movie.poster_path} loading="lazy" onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              <img src={mediumImagePath + movie.poster_path} onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
             </div>
           </div>
         ))}

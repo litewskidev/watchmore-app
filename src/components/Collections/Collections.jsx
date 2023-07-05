@@ -20,7 +20,7 @@ const Collections = () => {
           {collections?.map(collection => (
             <div className='categories__box' key={collection.id}>
               <div className='categories__poster' onClick={() => navigate(`/collection/${collection.id}`)}>
-                <img src={image185Path + collection.poster_path} loading="lazy" alt={collection.name}/>
+                <img src={image185Path + collection.poster_path} alt={collection.name}/>
               </div>
             </div>
           ))}

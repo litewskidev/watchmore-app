@@ -12,7 +12,7 @@ const ListTvSeries = ({ list, settings }) => {
         {list.results?.map(tv => (
           <div className='tv__item__wrapper' key={tv.id}>
             <div className='tv__item__box'>
-              <img src={mediumImagePath+tv.poster_path} loading='lazy' alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
+              <img src={mediumImagePath+tv.poster_path} alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
             </div>
           </div>
         ))}

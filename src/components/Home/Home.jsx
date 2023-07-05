@@ -1,21 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTrending, getFetchedAllTrending, getFetchedMoviesTrending, getFetchedPeopleTrending, getFetchedTvTrending } from '../../redux/trendingRedux.js';
+import { useSelector } from 'react-redux';
+import { getFetchedAllTrending, getFetchedMoviesTrending, getFetchedPeopleTrending, getFetchedTvTrending } from '../../redux/trendingRedux.js';
 import HomeTrending from '../HomeTrending/HomeTrending.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 import HomeHubs from '../HomeHubs/HomeHubs.jsx';
 import HomeCollections from '../HomeCollections/HomeCollections.jsx';
 import HomeTrendingPeople from '../HomeTrendingPeople/HomeTrendingPeople.jsx';
 import './Home.scss';
-import { useEffect } from 'react';
 
 const Home = () => {
-  const dispatch = useDispatch();
-
-  //  FETCH TRENDING
-  useEffect(() => dispatch(fetchAllTrending(1)), [dispatch]);
-  useEffect(() => dispatch(fetchMoviesTrending(1)), [dispatch]);
-  useEffect(() => dispatch(fetchTvTrending(1)), [dispatch]);
-  useEffect(() => dispatch(fetchPeopleTrending(1)), [dispatch]);
 
   //  GET TRENDING
   const trendingAll = useSelector(getFetchedAllTrending);
