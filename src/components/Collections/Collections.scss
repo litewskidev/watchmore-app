@@ -5,20 +5,20 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem 0rem;
-  padding-top: 5.8rem;
+  padding-top: 9rem;
 }
 
 .categories__main__title {
   position: relative;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
   width: 100%;
   filter: brightness(1.2);
   font-family: $font-text-1;
 }
 
 .categories__main__title h1 {
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -51,17 +51,43 @@
 
 .categories__box {
   padding: 0.2rem;
-  width: 50%;
+  width: 20%;
 }
 
 .categories__poster {
   padding: 0.15rem 0.2rem;
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $red-main;
+  }
 
   img {
     width: 100%;
     border-radius: 0.2rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .categories__box {
+    padding: 0.2rem;
+    width: 50%;
+  }
+
+  .categories {
+    padding-top: 5.8rem;
+  }
+
+  .categories__main__title {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .categories__main__title h1 {
+    font-size: 1.6rem;
   }
 }

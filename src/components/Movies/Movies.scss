@@ -1,7 +1,7 @@
 @import '../../styles/settings.scss';
 
 .movies__wrapper {
-  padding-top: 5.8rem;
+  padding-top: 9rem;
 }
 
 .movies__container {
@@ -13,15 +13,15 @@
 
 .movies__main__title {
   position: relative;
-  margin-top: 2rem;
-  margin-bottom: 3.5rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
   width: 100%;
   filter: brightness(1.2);
   font-family: $font-text-1;
 }
 
 .movies__main__title h1 {
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -55,5 +55,21 @@
     font-size: 1.3rem;
     font-weight: 600;
     text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .movies__wrapper {
+    padding-top: 5.8rem;
+  }
+
+  .movies__main__title {
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .movies__main__title h1 {
+    font-size: 1.6rem;
   }
 }

@@ -69,7 +69,12 @@ const Navbar = ({ user }) => {
           </li>
           <li>
             <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/collections'>
-              CATEGORIES
+              COLLECTIONS
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/watchlist'>
+              WATCH LIST
             </NavLink>
           </li>
         </ul>
@@ -79,7 +84,6 @@ const Navbar = ({ user }) => {
           </NavLink>
           {(user !== null ) ? (
             <div className='navbar__logged__user'>
-              <h2>{user.name}</h2>
               <button className='navbar__login__button' onClick={handleLogOut}>LOG OUT</button>
             </div>
           ) : (

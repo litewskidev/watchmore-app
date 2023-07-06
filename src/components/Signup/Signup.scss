@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 60%;
+  width: 20%;
 
   input {
     outline: none;
@@ -53,5 +53,11 @@
     font-size: 0.8rem;
     margin-top: 0.3rem;
     color: $red-main;
+  }
+}
+
+@media (max-width: 1024px) {
+  .signup__form__wrapper {
+    width: 60%;
   }
 }

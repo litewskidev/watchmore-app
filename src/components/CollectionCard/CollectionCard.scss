@@ -1,7 +1,7 @@
 @import '../../styles/settings.scss';
 
 .collection__card__wrapper {
-  padding-top: 7rem;
+  padding-top: 9.5rem;
   text-align: center;
   width: 100%;
 }
@@ -18,18 +18,18 @@
   filter: brightness(1.2);
 
   h1 {
-    font-size: 1.7rem;
+    font-size: 2.5rem;
     font-weight: 600;
     text-shadow: 0.2rem 0.2rem 0.1rem black;
   }
 }
 
 .collection__card__overview {
-  padding: 0 1rem;
+  padding: 0 5rem;
   margin-bottom: 1rem;
 
   p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     opacity: 0.8;
     text-shadow: 0.1rem 0.1rem 0.1rem black;
   }
@@ -46,17 +46,49 @@
 
 .collection__card__box {
   padding: 0.3rem;
-  width: 50%;
+  width: fit-content;
 }
 
 .collection__card__poster {
   padding: 0.15rem 0.2rem;
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $red-main;
+  }
 
   img {
     width: 100%;
     border-radius: 0.2rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .collection__card__wrapper {
+    padding-top: 7rem;
+  }
+
+  .collection__card__box {
+    padding: 0.3rem;
+    width: 50%;
+  }
+
+  .collection__card__title {
+    h1 {
+      font-size: 1.7rem;
+    }
+  }
+
+  .collection__card__overview {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+
+    p {
+      font-size: 0.9rem;
+    }
   }
 }

@@ -19,19 +19,36 @@ const TVSeries = () => {
   const drama = useSelector(getFetchedDramaTv);
   const anime = useSelector(getFetchedAnimeTv);
 
-  const settings4 = {
-    dots: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    autoplay: false,
-    autoplaySpeed: 3500,
-    arrows: true,
-    pauseOnFocus: false,
-    pauseOnHover: false,
-    pauseOnDotsHover: false
-  };
+  let settings4;
+  if (window.matchMedia('(max-width: 540px)').matches) {
+    settings4 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  } else {
+    settings4 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 8,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+}
 
   return(
     <div className='tvSeries__wrapper'>

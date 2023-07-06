@@ -19,19 +19,36 @@ const Movies = () => {
   const horror = useSelector(getFetchedHorrorMovies);
   const war = useSelector(getFetchedWarMovies);
 
-  const settings3 = {
-    dots: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    autoplay: false,
-    autoplaySpeed: 3500,
-    arrows: true,
-    pauseOnFocus: false,
-    pauseOnHover: false,
-    pauseOnDotsHover: false
-  };
+  let settings3;
+  if (window.matchMedia('(max-width: 540px)').matches) {
+    settings3 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  } else {
+    settings3 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 8,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  }
 
   return(
     <div className='movies__wrapper'>

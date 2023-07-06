@@ -10,9 +10,10 @@
   img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    max-height: 50rem !important;
+    max-height: 40rem !important;
     object-fit: cover;
-    object-position: middle;
+    object-position: top;
+    cursor: pointer;
   }
 }
 
@@ -31,7 +32,7 @@
 }
 
 .title__box p {
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-family: $font-text-4;
   font-weight: 700;

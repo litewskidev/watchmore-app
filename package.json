@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@reduxjs/toolkit": "^1.9.5",
     "firebase": "^9.23.0",
     "font-awesome": "^4.7.0",
     "react-lazy-load-image-component": "^1.6.0",
