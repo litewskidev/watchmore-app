@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { imagePath, mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image342Path, mediumImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Slider from 'react-slick';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -15,9 +15,9 @@ const ListMovies = ({ list, settings }) => {
           <div className='movie__item__wrapper' key={movie.id}>
             <div className='movie__item__box'>
               {(window.matchMedia('(max-width: 540px)').matches) ? (
-                <LazyLoadImage src={mediumImagePath+movie.poster_path} effect='blur' visibleByDefault alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
+                <LazyLoadImage src={mediumImagePath+movie.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
               ) : (
-                <LazyLoadImage src={imagePath + movie.poster_path} effect='blur' visibleByDefault alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
+                <LazyLoadImage src={image342Path + movie.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
               )}
             </div>
           </div>

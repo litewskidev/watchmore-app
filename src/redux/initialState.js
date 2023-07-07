@@ -7,7 +7,8 @@ const initialState = {
     reviews: {},
     images: {},
     videos: {},
-    similar: {}
+    similar: {},
+    similar_2: {}
   },
 
   movies: {

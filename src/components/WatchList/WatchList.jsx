@@ -1,7 +1,7 @@
 import { arrayRemove, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
-import { mediumImagePath } from "../../utils/tmdbConfig";
+import { image185Path, image342Path, mediumImagePath } from "../../utils/tmdbConfig";
 import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -74,7 +74,11 @@ const WatchList = ({ user }) => {
                   <div className='remove__icon__container' onClick={e => removeMovieFromWatch(movie.id, movie.title, movie.poster)}>
                     <LazyLoadImage className="lazy__delete__icon" src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} effect='blur' alt="delete icon"/>
                   </div>
-                  <LazyLoadImage src={mediumImagePath + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
+                  {(window.matchMedia('(max-width: 540px)').matches) ? (
+                    <LazyLoadImage src={mediumImagePath + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
+                  ) : (
+                    <LazyLoadImage src={image342Path + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
+                  )}
                 </div>
             ))
           ) : (
@@ -89,7 +93,11 @@ const WatchList = ({ user }) => {
                   <div className='remove__icon__container' onClick={e => removeTvFromWatch(tv.id, tv.title, tv.poster)}>
                     <LazyLoadImage className="lazy__delete__icon" src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} effect='blur' alt="delete icon"/>
                   </div>
-                  <LazyLoadImage src={mediumImagePath + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
+                  {(window.matchMedia('(max-width: 540px)').matches) ? (
+                    <LazyLoadImage src={mediumImagePath + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
+                  ) : (
+                    <LazyLoadImage src={image342Path + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
+                  )}
                 </div>
             ))
           ) : (

@@ -8,8 +8,10 @@ export const getFetchedReviewsMovie = ({ movie }) => movie.reviews;
 export const getFetchedImagesMovie = ({ movie }) => movie.images;
 export const getFetchedVideosMovie = ({ movie }) => movie.videos;
 export const getFetchedSimilarMovie = ({ movie }) => movie.similar;
+export const getFetchedSimilarMovieTwo = ({ movie }) => movie.similar_2;
 export const getFetchedTrailerMovie = ({ movie }) => movie.videos.results?.filter(video => video.type === 'Trailer');
-export const getFetchedSimilarWithPosterMovie = ({ movie }) => movie.similar.results?.filter(similar => similar.poster_path !== null && similar.vote_average > 6);
+export const getFetchedSimilarWithPosterMovie = ({ movie }) => movie.similar.results?.filter(similar => similar.poster_path !== null && similar.backdrop_path !== null);
+export const getFetchedSimilarWithPosterMovieTwo = ({ movie }) => movie.similar_2.results?.filter(similar => similar.poster_path !== null && similar.backdrop_path !== null);
 
 //  ACTIONS
 const createActionName = actionName => `app/movie/${actionName}`;
@@ -20,6 +22,7 @@ const GET_REVIEWS = createActionName('GET_REVIEWS');
 const GET_IMAGES = createActionName('GET_IMAGES');
 const GET_VIDEOS = createActionName('GET_VIDEOS');
 const GET_SIMILAR = createActionName('GET_SIMILAR');
+const GET_SIMILAR_TWO = createActionName('GET_SIMILAR_TWO');
 
 //  ACTION CREATORS
 //  DETAILS
@@ -99,6 +102,17 @@ export const fetchSimilarMovie = (movieId, page) => {
   }
 };
 
+//  SIMILAR PAGE TWO
+export const getSimilarMovieTwo = payload => ({ type: GET_SIMILAR_TWO, payload });
+export const fetchSimilarMovieTwo = (movieId, page) => {
+  return(dispatch) => {
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=${page}`, options)
+    .then(res => res.json())
+    .then(similarTwo => { dispatch(getSimilarMovieTwo(similarTwo)) })
+    .catch(err => console.log(err));
+  }
+};
+
 const movieReducer = ( state = {}, action) => {
   switch(action.type) {
     case GET_DETAILS:
@@ -115,6 +129,8 @@ const movieReducer = ( state = {}, action) => {
       return {...state, videos: { ...action.payload }}
     case GET_SIMILAR:
       return {...state, similar: { ...action.payload }}
+    case GET_SIMILAR_TWO:
+      return {...state, similar_2: { ...action.payload }}
     default:
       return state
   }

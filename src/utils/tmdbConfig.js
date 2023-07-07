@@ -1,5 +1,6 @@
 export const originalImagePath = 'http://image.tmdb.org/t/p/original';
 export const image300Path = 'http://image.tmdb.org/t/p/w300';
+export const image342Path = 'http://image.tmdb.org/t/p/w342';
 export const image700Path = 'http://image.tmdb.org/t/p/w780';
 export const imagePath = 'http://image.tmdb.org/t/p/w500';
 export const mediumImagePath = 'http://image.tmdb.org/t/p/w154';

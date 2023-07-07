@@ -49,7 +49,7 @@ const Home = () => {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 8,
+      slidesToShow: 7,
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 3500,

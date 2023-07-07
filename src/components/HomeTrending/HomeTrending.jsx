@@ -22,7 +22,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
                   {(window.matchMedia('(max-width: 540px)').matches) ? (
                     <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' visibleByDefault onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
                   ) : (
-                    <LazyLoadImage src={imagePath + movie.poster_path} effect='blur' visibleByDefault onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
+                    <LazyLoadImage src={imagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt='movie poster'/>
                   )}
                 </div>
               </div>
@@ -42,7 +42,7 @@ const HomeTrending = ({ trendingMovies, trendingTv, settings }) => {
                 {(window.matchMedia('(max-width: 540px)').matches) ? (
                   <LazyLoadImage src={mediumImagePath + tv.poster_path} effect='blur' visibleByDefault alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
                 ) : (
-                  <LazyLoadImage src={imagePath + tv.poster_path} effect='blur' visibleByDefault alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
+                  <LazyLoadImage src={imagePath + tv.poster_path} effect='blur' alt='tv series poster' onClick={() => navigate(`/tv/${tv.id}`)}/>
                 )
                 }
                 </div>

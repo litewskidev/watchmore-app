@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0rem;
+  padding: 1rem 0;
   padding-top: 9rem;
 }
 
 .categories__main__title {
   position: relative;
-  margin-top: 1rem;
+  margin-top: 0;
   margin-bottom: 5rem;
   width: 100%;
   filter: brightness(1.2);
@@ -18,7 +18,7 @@
 }
 
 .categories__main__title h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 100;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -27,7 +27,7 @@
   letter-spacing: 0.2rem;
   width: 100%;
   text-align: center;
-  padding: 0.6rem 0;
+  padding: 1rem 0;
 }
 
 .categories__main__title h1:nth-child(1) {
@@ -88,6 +88,7 @@
   }
 
   .categories__main__title h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    padding: 0.8rem 0;
   }
 }
