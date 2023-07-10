@@ -61,7 +61,9 @@ const initialState = {
   },
 
   people: {
-    popular: {}
+    popular: {},
+    person: {},
+    list: {}
   },
 
   genres: {

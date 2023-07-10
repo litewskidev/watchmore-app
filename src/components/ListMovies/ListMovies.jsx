@@ -14,7 +14,7 @@ const ListMovies = ({ list, settings }) => {
         {list.results?.map(movie => (
           <div className='movie__item__wrapper' key={movie.id}>
             <div className='movie__item__box'>
-              {(window.matchMedia('(max-width: 540px)').matches) ? (
+              {(window.matchMedia('(max-width: 1024px)').matches) ? (
                 <LazyLoadImage src={mediumImagePath+movie.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />
               ) : (
                 <LazyLoadImage src={image342Path + movie.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/movie/${movie.id}`)} />

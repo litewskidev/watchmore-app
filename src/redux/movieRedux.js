@@ -12,7 +12,7 @@ export const getFetchedSimilarMovieTwo = ({ movie }) => movie.similar_2;
 export const getFetchedTrailerMovie = ({ movie }) => movie.videos.results?.filter(video => video.type === 'Trailer');
 export const getFetchedSimilarWithPosterMovie = ({ movie }) => movie.similar.results?.filter(similar => similar.poster_path !== null && similar.backdrop_path !== null);
 export const getFetchedSimilarWithPosterMovieTwo = ({ movie }) => movie.similar_2.results?.filter(similar => similar.poster_path !== null && similar.backdrop_path !== null);
-
+export const getFetchedCertificationUs = ({ movie }) => movie.release.results?.filter(iso => iso.iso_3166_1 === "US");
 //  ACTIONS
 const createActionName = actionName => `app/movie/${actionName}`;
 const GET_DETAILS = createActionName('GET_DETAILS');

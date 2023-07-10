@@ -14,7 +14,7 @@ const ListTvSeries = ({ list, settings }) => {
         {list.results?.map(tv => (
           <div className='tv__item__wrapper' key={tv.id}>
             <div className='tv__item__box'>
-              {(window.matchMedia('(max-width: 540px)').matches) ? (
+              {(window.matchMedia('(max-width: 1024px)').matches) ? (
                 <LazyLoadImage src={mediumImagePath+tv.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />
               ) : (
                 <LazyLoadImage src={imagePath + tv.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/tv/${tv.id}`)} />

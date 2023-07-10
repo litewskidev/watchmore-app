@@ -1,7 +1,7 @@
 .footer__container {
   padding: 1rem;
   padding-bottom: 2.5rem;
-  padding-top: 1rem;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,5 +23,9 @@
 @media (max-width: 1024px) {
   .tmdb__logo {
     width: 10rem;
+  }
+
+  .footer__container {
+    padding-top: 1rem;
   }
 }

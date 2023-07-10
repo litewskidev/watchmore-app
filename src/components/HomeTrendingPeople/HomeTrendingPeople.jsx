@@ -3,8 +3,11 @@ import { mediumImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './HomeTrendingPeople.scss';
+import { useNavigate } from 'react-router-dom';
 
 const HomeTrendingPeople = ({ trendingPeople, settings }) => {
+  const navigate = useNavigate();
+
   return(
     <div className='home__trending__wrapper'>
       <div className='home__trending__box'>
@@ -17,7 +20,7 @@ const HomeTrendingPeople = ({ trendingPeople, settings }) => {
               (person.profile_path !== null) ? (
                 <div className='trending__movies__wrapper' key={person.id}>
                   <div className='trending__movies__box'>
-                    <LazyLoadImage src={mediumImagePath + person.profile_path} effect='blur' alt={person.name}/>
+                    <LazyLoadImage src={mediumImagePath + person.profile_path} effect='blur' alt={person.name} onClick={() => navigate(`/person/${person.id}`)}/>
                   </div>
                 </div>
               ) : (null)

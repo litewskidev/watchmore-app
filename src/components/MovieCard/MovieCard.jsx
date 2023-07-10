@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchCreditsMovie, fetchDetailsMovie, fetchSimilarMovie, fetchSimilarMovieTwo, fetchVideosMovie, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedSimilarWithPosterMovieTwo, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
+import { fetchCreditsMovie, fetchDetailsMovie, fetchReleaseMovie, fetchSimilarMovie, fetchSimilarMovieTwo, fetchVideosMovie, getFetchedCertificationUs, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedSimilarWithPosterMovieTwo, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
 import { image342Path, image700Path, miniImagePath, originalImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
@@ -20,6 +20,7 @@ const MovieCard = ({ user }) => {
 
   useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchSimilarMovie(movieId, 1)), [dispatch, movieId, page]);
   useEffect(() => dispatch(fetchSimilarMovieTwo(movieId, 2)), [dispatch, movieId, page]);
@@ -29,9 +30,8 @@ const MovieCard = ({ user }) => {
   const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
   const movieSimilarTwo = useSelector(getFetchedSimilarWithPosterMovieTwo);
   const movieTrailers = useSelector(getFetchedTrailerMovie);
-
-  let similarMovies = movieSimilarTwo?.concat(movieSimilar);
-  console.log(similarMovies)
+  const movieRelease = useSelector(getFetchedCertificationUs);
+  const similarMovies = movieSimilarTwo?.concat(movieSimilar);
 
   let settings4;
   if (window.matchMedia('(max-width: 540px)').matches) {
@@ -103,7 +103,7 @@ const MovieCard = ({ user }) => {
         <p>You must be logged in to add movie to watchlist!</p>
       </div>
       <div className='movie__backdrop'>
-        {(window.matchMedia('(max-width: 540px)').matches) ? (
+        {(window.matchMedia('(max-width: 1024px)').matches) ? (
           <LazyLoadImage src={image700Path + movieData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={movieData.title}/>
         ) :(
           <LazyLoadImage src={originalImagePath + movieData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={movieData.title}/>
@@ -114,7 +114,7 @@ const MovieCard = ({ user }) => {
           <p>{movieData.title}</p>
         </div>
         <div className='movie__overview'>
-          <p>{movieData.overview}</p>
+          <p>{movieData.overview?.substring(0, 500)}</p>
         </div>
         <div className='movie__genres__container'>
           {movieData.genres?.slice(0, 3).map(genre => (
@@ -127,11 +127,12 @@ const MovieCard = ({ user }) => {
           <div className='movie__mobile__info__wrapper'>
             <div className='movie__date__score__container'>
               <div className='movie__date__score'>
-                <div className='movie__release__date'>
-                  <p>{movieData.release_date?.substring(0, 4)}</p>
-                  <p>&#8226;</p>
-                  <p>{movieData.runtime} min</p>
-                </div>
+                  {movieTrailers?.slice(0, 1).map(video => (
+                  (video.type === 'Trailer') ? (
+                  <div className='movie__bottoms__wrapper__trailer' key={video.key}>
+                  <a className='movie__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                  </div>) : (null)
+                  ))}
                 {(user !== null) ? (
                   <div id='watchlist-btn' className='movie__watchlist__icon'>
                     <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
@@ -153,6 +154,21 @@ const MovieCard = ({ user }) => {
                 <p>WATCH NOW</p>
               </div>
             </div>
+            <div className='movie__release__date'>
+              <p>{movieData.release_date}</p>
+              <p>&#8226;</p>
+              <p>{movieData.runtime} min</p>
+              {movieRelease?.map(cert => (
+                cert.release_dates?.slice(0, 1).map(rating => (
+                  <div className='movie__certification__container'>
+                    <p>&#8226;</p>
+                    <div className='movie__certification'>
+                      <p>{rating.certification}</p>
+                    </div>
+                  </div>
+                ))
+              ))}
+            </div>
           </div>
         ) : (
           <div className='movie__desktop__info__wrapper'>
@@ -163,14 +179,27 @@ const MovieCard = ({ user }) => {
                   <p>{movieData.vote_average?.toFixed(1)}</p>
                 </div>
               </div>
-              <p>&#8226;</p>
               <div className='movie__release__date'>
                 <p>{movieData.release_date}</p>
               </div>
-              <p>&#8226;</p>
               <div className='movie__run__time'>
                 <p>{movieData.runtime} min</p>
               </div>
+              {movieRelease?.map(cert => (
+                cert.release_dates?.slice(0, 1).map(rating => (
+                  <div className='movie__certification__container'>
+                    <div className='movie__certification'>
+                      <p>{rating.certification}</p>
+                    </div>
+                  </div>
+                ))
+              ))}
+              {movieTrailers?.slice(0, 1).map(video => (
+                (video.type === 'Trailer') ? (
+                <div className='movie__bottoms__wrapper__trailer' key={video.key}>
+                  <a className='movie__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                </div>) : (null)
+              ))}
             </div>
             <div className='movie__watch__container'>
               <div className='movie__watch__button'>
@@ -198,7 +227,7 @@ const MovieCard = ({ user }) => {
               {movieCredits.cast?.slice(0, 6).map(person => (
                 (person.profile_path !== null) ? (
                 <div className='movie__cast__person' key={person.id}>
-                  <LazyLoadImage src={profileImagePath + person.profile_path} effect='black-and-white' alt='profile avatar'/>
+                  <LazyLoadImage src={profileImagePath + person.profile_path} effect='black-and-white' alt='profile avatar' onClick={() => navigate(`/person/${person.id}`)}/>
                 </div>) : (null)
               ))}
             </div>
@@ -211,7 +240,7 @@ const MovieCard = ({ user }) => {
               {similarMovies?.map(similar => (
                   <div className='movie__similar__container' key={similar.id}>
                     <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
-                      {(window.matchMedia('(max-width: 540px)').matches) ? (
+                      {(window.matchMedia('(max-width: 1024px)').matches) ? (
                         <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='movie poster'/>
                       ) : (
                         <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='movie poster'/>
@@ -223,17 +252,6 @@ const MovieCard = ({ user }) => {
           </div>
         </div>
       </div>
-      {movieTrailers?.slice(0, 1).map(video => (
-          (video.type === 'Trailer') ? (
-            <div className='movie__bottoms__wrapper__trailer' key={video.key}>
-              <p className='movie__section__name'>TRAILER</p>
-              <div className='movie__video__container'>
-                <div className='movie__video'>
-                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} loading='lazy' />
-                </div>
-              </div>
-            </div>) : (null)
-        ))}
     </div>
   )
 };

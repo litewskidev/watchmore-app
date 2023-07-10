@@ -21,9 +21,11 @@
   box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   padding-bottom: 0;
   cursor: pointer;
+  opacity: 0.9;
 
   &:hover {
     background-color: $red-main;
+    opacity: 1;
   }
 }
 
@@ -48,5 +50,6 @@
   .home__collections__box {
     width: 32%;
     padding: 0.15rem;
+    opacity: 1;
   }
 }

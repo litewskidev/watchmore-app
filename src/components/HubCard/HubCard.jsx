@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { getFetchedA24, getFetchedA24Two, getFetchedDisney, getFetchedDisneyTwo, getFetchedMarvel, getFetchedMarvelTwo, getFetchedNational, getFetchedPixar, getFetchedPixarTwo, getFetchedStarWars } from '../../redux/hubsRedux.js';
-import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image342Path, mediumImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/black-and-white.css';
@@ -63,21 +63,33 @@ const HubCard = () => {
         {moviesPageOne.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              {(window.matchMedia('(max-width: 1024px)').matches) ? (
+                <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              ) : (
+                <LazyLoadImage src={image342Path + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              )}
             </div>
           </div>
         ))}
         {moviesPageTwo.results?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+            {(window.matchMedia('(max-width: 1024px)').matches) ? (
+                <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              ) : (
+                <LazyLoadImage src={image342Path + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              )}
             </div>
           </div>
         ))}
         {moviesPageOne.parts?.map(movie => (
           <div className='hub__card__item__container' key={movie.id}>
             <div className='hub__card__item'>
-              <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+            {(window.matchMedia('(max-width: 1024px)').matches) ? (
+                <LazyLoadImage src={mediumImagePath + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              ) : (
+                <LazyLoadImage src={image342Path + movie.poster_path} effect='blur' onClick={() => navigate(`/movie/${movie.id}`)} alt={movie.title}/>
+              )}
             </div>
           </div>
         ))}

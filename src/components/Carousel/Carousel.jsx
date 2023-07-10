@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { image700Path, originalImagePath } from '../../utils/tmdbConfig.js';
+import { carouselDeskImage, image700Path, originalImagePath } from '../../utils/tmdbConfig.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,10 +15,10 @@ const Carousel = ({ settings, list }) => {
           <div className='carousel__box' key={item.id}>
             <div className='image__border'>
               <div className='image__box'>
-                {(window.matchMedia('(max-width: 540px)').matches) ? (
+                {(window.matchMedia('(max-width: 1024px)').matches) ? (
                   <img src={image700Path + item.backdrop_path} alt='poster' onClick={() => navigate(`${item.media_type}/${item.id}`)} />
                 ) : (
-                  <img src={originalImagePath + item.backdrop_path} alt='poster' onClick={() => navigate(`${item.media_type}/${item.id}`)} />
+                  <img src={carouselDeskImage + item.backdrop_path} alt='poster' onClick={() => navigate(`${item.media_type}/${item.id}`)} />
                 )}
                 <div className='title__container'>
                   <div className='title__box'>

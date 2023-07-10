@@ -51,7 +51,7 @@
 
 .categories__box {
   padding: 0.2rem;
-  width: 20%;
+  width: fit-content;
 }
 
 .categories__poster {
@@ -59,9 +59,11 @@
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
   cursor: pointer;
+  opacity: 0.9;
 
   &:hover {
     background-color: $red-main;
+    opacity: 1;
   }
 
   img {

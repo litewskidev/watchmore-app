@@ -1,0 +1,105 @@
+@import '../../styles/settings.scss';
+
+.person__container {
+  padding: 5rem;
+  padding-top: 9rem;
+  display: flex;
+  gap: 4rem;
+}
+
+.person__info {
+  position: fixed;
+  top: 9rem;
+  left: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-shadow: 0.1rem 0.1rem 0.1rem black;
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: $font-text-4;
+  }
+
+  img {
+    border-radius: 0.5rem;
+    box-shadow: 25rem 10rem 20rem 12rem rgba(194, 54, 22, 0.4);
+  }
+
+  p:first-of-type {
+    color: $red-main;
+    margin-bottom: -0.5rem;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+}
+
+.person__list {
+  margin-left: 30rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.person__list__poster {
+  img {
+    border-radius: 0.3rem;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 0.2rem 0.2rem rgb(0, 0, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .person__container {
+    padding: 1rem;
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .person__info {
+    width: 25%;
+    position: fixed;
+    top: 7rem;
+    left: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+
+    h1 {
+      font-size: 1rem;
+      font-family: $font-text-4;
+    }
+
+    img {
+      border-radius: 0.3rem;
+      width: 100%;
+    }
+  }
+
+  .person__list {
+    width: 75%;
+    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+    gap: 0.5rem;
+  }
+
+  .person__list__poster {
+    width: 45%;
+    img {
+      border-radius: 0.3rem;
+      cursor: pointer;
+      width: 100%;
+    }
+  }
+}

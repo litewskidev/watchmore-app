@@ -9,6 +9,7 @@ import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovie
 import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
+import PersonCard from "./components/PersonCard/PersonCard.jsx";
 const Home = React.lazy(() => import("./components/Home/Home.jsx"));
 const Movies = React.lazy(() => import("./components/Movies/Movies.jsx"));
 const TVSeries = React.lazy(() => import("./components/TVSeries/TVSeries.jsx"));
@@ -126,6 +127,7 @@ function App() {
           <Route exact path="/tv/:id" element={ <TvShowCard user={currentUser} /> } />
           <Route exact path="/hubs/:hub" element={ <HubCard /> } />
           <Route exact path="/collection/:id" element={ <CollectionCard /> } />
+          <Route exact path="/person/:id" element={ <PersonCard /> }/>
           <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />
         </Routes>
       </Suspense>

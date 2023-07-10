@@ -74,7 +74,7 @@ const WatchList = ({ user }) => {
                   <div className='remove__icon__container' onClick={e => removeMovieFromWatch(movie.id, movie.title, movie.poster)}>
                     <LazyLoadImage className="lazy__delete__icon" src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} effect='blur' alt="delete icon"/>
                   </div>
-                  {(window.matchMedia('(max-width: 540px)').matches) ? (
+                  {(window.matchMedia('(max-width: 1024px)').matches) ? (
                     <LazyLoadImage src={mediumImagePath + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
                   ) : (
                     <LazyLoadImage src={image342Path + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
@@ -93,7 +93,7 @@ const WatchList = ({ user }) => {
                   <div className='remove__icon__container' onClick={e => removeTvFromWatch(tv.id, tv.title, tv.poster)}>
                     <LazyLoadImage className="lazy__delete__icon" src={process.env.PUBLIC_URL + '/assets/icons/delete-icon.jpg'} effect='blur' alt="delete icon"/>
                   </div>
-                  {(window.matchMedia('(max-width: 540px)').matches) ? (
+                  {(window.matchMedia('(max-width: 1024px)').matches) ? (
                     <LazyLoadImage src={mediumImagePath + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
                   ) : (
                     <LazyLoadImage src={image342Path + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />

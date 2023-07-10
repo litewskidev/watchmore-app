@@ -1,5 +1,7 @@
+@import '../../styles/settings.scss';
+
 .hub__card__wrapper {
-  padding-top: 6.8rem;
+  padding-top: 8.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +10,8 @@
 }
 
 .hub__card__logo img {
-  width: 10rem;
+  width: 20rem;
+  margin-bottom: 2.8rem;
 }
 
 .hub__card__container {
@@ -29,10 +32,47 @@
   padding: 0.15rem 0.2rem;
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
+  cursor: pointer;
+  opacity: 0.9;
+
+  &:hover {
+    background-color: $red-main;
+    opacity: 1;
+  }
 
   img {
     width: 100%;
     border-radius: 0.2rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .hub__card__wrapper {
+    padding-top: 6.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hub__card__logo img {
+    width: 10rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hub__card__item {
+    padding: 0.15rem 0.2rem;
+    background-color: rgb(47, 54, 64);
+    border-radius: 0.2rem;
+    opacity: 1;
+
+    img {
+      width: 100%;
+      border-radius: 0.2rem;
+      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
+    }
   }
 }
