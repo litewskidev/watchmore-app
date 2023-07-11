@@ -21,16 +21,15 @@ const MovieCard = ({ user }) => {
   useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchSimilarMovie(movieId, 1)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchSimilarMovieTwo(movieId, 2)), [dispatch, movieId]);
+  //useEffect(() => dispatch(fetchSimilarMovie(movieId, 1)), [dispatch, movieId]);
 
   const movieData = useSelector(getFetchedDetailsMovie);
   const movieCredits = useSelector(getFetchedCreditsMovie);
   const movieTrailers = useSelector(getFetchedTrailerMovie);
   const movieRelease = useSelector(getFetchedCertificationUs);
-  //const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
   const movieSimilarTwo = useSelector(getFetchedSimilarWithPosterMovieTwo);
-
+  //const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
   //const similarMovies = movieSimilarTwo?.concat(movieSimilar);
 
   let settings4;

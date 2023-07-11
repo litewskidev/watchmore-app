@@ -1,7 +1,7 @@
 import { arrayRemove, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
-import { image185Path, image342Path, mediumImagePath } from "../../utils/tmdbConfig";
+import { image185Path, mediumImagePath } from "../../utils/tmdbConfig";
 import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';

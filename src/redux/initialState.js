@@ -94,8 +94,6 @@ const initialState = {
   collections: [],
 
   specific: {
-    movie: {},
-    tv: {},
     collection: {}
   },
 

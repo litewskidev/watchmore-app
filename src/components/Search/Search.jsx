@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchMulti, getSearchedMulti } from '../../redux/searchRedux.js';
 import { getSearch, updateSearchString } from '../../redux/searchStringRedux.js';
-import { image185Path, mediumImagePath, miniImagePath } from '../../utils/tmdbConfig.js';
+import { image185Path, miniImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './Search.scss';
