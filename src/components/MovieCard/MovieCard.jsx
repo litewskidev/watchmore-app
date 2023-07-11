@@ -16,22 +16,22 @@ const MovieCard = ({ user }) => {
   const dispatch = useDispatch();
   const params = useParams();
   const movieId = params.id;
-  const page = 1;
 
   useEffect(() => dispatch(fetchDetailsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchVideosMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
-  useEffect(() => dispatch(fetchSimilarMovie(movieId, 1)), [dispatch, movieId, page]);
-  useEffect(() => dispatch(fetchSimilarMovieTwo(movieId, 2)), [dispatch, movieId, page]);
+  //useEffect(() => dispatch(fetchSimilarMovie(movieId, 1)), [dispatch, movieId]);
+  useEffect(() => dispatch(fetchSimilarMovieTwo(movieId, 2)), [dispatch, movieId]);
 
   const movieData = useSelector(getFetchedDetailsMovie);
   const movieCredits = useSelector(getFetchedCreditsMovie);
-  const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
-  const movieSimilarTwo = useSelector(getFetchedSimilarWithPosterMovieTwo);
   const movieTrailers = useSelector(getFetchedTrailerMovie);
   const movieRelease = useSelector(getFetchedCertificationUs);
-  const similarMovies = movieSimilarTwo?.concat(movieSimilar);
+  //const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
+  const movieSimilarTwo = useSelector(getFetchedSimilarWithPosterMovieTwo);
+
+  //const similarMovies = movieSimilarTwo?.concat(movieSimilar);
 
   let settings4;
   if (window.matchMedia('(max-width: 540px)').matches) {
@@ -103,7 +103,7 @@ const MovieCard = ({ user }) => {
         <p>You must be logged in to add movie to watchlist!</p>
       </div>
       <div className='movie__backdrop'>
-        {(window.matchMedia('(max-width: 1024px)').matches) ? (
+        {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
           <LazyLoadImage src={image700Path + movieData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={movieData.title}/>
         ) :(
           <LazyLoadImage src={originalImagePath + movieData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={movieData.title}/>
@@ -123,7 +123,7 @@ const MovieCard = ({ user }) => {
             </div>
           ))}
         </div>
-        {(window.matchMedia('(max-width: 1024px)').matches) ? (
+        {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
           <div className='movie__mobile__info__wrapper'>
             <div className='movie__date__score__container'>
               <div className='movie__date__score'>
@@ -160,7 +160,7 @@ const MovieCard = ({ user }) => {
               <p>{movieData.runtime} min</p>
               {movieRelease?.map(cert => (
                 cert.release_dates?.slice(0, 1).map(rating => (
-                  <div className='movie__certification__container'>
+                  <div className='movie__certification__container' key={rating.release_date}>
                     <p>&#8226;</p>
                     <div className='movie__certification'>
                       <p>{rating.certification}</p>
@@ -187,7 +187,7 @@ const MovieCard = ({ user }) => {
               </div>
               {movieRelease?.map(cert => (
                 cert.release_dates?.slice(0, 1).map(rating => (
-                  <div className='movie__certification__container'>
+                  <div className='movie__certification__container' key={rating.release_date}>
                     <div className='movie__certification'>
                       <p>{rating.certification}</p>
                     </div>
@@ -237,7 +237,7 @@ const MovieCard = ({ user }) => {
           <p className='movie__section__name'>WATCH NEXT</p>
           <div className='movie__similar'>
             <Slider {...settings4}>
-              {similarMovies?.map(similar => (
+              {movieSimilarTwo?.map(similar => (
                   <div className='movie__similar__container' key={similar.id}>
                     <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
                       {(window.matchMedia('(max-width: 1024px)').matches) ? (

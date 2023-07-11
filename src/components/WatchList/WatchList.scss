@@ -67,7 +67,7 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .watchlist__tvseries__container {
@@ -77,12 +77,17 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
 
 .watchlist__item__container {
   width: fit-content;
   position: relative;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
 
   img {
     width: 100%;
@@ -135,11 +140,23 @@
   }
 
   .watchlist__item__container {
-    width: 30%;
+    width: 15%;
+    opacity: 1;
   }
 
   .remove__icon__container {
     width: 2.5rem;
     height: 2.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .watchlist {
+    padding-top: 6.5rem;
+  }
+
+  .watchlist__item__container {
+    width: 30%;
   }
 }

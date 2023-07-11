@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchPerson, fetchPersonList, getFetchedPerson, getFetchedPersonList } from '../../redux/peopleRedux';
 import { useDispatch, useSelector } from 'react-redux';
-import { image185Path, profileH632Path, profileImagePath } from '../../utils/tmdbConfig';
+import { image185Path, profileH632Path } from '../../utils/tmdbConfig';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './PersonCard.scss';
@@ -19,22 +19,25 @@ const PersonCard = () => {
   const personData = useSelector(getFetchedPerson);
   const personList = useSelector(getFetchedPersonList);
 
-  console.log(personData);
-  console.log(personList);
-
-
   return(
     <div className='person__container'>
-      <div className='person__info'>
         {(window.matchMedia('(max-width: 1024px)').matches) ? (
-          <LazyLoadImage src={profileImagePath + personData.profile_path} effect='blur' alt={personData.name}/>
+          <div className='person__info'>
+            <div className='person__main__border'>
+              <LazyLoadImage src={image185Path + personData.profile_path} effect='blur' alt={personData.name}/>
+            </div>
+            <h1>{personData.name}</h1>
+          </div>
         ) : (
-          <LazyLoadImage src={profileH632Path + personData.profile_path} effect='blur' alt={personData.name}/>
+          <div className='person__info'>
+            <div className='person__main__border'>
+              <LazyLoadImage src={profileH632Path + personData.profile_path} effect='blur' alt={personData.name}/>
+            </div>
+            <h1>{personData.name}</h1>
+            <p>{personData.birthday}</p>
+            <p>{personData.place_of_birth}</p>
+          </div>
         )}
-        <h1>{personData.name}</h1>
-        <p>{personData.birthday}</p>
-        <p>{personData.place_of_birth}</p>
-      </div>
       <div className='person__list'>
         {(personData.known_for_department === "Directing") ? (
         personList.crew?.map(movie => (

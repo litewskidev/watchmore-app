@@ -83,7 +83,7 @@
 
   .collection__card__box {
     padding: 0.3rem;
-    width: 50%;
+    width: fit-content;
   }
 
   .collection__card__poster {
@@ -99,10 +99,25 @@
   .collection__card__overview {
     padding: 0 1rem;
     margin-bottom: 1rem;
-    width: 100%;
+    width: 70%;
 
     p {
       font-size: 0.9rem;
     }
+  }
+}
+
+@media (max-width: 540px) {
+  .collection__card__wrapper {
+    padding-top: 5.7rem;
+  }
+
+  .collection__card__box {
+    padding: 0.3rem;
+    width: 50%;
+  }
+
+  .collection__card__overview {
+    width: 100%;
   }
 }

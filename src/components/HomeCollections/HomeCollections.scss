@@ -21,11 +21,9 @@
   box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   padding-bottom: 0;
   cursor: pointer;
-  opacity: 0.9;
 
   &:hover {
     background-color: $red-main;
-    opacity: 1;
   }
 }
 
@@ -43,13 +41,22 @@
   }
 
   .home__collections__container {
+    gap: 0.5rem;
+  }
+
+  .home__collections__box {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .home__collections__container {
     gap: 0.3rem;
     flex-wrap: wrap;
   }
 
   .home__collections__box {
     width: 32%;
-    padding: 0.15rem;
-    opacity: 1;
   }
 }

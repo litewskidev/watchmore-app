@@ -11,10 +11,10 @@
 }
 
 .trending__movies__box {
-  padding: 0.2rem 0.25rem;
+  padding: 0.15rem;
+  padding-bottom: 0.25rem;
   background-color: rgb(47, 54, 64);
   border-radius: 1rem;
-  padding-bottom: 0.3rem;
   cursor: pointer;
   opacity: 0.9;
   transition: padding 0.1s ease-out;
@@ -22,13 +22,12 @@
   &:hover {
     background-color: $red-main;
     opacity: 1;
-    padding: 0.1rem 0.15rem;
   }
 
   img {
     width: 100%;
     border-radius: 1rem;
-    box-shadow: 0 1rem 1rem rgb(0, 0, 0);
+    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   }
 }
 
@@ -53,15 +52,12 @@
   }
 
   .trending__movies__box {
-    padding: 0.15rem 0.2rem;
     background-color: rgb(47, 54, 64);
     border-radius: 0.2rem;
-    padding-bottom: 0.25rem;
     opacity: 1;
 
     img {
       border-radius: 0.2rem;
-      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
     }
   }
 

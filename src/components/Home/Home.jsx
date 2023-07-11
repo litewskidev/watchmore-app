@@ -44,7 +44,24 @@ const Home = () => {
       pauseOnHover: false,
       pauseOnDotsHover: false
     };
-  } else {
+  }
+  else if
+  (window.matchMedia('(max-width: 1024px)').matches) {
+    settings2 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  }
+  else {
     settings2 = {
       dots: false,
       infinite: true,

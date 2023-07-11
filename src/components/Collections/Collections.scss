@@ -59,11 +59,9 @@
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
   cursor: pointer;
-  opacity: 0.9;
 
   &:hover {
     background-color: $red-main;
-    opacity: 1;
   }
 
   img {
@@ -76,8 +74,9 @@
 @media (max-width: 1024px) {
 
   .categories__box {
-    padding: 0.2rem;
-    width: 50%;
+    padding: 0.5rem;
+    width: fit-content;
+    text-align: center;
   }
 
   .categories {
@@ -92,5 +91,17 @@
   .categories__main__title h1 {
     font-size: 1.5rem;
     padding: 0.8rem 0;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .categories {
+    padding-top: 4.5rem;
+  }
+
+  .categories__box {
+    padding: 0.2rem;
+    width: 50%;
   }
 }

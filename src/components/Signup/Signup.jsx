@@ -43,9 +43,10 @@ const Signup = () => {
     <div className='signup__wrapper'>
       <h2>SIGN UP</h2>
       <form className='signup__form__wrapper' onSubmit={handleSignUp}>
-        <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)}></input>
-        <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}></input>
-        <input type='text' value={userName} placeholder='name' onChange={e => setUserName(e.target.value)}></input>
+        <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)} required></input>
+        <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}
+        required></input>
+        <input type='text' value={userName} placeholder='name' onChange={e => setUserName(e.target.value)} required></input>
         <button type='submit'>Sign Up</button>
       </form>
       <p>Have an account?<Link to="/login"> Log In</Link></p>

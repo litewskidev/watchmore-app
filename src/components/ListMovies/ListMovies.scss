@@ -18,14 +18,12 @@
   padding: 0.15rem 0.2rem;
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
-  padding-bottom: 0.25rem;
   cursor: pointer;
   opacity: 0.9;
 
   &:hover {
     background-color: $red-main;
     opacity: 1;
-    padding: 0.1rem 0.15rem;
   }
 
   p {

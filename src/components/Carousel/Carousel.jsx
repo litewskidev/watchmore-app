@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { carouselDeskImage, image700Path, originalImagePath } from '../../utils/tmdbConfig.js';
+import { carouselDeskImage, image700Path } from '../../utils/tmdbConfig.js';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

@@ -37,8 +37,8 @@ const Login = () => {
     <div className='login__wrapper'>
       <h2>LOG IN</h2>
       <form className='login__form__wrapper' onSubmit={handleLogin}>
-        <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)}></input>
-        <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}></input>
+        <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)} required></input>
+        <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)} required></input>
         <button type='submit'>Log In</button>
         {error && <span>Wrong email or password!</span>}
       </form>

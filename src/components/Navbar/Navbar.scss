@@ -162,9 +162,8 @@ li {
 }
 
   .navbar__logo {
-    margin-right: -45px;
     text-align: end;
-    left: 37%;
+    left: 45%;
   }
 
   .navbar__pattern {
@@ -249,7 +248,7 @@ li {
 
   .navbar__dropdown {
     position: absolute;
-    min-width: 23%;
+    min-width: 12%;
     min-height: 100vh;
     background-color: rgba(34, 32, 28, 0.950);
     border-top-right-radius: 1rem;
@@ -285,6 +284,43 @@ li {
         opacity: 1;
       }
     }
+  }
+}
+
+@media (max-width: 540px) {
+
+  .navbar__logo {
+    font-family: $font-text-1;
+    line-height: 0.5rem;
+    left: 38%;
+    top: -1.1rem;
+    cursor: pointer;
+
+    span {
+      img {
+        margin-bottom: -0.55rem;
+        margin-right: -0.45rem;
+        margin-left: 0.025rem;
+        width: 2rem;
+      }
+    }
+  }
+
+  .logo__font {
+    margin: 1.1rem 0;
+    width: 50%;
+  }
+
+  .logo__font h1 {
+    font-size: 1.6rem;
+  }
+
+  .logo__font h1:nth-child(1) {
+    -webkit-text-stroke: 3px rgb(194, 54, 22);
+  }
+
+  .navbar__dropdown {
+    min-width: 23%;
   }
 }
 

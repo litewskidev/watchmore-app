@@ -2,8 +2,8 @@
 
 .signup__wrapper {
   width: 100%;
-  padding-top: 10rem;
-  padding-bottom: 12rem;
+  padding-top: 15rem;
+  padding-bottom: 17rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,6 +46,10 @@
     letter-spacing: 0.02rem;
     color: $black-main;
     background-color: $white;
+
+    &:hover {
+      background-color: $red-main;
+    }
   }
 
   span {
@@ -57,6 +61,13 @@
 }
 
 @media (max-width: 1024px) {
+
+  .signup__wrapper {
+    width: 100%;
+    padding-top: 10rem;
+    padding-bottom: 12rem;
+  }
+
   .signup__form__wrapper {
     width: 60%;
   }

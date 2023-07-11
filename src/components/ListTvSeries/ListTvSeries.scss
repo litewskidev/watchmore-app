@@ -18,11 +18,12 @@
   padding: 0.15rem 0.2rem;
   background-color: rgb(47, 54, 64);
   border-radius: 0.2rem;
-  padding-bottom: 0.25rem;
   cursor: pointer;
+  opacity: 0.9;
 
   &:hover {
     background-color: $red-main;
+    opacity: 1;
   }
 
   p {
@@ -32,5 +33,12 @@
     opacity: 1;
     color: white;
     letter-spacing: 0.03rem;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .tv__item__box {
+    opacity: 1;
   }
 }

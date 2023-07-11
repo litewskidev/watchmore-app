@@ -9,7 +9,6 @@ import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovie
 import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
-import PersonCard from "./components/PersonCard/PersonCard.jsx";
 const Home = React.lazy(() => import("./components/Home/Home.jsx"));
 const Movies = React.lazy(() => import("./components/Movies/Movies.jsx"));
 const TVSeries = React.lazy(() => import("./components/TVSeries/TVSeries.jsx"));
@@ -23,6 +22,7 @@ const Search = React.lazy(() => import("./components/Search/Search.jsx"));
 const Login = React.lazy(() => import("./components/Login/Login.jsx"));
 const Signup = React.lazy(() => import("./components/Signup/Signup.jsx"));
 const Footer = React.lazy(() => import("./components/Footer/Footer.jsx"));
+const PersonCard = React.lazy(() => import("./components/PersonCard/PersonCard.jsx"));
 
 function App() {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { image342Path, imagePath, mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image342Path, mediumImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Slider from 'react-slick';
 import 'react-lazy-load-image-component/src/effects/blur.css';

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCollection, getFetchedCollection } from '../../redux/specificRedux.js';
-import { image185Path, image342Path, imagePath } from '../../utils/tmdbConfig.js';
+import { image185Path, image342Path } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './CollectionCard.scss';

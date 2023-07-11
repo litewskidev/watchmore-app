@@ -77,7 +77,7 @@ const WatchList = ({ user }) => {
                   {(window.matchMedia('(max-width: 1024px)').matches) ? (
                     <LazyLoadImage src={mediumImagePath + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
                   ) : (
-                    <LazyLoadImage src={image342Path + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
+                    <LazyLoadImage src={image185Path + movie.poster} effect='blur' alt={movie.title} onClick={() => navigate(`/movie/${movie.id}`)} />
                   )}
                 </div>
             ))
@@ -96,7 +96,7 @@ const WatchList = ({ user }) => {
                   {(window.matchMedia('(max-width: 1024px)').matches) ? (
                     <LazyLoadImage src={mediumImagePath + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
                   ) : (
-                    <LazyLoadImage src={image342Path + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
+                    <LazyLoadImage src={image185Path + tv.poster} effect='blur' alt={tv.title} onClick={() => navigate(`/movie/${tv.id}`)} />
                   )}
                 </div>
             ))

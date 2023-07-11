@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchMulti, getSearchedMulti } from '../../redux/searchRedux.js';
 import { getSearch, updateSearchString } from '../../redux/searchStringRedux.js';
-import { mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image185Path, mediumImagePath, miniImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './Search.scss';
@@ -49,7 +49,11 @@ const Search = () => {
         {searchResults.results?.map(result => (
           (result.poster_path !== null && result.media_type !== 'person' && result.backdrop_path !== null) ? (
           <div className='search__result__item' key={result.id}>
-            <LazyLoadImage src={mediumImagePath + result.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
+            {(window.matchMedia('(max-width: 1024px)').matches) ? (
+              <LazyLoadImage src={miniImagePath + result.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
+            ) : (
+              <LazyLoadImage src={image185Path + result.poster_path} effect='blur' alt='poster' onClick={() => navigate(`/${result.media_type}/${result.id}`)}/>
+            )}
           </div>) : (null)
         ))}
       </div>

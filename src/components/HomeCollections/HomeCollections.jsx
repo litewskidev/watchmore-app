@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getFetchedCollections } from '../../redux/collectionsRedux.js';
-import { image342Path, imagePath, mediumImagePath } from '../../utils/tmdbConfig.js';
+import { image342Path, mediumImagePath } from '../../utils/tmdbConfig.js';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './HomeCollections.scss';
