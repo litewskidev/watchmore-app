@@ -19,7 +19,7 @@
   position: absolute;
   top: 50vh;
   left: 25%;
-  z-index: 199;
+  z-index: 999;
   background-color: $red-main;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -151,10 +151,6 @@
   justify-content: space-around;
   align-items: center;
   width: 55%;
-}
-
-.movie__date__score {
-
 }
 
 .movie__release__date {

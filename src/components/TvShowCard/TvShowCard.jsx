@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreditsTvShow, fetchDetailsTvShow, fetchSeason, fetchSimilarTvShow, fetchVideosTvShow, getFetchedCreditsTvShow, getFetchedDetailsTvShow, getFetchedSimilarWithPosterTvShow, getFetchedTrailerTvShow, getFetchedTvShowSeason } from '../../redux/tvShowRedux.js';
-import { image185Path, image700Path, miniImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
+import { image185Path, image300Path, image342Path, image700Path, miniImagePath, originalImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase.js';
@@ -33,12 +33,45 @@ const TvShowCard = ({ user }) => {
   const tvShowTrailers = useSelector(getFetchedTrailerTvShow);
   const tvShowSeason = useSelector(getFetchedTvShowSeason);
 
-  const settings4 = {
+  let settings4;
+  if (window.matchMedia('(max-width: 540px)').matches) {
+    settings4 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  } else {
+    settings4 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 7,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  }
+
+  let settings5;
+  if (window.matchMedia('(max-width: 1024px)').matches) {
+  settings5 = {
     dots: false,
     infinite: true,
     speed: 700,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     autoplay: false,
     autoplaySpeed: 3500,
     arrows: true,
@@ -46,15 +79,21 @@ const TvShowCard = ({ user }) => {
     pauseOnHover: false,
     pauseOnDotsHover: false
   };
-
-  const settings5 = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "0",
-    slidesToShow: 3,
-    speed: 600
-  };
+  } else {
+    settings5 = {
+      dots: false,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 7,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 3500,
+      arrows: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false
+    };
+  }
 
   const addToWatch = async (e) => {
     e.preventDefault();
@@ -110,7 +149,11 @@ const TvShowCard = ({ user }) => {
         <p>You must be logged in to add show to watchlist!</p>
       </div>
       <div className='tvShow__backdrop'>
-        <LazyLoadImage src={image700Path + tvShowData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={tvShowData.title}/>
+        {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
+          <LazyLoadImage src={image700Path + tvShowData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={tvShowData.title}/>
+        ) :(
+          <LazyLoadImage src={originalImagePath + tvShowData.backdrop_path} width="100%" height="100%" effect='black-and-white' alt={tvShowData.title}/>
+        )}
       </div>
       <div className='tvShow__main__info'>
         <div className='tvShow__title'>
@@ -126,44 +169,98 @@ const TvShowCard = ({ user }) => {
             </div>
           ))}
         </div>
-        <div className='tvShow__date__score__container'>
-          <div className='tvShow__date__score'>
-            <div className='tvShow__release__date'>
-              <p>{tvShowData.first_air_date?.substring(0, 4)}</p>
+
+        {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
+
+
+
+
+        <div className='tvShow__mobile__info__wrapper'>
+          <div className='tvShow__date__score__container'>
+            <div className='tvShow__date__score'>
+              {tvShowTrailers?.slice(0, 1).map(video => (
+                (video.type === 'Trailer') ? (
+                <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
+                <a className='tvShow__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                </div>) : (null)
+              ))}
+              {(user !== null) ? (
+                <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+                </div>
+              ) : (
+                <div className='tvShow__watchlist__icon'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                </div>
+              )}
+              <div className='tvShow__score'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
+                <p>{tvShowData.vote_average?.toFixed(1)}</p>
+              </div>
             </div>
-            {(user !== null) ? (
-              <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+          </div>
+          <div className='tvShow__date__score__container'>
+            <div className='tvShow__date__score'>
+              <div className='tvShow__release__date'>
+                <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
+                  {tvShowData.seasons?.map(so => (
+                    (so.season_number > 0) ? (
+                    <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
+                    ) : (null)
+                  ))}
+                </select>
               </div>
-            ) : (
-              <div className='tvShow__watchlist__icon'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+              <div className='tvShow__score'>
+                <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
+                <p onClick={toggleEpisodes}>EPISODES</p>
               </div>
-            )}
-            <div className='tvShow__score'>
-              <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
-              <p>{tvShowData.vote_average?.toFixed(1)}</p>
             </div>
           </div>
         </div>
-        <div className='tvShow__date__score__container'>
-          <div className='tvShow__date__score'>
-            <div className='tvShow__release__date'>
-              <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
-                {tvShowData.seasons?.map(so => (
-                  (so.season_number > 0) ? (
-                  <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
-                  ) : (null)
-                ))}
-              </select>
+      ) : (
+        <div className='tvShow__desktop__info__wrapper'>
+          <div className='tvShow'>
+            <div className='tvShow__watch__score'>
+              <div className='tvShow__score'>
+                <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
+                <p>{tvShowData.vote_average?.toFixed(1)}</p>
+              </div>
+              {tvShowTrailers?.slice(0, 1).map(video => (
+                (video.type === 'Trailer') ? (
+                <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
+                <a className='tvShow__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                </div>) : (null)
+              ))}
+              <div className='tvShow__watch__container'>
+              {(user !== null) ? (
+                <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+                </div>
+              ) : (
+                <div className='tvShow__watchlist__icon'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                </div>
+              )}
+              </div>
             </div>
-            <div className='tvShow__score'>
-              <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
-              <p onClick={toggleEpisodes}>EPISODES</p>
+          </div>
+          <div className='tvShow__date__score__container'>
+            <div className='tvShow__date__score'>
+            <div className='tvShow__release__date'>
+                <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
+                  {tvShowData.seasons?.map(so => (
+                    (so.season_number > 0) ? (
+                    <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
+                    ) : (null)
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
         </div>
+      )}
       </div>
+
       <div id='episodes-list' className='show'>
         <Slider {...settings5}>
           {tvShowSeason.episodes?.map(ep => (
@@ -172,7 +269,11 @@ const TvShowCard = ({ user }) => {
                   <div className='tvShow__episode__container'>
                     <div className='tvShow__episode__info'>
                       <div className='tvShow__episode__image'>
-                        <LazyLoadImage src={image185Path + ep.still_path} effect='blur' alt={ep.name}/>
+                      {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
+                          <LazyLoadImage src={image185Path + ep.still_path} effect='blur' alt={ep.name}/>
+                        ) :(
+                          <LazyLoadImage src={image300Path + ep.still_path} effect='blur' alt={ep.name}/>
+                        )}
                       </div>
                       <div className='tvShow__episode__info__title'>
                           <p>{ep.episode_number}. {ep.name}</p>
@@ -205,6 +306,9 @@ const TvShowCard = ({ user }) => {
           ))}
         </Slider>
       </div>
+
+
+
       <div className='tvShow__bottom__section'>
         <div className='tvShow__bottoms__wrapper'>
           <p className='tvShow__section__name'>TOP CAST</p>
@@ -213,7 +317,7 @@ const TvShowCard = ({ user }) => {
               {tvShowCredits.cast?.slice(0, 6).map(person => (
                 (person.profile_path !== null) ? (
                 <div className='tvShow__cast__person' key={person.id}>
-                  <LazyLoadImage src={profileImagePath + person.profile_path} effect='black-and-white' alt='profile avatar'/>
+                  <LazyLoadImage src={profileImagePath + person.profile_path} effect='black-and-white' alt='profile avatar' onClick={() => navigate(`/person/${person.id}`)}/>
                 </div>) : (null)
               ))}
             </div>
@@ -227,24 +331,17 @@ const TvShowCard = ({ user }) => {
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='tvShow__similar__container' key={similar.id}>
                     <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
-                      <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='movie poster'/>
+                    {(window.matchMedia('(max-width: 1024px)').matches) ? (
+                        <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='tv show poster'/>
+                      ) : (
+                        <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='tv show poster'/>
+                      )}
                     </div>
                   </div>) : (null)
               ))}
             </Slider>
           </div>
         </div>
-        {tvShowTrailers?.slice(0, 1).map(video => (
-          (video.type === 'Trailer') ? (
-            <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
-              <p className='tvShow__section__name'>TRAILER</p>
-              <div className='tvShow__video__container'>
-                <div className='tvShow__video'>
-                  <iframe title={video.key} width="100%" height="100%" src={videoPath + video.key} loading='lazy' />
-                </div>
-              </div>
-            </div>) : (null)
-        ))}
       </div>
     </div>
   )

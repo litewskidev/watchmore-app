@@ -169,7 +169,7 @@ const MovieCard = ({ user }) => {
               ))}
             </div>
           </div>
-        ) : (
+          ) : (
           <div className='movie__desktop__info__wrapper'>
             <div className='movie__date__score__container'>
               <div className='movie__date__score'>
