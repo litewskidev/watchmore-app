@@ -123,14 +123,6 @@
   }
 }
 
-.tvShow__inner {
-  width: 100%;
-}
-
-.tvShow__inner__info{
-  width: 100%;
-}
-
 .tvShow__mobile__info__wrapper {
   width: 100%;
   display: flex;
@@ -144,6 +136,10 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.tvShow__status {
+  text-transform: uppercase;
 }
 
 .tvShow__watchlist__icon {
@@ -196,9 +192,8 @@
   }
 }
 
-
 .tvShow__watch__container {
-  width: 60%;
+  width: 55%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -229,10 +224,6 @@
     text-shadow: 0.1rem 0.1rem 0.1rem black;
     font-size: 1.5rem;
   }
-}
-
-.tvShow {
-  background: transparent;
 }
 
 .tvShow__watch__score {
@@ -292,13 +283,29 @@
   margin-right: -0.5rem;
 }
 
+.tvShow__desktop__episodes__title {
+  margin-top: -1.8rem;
+
+  p {
+    width: 100%;
+    opacity: 0.95;
+    font-family: $font-text-4;
+    color: $white;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+    margin-bottom: 0.2rem;
+  }
+}
+
 #episodes-list {
   margin-top: -5rem;
   width: 100%;
   height: 0px;
-  //overflow: hidden;
   transition: height 0.1s ease-in-out;
   z-index: 799;
+
   &.show {
     height: 283px;
     transition: height 0.3s ease-in-out;
@@ -320,7 +327,6 @@
   padding: 0.2rem 0.15rem;
   padding-bottom: 0.35rem;
   background-color: $gray-border;
-  //height: 300px;
 }
 
 .tvShow__episode__container {
@@ -402,11 +408,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-}
-
-.tvShow__bottoms__wrapper__trailer {
-  display: flex;
-  gap: 0.2rem;
+  z-index: 999;
 }
 
 .tvShow__section__name {
@@ -430,17 +432,11 @@
   padding-bottom: 1.5rem;
 }
 
-iframe {
-  border: none;
-  border-radius: 0.2rem;
-  box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-}
-
 .tvShow__cast {
   padding: 0 0.3rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 1.7rem;
 }
 
@@ -496,7 +492,6 @@ iframe {
   opacity: 0.2;
 }
 
-
 .tvShow__bottoms__wrapper__trailer {
   display: flex;
   align-items: center;
@@ -520,15 +515,8 @@ iframe {
   }
 }
 
-
-
-
-
-
-
-
+//  TABLET
 @media (max-width: 1023.98px) {
-
 
   .tvShow__backdrop{
     &:before {
@@ -536,123 +524,35 @@ iframe {
     }
   }
 
-  .tvShow__backdrop {
-    position: relative;
-    z-index: 9;
-
-    img {
-      width: 100%;
-    }
-
-    &:before {
-      content:"";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(255,255,255,0) 0%,rgb(23, 23, 23, 1) 85%);
-      height: 20%;
-    }
-
-    &:after {
-      content:"";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to bottom, rgba(23, 23, 23, 0) 0%,rgb(23, 23, 23, 1) 95%);
-      height: 40%;
-    }
-  }
-
-  .tvShow__main__info {
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
   .tvShow__title {
     width: 100%;
     text-align: center;
-    font-family: $font-text-4;
-    font-weight: 400;
-    margin-top: -1rem;
-    z-index: 10;
 
     p {
       font-size: 1.5rem;
-      line-height: 1.6rem;
-      text-shadow: 0.1rem 0.1rem 0.1rem black;
     }
   }
 
   .tvShow__overview {
     max-width: 90%;
     text-align: center;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
 
     p {
       font-size: 0.8rem;
-      opacity: 0.7;
-      text-shadow: 0.1rem 0.1rem 0.1rem black;
     }
   }
 
   .movie__genres__container {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    gap: 0.2rem;
+    min-width: 92%;
   }
 
   .movie__genres__item {
-    width: 100%;
-    border: 1px solid $gray-border;
-    border-radius: 1rem;
     padding: 0.1rem 0.1rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     p {
       opacity: 0.6;
-      font-weight: 100;
       font-size: 0.72rem;
-      line-height: 0.9rem;
     }
-  }
-
-  .tvShow__inner {
-    width: 100%;
-  }
-
-  .tvShow__inner__info{
-    width: 100%;
-  }
-
-  .tvShow__date__score__container {
-    width: 100%;
-    background-color: $gray-border;
-    padding: 0.1rem;
-    padding-top: 0.12rem;
-    border-radius: 2rem;
-    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-    height: 45.5px;
-  }
-
-  .tvShow__date__score {
-    background-color: $black-main;
-    padding: 0.5rem;
-    padding-bottom: 0.8rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 2rem;
   }
 
   .tvShow__main__info {
@@ -665,85 +565,30 @@ iframe {
     padding: 0 0.5rem;
   }
 
-  .movie__genres__container {
-    min-width: 92%;
-    display: flex;
-    justify-content: space-between;
-    gap: 0.2rem;
-  }
-
-
   .tvShow__date__score__container {
     width: 100%;
-    background-color: $gray-border;
-    padding: 0.1rem;
-    padding-top: 0.12rem;
-    border-radius: 2rem;
-    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-    height: 45.5px;
-  }
-
-  .tvShow__date__score {
-    background-color: $black-main;
-    padding: 0.5rem;
-    padding-bottom: 0.8rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 2rem;
   }
 
   .tvShow__watchlist__icon {
     margin-top: -0.5rem;
     margin-bottom: -0.7rem;
     margin-right: 6%;
-    border: 2px solid $gray-border;
     border-radius: 1rem;
     width: 4rem;
     height: 2rem;
-    background-color: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0.1rem 0.2rem rgb(0, 0, 0);
-
-    img {
-      width: 50%;
-    }
   }
 
   .tvShow__watchlist__icon.added {
     margin-top: -0.5rem;
     margin-bottom: -0.7rem;
     margin-right: 6%;
-    border: 2px solid $gray-border;
     border-radius: 1rem;
     width: 4rem;
     height: 2rem;
-    background-color: $red-main;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0.1rem 0.2rem rgb(0, 0, 0);
-
-    img {
-      width: 50%;
-    }
   }
 
   .tvShow__score {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem black;
-    font-family: $font-text-4;
     font-size: 1rem;
-
-    img {
-      width: 1.7rem;
-      filter: invert(42%) sepia(100%) saturate(1352%) hue-rotate(20deg) brightness(110%) contrast(200%);
-    }
   }
 
   .tvShow__watch__container {
@@ -754,29 +599,54 @@ iframe {
     box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   }
 
-  #episodes-list-desktop {
+  .tvShow__desktop__episodes__title {
     display: none;
   }
 
   #episodes-list {
     margin-top: 1.5rem;
-    display: block;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+
+    &.show {
+      height: 283px;
+      transition: height 0.3s ease-in-out;
+      position: relative;
+
+      &:after {
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom, rgba(23, 23, 23, 0) 0%,rgb(23, 23, 23, 1) 80%);
+        height: 15%;
+      }
+    }
+  }
+
+  .tvShow__episode__container {
+    &:after {
+      content:"";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, rgba(23, 23, 23, 0) 0%,rgb(23, 23, 23, 1) 80%);
+      height: 3%;
+    }
   }
 
   .tvShow__bottoms__wrapper__trailer {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-
     img {
-      padding: 0;
       max-width: 1.3rem;
       margin-top: -0.2rem;
     }
   }
 
   .tvShow__trailer__href {
-    margin-bottom: 0;
     margin-bottom: -0.3rem;
     gap: 0.1rem;
 
@@ -786,199 +656,37 @@ iframe {
   }
 
   .tvShow__cast {
-    padding: 0 0.3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 0.8rem;
   }
 
   .tvShow__cast__person {
     img{
-      border-radius: 50%;
       width: 5rem;
       height: 5rem;
-      object-fit: cover;
-      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
     }
+  }
+
+  .tvShow__similar__item {
+    opacity: 0.9;
   }
 }
 
-
+//  MOBILE
 @media (max-width: 540px) {
   .tvShow__wrapper {
-    padding-top: 4.7rem;
-  }
-
-  .must__be__logged__pop {
-    display: none;
-  }
-
-  .must__be__logged__pop.show {
-    display: block;
-    width: 50%;
-    text-align: center;
-    position: absolute;
-    top: 50vh;
-    left: 25%;
-    z-index: 999;
-    background-color: $red-main;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    font-size: 0.85rem;
-    opacity: 0.9;
-  }
-
-  .tvShow__backdrop {
-    position: relative;
-    z-index: 9;
-
-    img {
-      width: 100%;
-    }
-
-    &:before {
-      content:"";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(255,255,255,0) 0%,rgb(23, 23, 23, 1) 85%);
-      height: 20%;
-    }
-
-    &:after {
-      content:"";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to bottom, rgba(23, 23, 23, 0) 0%,rgb(23, 23, 23, 1) 95%);
-      height: 40%;
-    }
+    padding-top: 4.75rem;
   }
 
   .tvShow__main__info {
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 0.5rem;
-  }
-
-  .tvShow__title {
-    width: 100%;
-    text-align: center;
-    font-family: $font-text-4;
-    font-weight: 400;
-    margin-top: -1rem;
-    z-index: 10;
-
-    p {
-      font-size: 1.5rem;
-      line-height: 1.6rem;
-      text-shadow: 0.1rem 0.1rem 0.1rem black;
-    }
-  }
-
-  .tvShow__overview {
-    max-width: 90%;
-    text-align: center;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-
-    p {
-      font-size: 0.8rem;
-      opacity: 0.7;
-      text-shadow: 0.1rem 0.1rem 0.1rem black;
-    }
-  }
-
-  .movie__genres__container {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    gap: 0.2rem;
-  }
-
-  .movie__genres__item {
-    width: 100%;
-    border: 1px solid $gray-border;
-    border-radius: 1rem;
-    padding: 0.1rem 0.1rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    p {
-      opacity: 0.6;
-      font-weight: 100;
-      font-size: 0.72rem;
-      line-height: 0.9rem;
-    }
-  }
-
-  .tvShow__inner {
-    width: 100%;
-  }
-
-  .tvShow__inner__info{
-    width: 100%;
   }
 
   .tvShow__mobile__info__wrapper {
     margin-top: 0;
   }
 
-  .tvShow__date__score__container {
-    width: 100%;
-    background-color: $gray-border;
-    padding: 0.1rem;
-    padding-top: 0.12rem;
-    border-radius: 2rem;
-    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-    height: 45.5px;
-  }
-
-  .tvShow__date__score {
-    background-color: $black-main;
-    padding: 0.5rem;
-    padding-bottom: 0.8rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 2rem;
-  }
-
-  .tvShow__release__date {
-    display: flex;
-
-    p:first-of-type {
-      color: $red-main;
-      text-shadow: 0.1rem 0.1rem 0.1rem black;
-    }
-  }
-
   #select-season {
     cursor: pointer;
-  }
-
-  .tvShow__option {
-    color: $red-main;
-    border: none;
-    background-color: inherit;
-    font-family: $font-text-4;
-    outline: none;
-    font-size: 1rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem black;
-    margin-left: -15px;
-  }
-
-  .tvShow__episodes__down__icon {
-    scale: 49%;
-    margin-right: -0.5rem;
   }
 
   #episodes-list {
@@ -986,10 +694,10 @@ iframe {
     width: 100%;
     height: 0px;
     overflow: hidden;
-    transition: height 0.1s ease-in-out;
+    transition: height 0.3s ease-in-out;
 
     &.show {
-      height: 213px;
+      height: 218px;
       transition: height 0.3s ease-in-out;
       position: relative;
 
@@ -1005,248 +713,23 @@ iframe {
     }
   }
 
-  .tvShow__episode__wrapper {
-    padding: 0.2rem 0.15rem;
-    padding-bottom: 0.35rem;
-    background-color: $gray-border;
-    height: 213px;
-  }
-
   .tvShow__episode__container {
-    height: 200px;
-    background-color: $black-main;
-    padding: 0.2rem;
-    border-radius: 0.3rem;
-    box-shadow: 0 0.1rem 0.4rem rgb(0, 0, 0);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .tvShow__episode__image {
-    img {
-      width: 100%;
-      height: 71.3px;
-      border-radius: 0.3rem;
-      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0)
-    }
-  }
-
-  .tvShow__nostill__img {
-    max-width: 3.5rem;
-  }
-
-  .tvShow__episode__info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.7rem;
-    font-size: 0.7rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem black;
-
-    p:first-of-type {
-      text-align: center;
-      font-family: $font-text-4;
-      font-size: 0.85rem;
-      line-height: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  .tvShow__episode__info__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tvShow__play__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 2px solid $gray-border;
-    padding: 0.1rem 0.2rem;
-
-    img {
-      margin-right: -0.25rem;
-      margin-top: -0.09rem;
-    }
-  }
-
-  .tvShow__watchlist__icon {
-    margin-top: -0.5rem;
-    margin-bottom: -0.7rem;
-    margin-right: 6%;
-    border: 2px solid $gray-border;
-    border-radius: 1rem;
-    width: 4rem;
-    height: 2rem;
-    background-color: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0.1rem 0.2rem rgb(0, 0, 0);
-
-    img {
-      width: 50%;
-    }
-  }
-
-  .tvShow__watchlist__icon.added {
-    margin-top: -0.5rem;
-    margin-bottom: -0.7rem;
-    margin-right: 6%;
-    border: 2px solid $gray-border;
-    border-radius: 1rem;
-    width: 4rem;
-    height: 2rem;
-    background-color: $red-main;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0.1rem 0.2rem rgb(0, 0, 0);
-
-    img {
-      width: 50%;
-    }
-  }
-
-  .tvShow__score {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem black;
-    font-family: $font-text-4;
-    font-size: 1rem;
-
-    img {
-      width: 1.7rem;
-      filter: invert(42%) sepia(100%) saturate(1352%) hue-rotate(20deg) brightness(110%) contrast(200%);
-    }
-  }
-
-  .tvShow__watch__container {
-    width: 100%;
-    background-color: $gray-border;
-    padding: 0.1rem;
-    border-radius: 2rem;
-    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-  }
-
-  .tvShow__watch__button {
-    background-color: rgba(172, 47, 19, 0.925);
-    border-radius: 2rem;
-    display: flex;
-    gap: 0.4rem;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 40.16px;
-    cursor: pointer;
-
-    img {
-      width: 2rem;
-      rotate: -20deg;
-      margin-left: -1.5rem;
-    }
-
-    p {
-      font-family: $font-text-4;
-      letter-spacing: 0.02rem;
-      font-weight: 700;
-      text-shadow: 0.1rem 0.1rem 0.1rem black;
-    }
+    height: 205px;
   }
 
   .tvShow__bottom__section {
-    margin-top: 1rem;
-    display: flex;
     flex-direction: column;
-    gap: 1rem;
-  }
-
-  .tvShow__bottoms__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .tvShow__section__name {
-    width: 100%;
-    opacity: 0.95;
-    font-family: $font-text-4;
-    color: $white;
-    padding: 0 1rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-shadow: 0.1rem 0.1rem 0.1rem black;
-    margin-bottom: 0.2rem;
-  }
-
-  .tvShow__video__container {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 1rem;
-    width: 100%;
-    padding: 0 0.5rem;
-    padding-bottom: 1.5rem;
-  }
-
-  iframe {
-    border: none;
-    border-radius: 0.2rem;
-    box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
   }
 
   .tvShow__cast {
-    padding: 0 0.3rem;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 0.8rem;
   }
 
   .tvShow__cast__person {
     img{
-      border-radius: 50%;
       width: 3rem;
       height: 3rem;
-      object-fit: cover;
-      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
     }
-  }
-
-  .tvShow__similar {
-    padding: 0 0.5rem;
-  }
-
-  .tvShow__similar__container {
-    padding: 0.1rem;
-  }
-
-  .tvShow__similar__item {
-    padding: 0.15rem 0.2rem;
-    padding-bottom: 0.25rem;
-    background-color: rgb(47, 54, 64);
-    border-radius: 0.2rem;
-    opacity: 0.9;
-
-    img {
-      width: 100%;
-      border-radius: 0.2rem;
-      box-shadow: 0 0.2rem 0.5rem rgb(0, 0, 0);
-    }
-  }
-
-  .slick-next {
-    opacity: 0.2;
-  }
-
-  .slick-prev {
-    opacity: 0.2;
   }
 }

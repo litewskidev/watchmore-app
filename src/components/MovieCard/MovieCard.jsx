@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchCreditsMovie, fetchDetailsMovie, fetchReleaseMovie, fetchSimilarMovie, fetchSimilarMovieTwo, fetchVideosMovie, getFetchedCertificationUs, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovie, getFetchedSimilarWithPosterMovieTwo, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
+import { fetchCreditsMovie, fetchDetailsMovie, fetchReleaseMovie, fetchSimilarMovieTwo, fetchVideosMovie, getFetchedCertificationUs, getFetchedCreditsMovie, getFetchedDetailsMovie, getFetchedSimilarWithPosterMovieTwo, getFetchedTrailerMovie } from '../../redux/movieRedux.js';
 import { image342Path, image700Path, miniImagePath, originalImagePath, profileImagePath, videoPath } from '../../utils/tmdbConfig.js';
 import Slider from 'react-slick';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
@@ -22,15 +22,12 @@ const MovieCard = ({ user }) => {
   useEffect(() => dispatch(fetchReleaseMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchCreditsMovie(movieId)), [dispatch, movieId]);
   useEffect(() => dispatch(fetchSimilarMovieTwo(movieId, 2)), [dispatch, movieId]);
-  //useEffect(() => dispatch(fetchSimilarMovie(movieId, 1)), [dispatch, movieId]);
 
   const movieData = useSelector(getFetchedDetailsMovie);
   const movieCredits = useSelector(getFetchedCreditsMovie);
   const movieTrailers = useSelector(getFetchedTrailerMovie);
   const movieRelease = useSelector(getFetchedCertificationUs);
   const movieSimilarTwo = useSelector(getFetchedSimilarWithPosterMovieTwo);
-  //const movieSimilar = useSelector(getFetchedSimilarWithPosterMovie);
-  //const similarMovies = movieSimilarTwo?.concat(movieSimilar);
 
   let settings4;
   if (window.matchMedia('(max-width: 540px)').matches) {
@@ -126,12 +123,12 @@ const MovieCard = ({ user }) => {
           <div className='movie__mobile__info__wrapper'>
             <div className='movie__date__score__container'>
               <div className='movie__date__score'>
-                  {movieTrailers?.slice(0, 1).map(video => (
+                {movieTrailers?.slice(0, 1).map(video => (
                   (video.type === 'Trailer') ? (
                   <div className='movie__bottoms__wrapper__trailer' key={video.key}>
-                  <a className='movie__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                    <a className='movie__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
                   </div>) : (null)
-                  ))}
+                ))}
                 {(user !== null) ? (
                   <div id='watchlist-btn' className='movie__watchlist__icon'>
                     <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
@@ -169,7 +166,7 @@ const MovieCard = ({ user }) => {
               ))}
             </div>
           </div>
-          ) : (
+        ) : (
           <div className='movie__desktop__info__wrapper'>
             <div className='movie__date__score__container'>
               <div className='movie__date__score'>
@@ -237,15 +234,15 @@ const MovieCard = ({ user }) => {
           <div className='movie__similar'>
             <Slider {...settings4}>
               {movieSimilarTwo?.map(similar => (
-                  <div className='movie__similar__container' key={similar.id}>
-                    <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
-                      {(window.matchMedia('(max-width: 1024px)').matches) ? (
-                        <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='movie poster'/>
-                      ) : (
-                        <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='movie poster'/>
-                      )}
-                    </div>
+                <div className='movie__similar__container' key={similar.id}>
+                  <div className='movie__similar__item' onClick={() => navigate(`/movie/${similar.id}`)}>
+                    {(window.matchMedia('(max-width: 1024px)').matches) ? (
+                      <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='movie poster'/>
+                    ) : (
+                      <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='movie poster'/>
+                    )}
                   </div>
+                </div>
               ))}
             </Slider>
           </div>

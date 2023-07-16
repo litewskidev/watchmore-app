@@ -33,6 +33,8 @@ const TvShowCard = ({ user }) => {
   const tvShowTrailers = useSelector(getFetchedTrailerTvShow);
   const tvShowSeason = useSelector(getFetchedTvShowSeason);
 
+  console.log(tvShowData);
+
   let settings4;
   if (window.matchMedia('(max-width: 540px)').matches) {
     settings4 = {
@@ -84,7 +86,7 @@ const TvShowCard = ({ user }) => {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 7,
+      slidesToShow: 6,
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 3500,
@@ -169,122 +171,120 @@ const TvShowCard = ({ user }) => {
             </div>
           ))}
         </div>
-
         {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
-
-
-
-
-        <div className='tvShow__mobile__info__wrapper'>
-          <div className='tvShow__date__score__container'>
-            <div className='tvShow__date__score'>
-              {tvShowTrailers?.slice(0, 1).map(video => (
-                (video.type === 'Trailer') ? (
-                <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
-                <a className='tvShow__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
-                </div>) : (null)
-              ))}
-              {(user !== null) ? (
-                <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+          <div className='tvShow__mobile__info__wrapper'>
+            <div className='tvShow__date__score__container'>
+              <div className='tvShow__date__score'>
+                {tvShowTrailers?.slice(0, 1).map(video => (
+                  (video.type === 'Trailer') ? (
+                  <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
+                    <a className='tvShow__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                  </div>) : (null)
+                ))}
+                {(user !== null) ? (
+                  <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+                  </div>
+                ) : (
+                  <div className='tvShow__watchlist__icon'>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                  </div>
+                )}
+                <div className='tvShow__score'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
+                  <p>{tvShowData.vote_average?.toFixed(1)}</p>
                 </div>
-              ) : (
-                <div className='tvShow__watchlist__icon'>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+              </div>
+            </div>
+            <div className='tvShow__date__score__container'>
+              <div className='tvShow__date__score'>
+                <div className='tvShow__release__date'>
+                  <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
+                    {tvShowData.seasons?.map(so => (
+                      (so.season_number > 0) ? (
+                        <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
+                      ) : (null)
+                    ))}
+                  </select>
                 </div>
-              )}
-              <div className='tvShow__score'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
-                <p>{tvShowData.vote_average?.toFixed(1)}</p>
+                <div className='tvShow__score'>
+                  <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
+                  <p onClick={toggleEpisodes}>EPISODES</p>
+                </div>
               </div>
             </div>
           </div>
-          <div className='tvShow__date__score__container'>
-            <div className='tvShow__date__score'>
-              <div className='tvShow__release__date'>
-                <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
-                  {tvShowData.seasons?.map(so => (
-                    (so.season_number > 0) ? (
-                    <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
-                    ) : (null)
-                  ))}
-                </select>
-              </div>
-              <div className='tvShow__score'>
-                <img className='tvShow__episodes__down__icon' src={process.env.PUBLIC_URL + '/assets/icons/down.png'} alt='down icon'/>
-                <p onClick={toggleEpisodes}>EPISODES</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className='tvShow__desktop__info__wrapper'>
-          <div className='tvShow'>
-            <div className='tvShow__watch__score'>
-              <div className='tvShow__score'>
-                <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
-                <p>{tvShowData.vote_average?.toFixed(1)}</p>
-              </div>
-              {tvShowTrailers?.slice(0, 1).map(video => (
-                (video.type === 'Trailer') ? (
-                <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
-                <a className='tvShow__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
-                </div>) : (null)
-              ))}
-              <div className='tvShow__watch__container'>
-              {(user !== null) ? (
-                <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+        ) : (
+          <div className='tvShow__desktop__info__wrapper'>
+            <div className='tvShow'>
+              <div className='tvShow__watch__score'>
+                <div className='tvShow__score'>
+                  <img src={process.env.PUBLIC_URL + '/assets/icons/star-solid.svg'} alt='star icon'/>
+                  <p>{tvShowData.vote_average?.toFixed(1)}</p>
                 </div>
-              ) : (
-                <div className='tvShow__watchlist__icon'>
-                  <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                {tvShowTrailers?.slice(0, 1).map(video => (
+                  (video.type === 'Trailer') ? (
+                  <div className='tvShow__bottoms__wrapper__trailer' key={video.key}>
+                    <a className='tvShow__trailer__href' href={videoPath + video.key}><img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play button'/><p>TRAILER</p></a>
+                  </div>) : (null)
+                ))}
+                <p className='tvShow__status'>{tvShowData.status}</p>
+                <div className='tvShow__watch__container'>
+                  {(user !== null) ? (
+                    <div id='watchlist-btn-tv' className='tvShow__watchlist__icon'>
+                      <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={addToWatch}/>
+                    </div>
+                  ) : (
+                    <div className='tvShow__watchlist__icon'>
+                      <img src={process.env.PUBLIC_URL + '/assets/icons/watchlist-icon.svg'} alt='watchlist icon' onClick={mustBeLogged}/>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
+            </div>
+            <div className='tvShow__date__score__container'>
+              <div className='tvShow__date__score'>
+                <div className='tvShow__release__date'>
+                  <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
+                    {tvShowData.seasons?.map(so => (
+                      (so.season_number > 0) ? (
+                        <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
+                      ) : (null)
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
           </div>
-          <div className='tvShow__date__score__container'>
-            <div className='tvShow__date__score'>
-            <div className='tvShow__release__date'>
-                <select id='select-season' onChange={handleSeasons} className='tvShow__option'>
-                  {tvShowData.seasons?.map(so => (
-                    (so.season_number > 0) ? (
-                    <option className='tvShow__option' value={so.season_number} key={so.season_number}>SEASON {so.season_number}</option>
-                    ) : (null)
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
       </div>
-
       <div id='episodes-list' className='show'>
+        <div className='tvShow__desktop__episodes__title'>
+          <p>EPISODES</p>
+        </div>
         <Slider {...settings5}>
           {tvShowSeason.episodes?.map(ep => (
             (ep.still_path !== null) ? (
-                <div className='tvShow__episode__wrapper' key={ep.name}>
-                  <div className='tvShow__episode__container'>
-                    <div className='tvShow__episode__info'>
-                      <div className='tvShow__episode__image'>
+              <div className='tvShow__episode__wrapper' key={ep.name}>
+                <div className='tvShow__episode__container'>
+                  <div className='tvShow__episode__info'>
+                    <div className='tvShow__episode__image'>
                       {(window.matchMedia('(max-width: 1023.98px)').matches) ? (
-                          <LazyLoadImage src={image185Path + ep.still_path} effect='blur' alt={ep.name}/>
-                        ) :(
-                          <LazyLoadImage src={image300Path + ep.still_path} effect='blur' alt={ep.name}/>
-                        )}
-                      </div>
-                      <div className='tvShow__episode__info__title'>
-                          <p>{ep.episode_number}. {ep.name}</p>
-                          <p>{ep.air_date} &#8226; {ep.runtime} min</p>
-                      </div>
+                        <LazyLoadImage src={image185Path + ep.still_path} effect='blur' alt={ep.name}/>
+                      ) :(
+                        <LazyLoadImage src={image300Path + ep.still_path} effect='blur' alt={ep.name}/>
+                      )}
                     </div>
-                    <div className='tvShow__play__button'>
-                      <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                    <div className='tvShow__episode__info__title'>
+                      <p>{ep.episode_number}. {ep.name}</p>
+                      <p>{ep.air_date} &#8226; {ep.runtime} min</p>
                     </div>
                   </div>
+                  <div className='tvShow__play__button'>
+                    <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
+                  </div>
                 </div>
+              </div>
             ) : (
               <div className='tvShow__episode__wrapper' key={ep.name}>
                 <div className='tvShow__episode__container'>
@@ -300,15 +300,12 @@ const TvShowCard = ({ user }) => {
                   <div className='tvShow__play__button'>
                     <img src={process.env.PUBLIC_URL + '/assets/icons/play-icon-white.png'} alt='play icon'/>
                   </div>
-                  </div>
                 </div>
+              </div>
             )
           ))}
         </Slider>
       </div>
-
-
-
       <div className='tvShow__bottom__section'>
         <div className='tvShow__bottoms__wrapper'>
           <p className='tvShow__section__name'>TOP CAST</p>
@@ -329,15 +326,15 @@ const TvShowCard = ({ user }) => {
             <Slider {...settings4}>
               {tvShowSimilar?.map(similar => (
                 (similar.poster_path !== null && similar.backdrop_path !== null) ? (
-                  <div className='tvShow__similar__container' key={similar.id}>
-                    <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
+                <div className='tvShow__similar__container' key={similar.id}>
+                  <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
                     {(window.matchMedia('(max-width: 1024px)').matches) ? (
-                        <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='tv show poster'/>
-                      ) : (
-                        <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='tv show poster'/>
-                      )}
-                    </div>
-                  </div>) : (null)
+                      <LazyLoadImage src={miniImagePath + similar.poster_path} effect='blur' alt='tv show poster'/>
+                    ) : (
+                      <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='tv show poster'/>
+                    )}
+                  </div>
+                </div>) : (null)
               ))}
             </Slider>
           </div>
