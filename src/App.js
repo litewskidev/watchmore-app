@@ -7,6 +7,7 @@ import { fetchAllTrending, fetchMoviesTrending, fetchPeopleTrending, fetchTvTren
 import { fetchA24, fetchA24Two, fetchDisney, fetchDisneyTwo, fetchMarvel, fetchMarvelTwo, fetchNational, fetchPixar, fetchPixarTwo, fetchStarWars } from "./redux/hubsRedux.js";
 import { fetchActionMovies, fetchAnimeMovies, fetchComedyMovies, fetchDramaMovies, fetchHorrorMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchScifiMovies, fetchThrillerMovies, fetchTopRatedMovies, fetchUpcomingMovies, fetchWarMovies } from "./redux/moviesRedux.js";
 import { fetchActionTv, fetchAiringTodayTv, fetchAnimeTv, fetchComedyTv, fetchCrimeTv, fetchDramaTv, fetchMysteryTv, fetchOnTheAirTv, fetchPopularTv, fetchScifiTv, fetchTopRatedTv, fetchWesternTv } from "./redux/tvSeriesRedux.js";
+import { motion } from "framer-motion";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner.jsx";
 const Home = React.lazy(() => import("./components/Home/Home.jsx"));
@@ -21,7 +22,6 @@ const WatchList = React.lazy(() => import("./components/WatchList/WatchList.jsx"
 const Search = React.lazy(() => import("./components/Search/Search.jsx"));
 const Login = React.lazy(() => import("./components/Login/Login.jsx"));
 const Signup = React.lazy(() => import("./components/Signup/Signup.jsx"));
-const Footer = React.lazy(() => import("./components/Footer/Footer.jsx"));
 const PersonCard = React.lazy(() => import("./components/PersonCard/PersonCard.jsx"));
 
 function App() {
@@ -112,27 +112,33 @@ function App() {
   };
 
   return(
-    <main className="main__container">
-      <Navbar user={currentUser} />
-      <Suspense fallback={ <div><LoadingSpinner /></div> }>
-        <Routes>
-          <Route exact path="/" element={ <Home /> } />
-          <Route path="/movies" element={ <Movies /> } />
-          <Route path="/tvseries" element={ <TVSeries /> } />
-          <Route path="/collections" element={ <Collections /> } />
-          <Route path="/search" element={ <Search /> } />
-          <Route path="/login" element={ <Login /> } />
-          <Route path="/signup" element={ <Signup /> } />
-          <Route exact path="/movie/:id" element={ <MovieCard user={currentUser} /> } />
-          <Route exact path="/tv/:id" element={ <TvShowCard user={currentUser} /> } />
-          <Route exact path="/hubs/:hub" element={ <HubCard /> } />
-          <Route exact path="/collection/:id" element={ <CollectionCard /> } />
-          <Route exact path="/person/:id" element={ <PersonCard /> }/>
-          <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />
-        </Routes>
-      </Suspense>
-      <Footer />
-    </main>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0,
+      transition: { delay: 0.5, duration: 0.8, ease: [0, 0.9, 0.9, 1] }
+    }}
+    >
+      <main className="main__container">
+        <Navbar user={currentUser} />
+        <Suspense fallback={ <div><LoadingSpinner /></div> }>
+          <Routes>
+            <Route exact path="/" element={ <Home /> } />
+            <Route path="/movies" element={ <Movies /> } />
+            <Route path="/tvseries" element={ <TVSeries /> } />
+            <Route path="/collections" element={ <Collections /> } />
+            <Route path="/search" element={ <Search /> } />
+            <Route path="/login" element={ <Login /> } />
+            <Route path="/signup" element={ <Signup /> } />
+            <Route exact path="/movie/:id" element={ <MovieCard user={currentUser} /> } />
+            <Route exact path="/tv/:id" element={ <TvShowCard user={currentUser} /> } />
+            <Route exact path="/hubs/:hub" element={ <HubCard /> } />
+            <Route exact path="/collection/:id" element={ <CollectionCard /> } />
+            <Route exact path="/person/:id" element={ <PersonCard /> }/>
+            <Route path="/watchlist" element={ <RequrieAuth><WatchList user={currentUser} /></RequrieAuth> } />
+          </Routes>
+        </Suspense>
+      </main>
+    </motion.div>
   );
 }
 

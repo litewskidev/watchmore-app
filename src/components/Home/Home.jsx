@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
 import { getFetchedAllTrending, getFetchedMoviesTrending, getFetchedPeopleTrending, getFetchedTvTrending } from '../../redux/trendingRedux.js';
+import { motion } from "framer-motion";
 import HomeTrending from '../HomeTrending/HomeTrending.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 import HomeHubs from '../HomeHubs/HomeHubs.jsx';
 import HomeCollections from '../HomeCollections/HomeCollections.jsx';
 import HomeTrendingPeople from '../HomeTrendingPeople/HomeTrendingPeople.jsx';
+import Footer from '../Footer/Footer.jsx';
 import './Home.scss';
 
 const Home = () => {
@@ -78,13 +80,21 @@ const Home = () => {
   }
 
   return(
-    <div className='home__container'>
-      <Carousel settings={settings} list={trendingAll}/>
-      <HomeHubs />
-      <HomeTrending trendingMovies={trendingMovies} trendingTv={trendingTv} settings={settings2}/>
-      <HomeCollections />
-      <HomeTrendingPeople trendingPeople={trendingPeople} settings={settings2}/>
-    </div>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0,
+      transition: { delay: 0.5, duration: 0.8, ease: [0, 0.9, 0.9, 1] }
+    }}
+    >
+      <div className='home__container'>
+          <Carousel settings={settings} list={trendingAll}/>
+          <HomeHubs />
+          <HomeTrending trendingMovies={trendingMovies} trendingTv={trendingTv} settings={settings2}/>
+          <HomeCollections />
+          <HomeTrendingPeople trendingPeople={trendingPeople} settings={settings2}/>
+      </div>
+      <Footer />
+    </motion.div>
   )
 };
 

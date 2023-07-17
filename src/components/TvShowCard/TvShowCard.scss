@@ -515,6 +515,29 @@
   }
 }
 
+//  1024 - 1440
+@media screen and (min-width: 1024px) and (max-width: 1439.98px) {
+
+  .tvShow__main__info {
+    width: 100%;
+  }
+
+  .tvShow__desktop__info__wrapper {
+    gap: 0.5rem;
+  }
+
+  #episodes-list {
+    margin-top: 8%;
+  }
+
+  .tvShow__cast__person {
+    img{
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+}
+
 //  TABLET
 @media (max-width: 1023.98px) {
 

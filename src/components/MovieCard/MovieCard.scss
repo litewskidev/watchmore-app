@@ -367,8 +367,26 @@
   opacity: 0.2;
 }
 
+//  1024 - 1440
+@media screen and (min-width: 1024px) and (max-width: 1439.98px) {
+  .movie__main__info {
+    width: 100%;
+  }
+
+  .movie__bottom__section {
+    margin-top: 0;
+  }
+
+  .movie__cast__person {
+    img{
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+}
+
 //  TABLET
-@media (max-width: 1023.98px) {
+@media screen and  (max-width: 1023.98px) {
 
   .movie__backdrop{
     &:before {
@@ -579,7 +597,7 @@
 }
 
 //  MOBILE
-@media (max-width: 540px) {
+@media screen and (max-width: 540px) {
   .movie__wrapper {
     padding-top: 4.7rem;
   }

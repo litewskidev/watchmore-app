@@ -11,6 +11,7 @@ Multi-page 'streaming' app with login, sign up, watch list, movies, TV shows, co
 - Redux
 - Express
 - Firebase
+- Framer
 - Slick
 - Sass
 - CSS Flexbox

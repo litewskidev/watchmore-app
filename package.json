@@ -41,6 +41,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "firebase": "^9.23.0",
     "font-awesome": "^4.7.0",
+    "framer-motion": "^10.12.22",
     "react-lazy-load-image-component": "^1.6.0",
     "react-redux": "^8.1.0",
     "react-router-dom": "^6.13.0",

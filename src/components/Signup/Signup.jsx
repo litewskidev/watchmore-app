@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase.js";
 import { Link, useNavigate } from 'react-router-dom';
-import './Signup.scss';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { motion } from "framer-motion";
+import Footer from '../Footer/Footer.jsx';
+import './Signup.scss';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -40,17 +42,25 @@ const Signup = () => {
   };
 
   return(
-    <div className='signup__wrapper'>
-      <h2>SIGN UP</h2>
-      <form className='signup__form__wrapper' onSubmit={handleSignUp}>
-        <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)} required></input>
-        <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}
-        required></input>
-        <input type='text' value={userName} placeholder='name' onChange={e => setUserName(e.target.value)} required></input>
-        <button type='submit'>Sign Up</button>
-      </form>
-      <p>Have an account?<Link to="/login"> Log In</Link></p>
-    </div>
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0,
+      transition: { delay: 0.5, duration: 0.8, ease: [0, 0.9, 0.9, 1] }
+    }}
+    >
+      <div className='signup__wrapper'>
+        <h2>SIGN UP</h2>
+        <form className='signup__form__wrapper' onSubmit={handleSignUp}>
+          <input type='email' value={email} placeholder='email' onChange={e => setEmail(e.target.value)} required></input>
+          <input type='password' value={password} placeholder='password' onChange={e => setPassword(e.target.value)}
+          required></input>
+          <input type='text' value={userName} placeholder='name' onChange={e => setUserName(e.target.value)} required></input>
+          <button type='submit'>Sign Up</button>
+        </form>
+        <p>Have an account?<Link to="/login"> Log In</Link></p>
+      </div>
+      <Footer />
+    </motion.div>
   )
 };
 
