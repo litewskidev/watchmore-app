@@ -35,7 +35,10 @@ const TvShowCard = ({ user }) => {
   const tvShowTrailers = useSelector(getFetchedTrailerTvShow);
   const tvShowSeason = useSelector(getFetchedTvShowSeason);
 
-  console.log(tvShowData);
+  const slidesToShowSimilarSix = (tvShowSimilar?.length < 7) ? tvShowSimilar.length : 6;
+  const slidesToShowSimilarFour= (tvShowSimilar?.length < 5) ? tvShowSimilar.length : 4;
+  const slidesToShowEpisodesSix = (tvShowSeason.episodes?.length < 7) ? tvShowSeason.episodes?.length : 6;
+  const slidesToShowEpisodesThree = (tvShowSeason.episodes?.length < 4) ? tvShowSeason.episodes?.length : 3;
 
   let settings4;
   if (window.matchMedia('(max-width: 540px)').matches) {
@@ -43,7 +46,7 @@ const TvShowCard = ({ user }) => {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 4,
+      slidesToShow: slidesToShowSimilarFour,
       slidesToScroll: 4,
       autoplay: false,
       autoplaySpeed: 3500,
@@ -57,7 +60,7 @@ const TvShowCard = ({ user }) => {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 7,
+      slidesToShow: slidesToShowSimilarSix,
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 3500,
@@ -74,7 +77,7 @@ const TvShowCard = ({ user }) => {
     dots: false,
     infinite: true,
     speed: 700,
-    slidesToShow: 3,
+    slidesToShow: slidesToShowEpisodesThree,
     slidesToScroll: 3,
     autoplay: false,
     autoplaySpeed: 3500,
@@ -88,7 +91,7 @@ const TvShowCard = ({ user }) => {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 6,
+      slidesToShow: slidesToShowEpisodesSix,
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 3500,
@@ -333,7 +336,6 @@ const TvShowCard = ({ user }) => {
             <div className='tvShow__similar'>
               <Slider {...settings4}>
                 {tvShowSimilar?.map(similar => (
-                  (similar.poster_path !== null && similar.backdrop_path !== null) ? (
                   <div className='tvShow__similar__container' key={similar.id}>
                     <div className='tvShow__similar__item' onClick={() => handleNavigate(similar.id)}>
                       {(window.matchMedia('(max-width: 1024px)').matches) ? (
@@ -342,7 +344,7 @@ const TvShowCard = ({ user }) => {
                         <LazyLoadImage src={image342Path + similar.poster_path} effect='blur' alt='tv show poster'/>
                       )}
                     </div>
-                  </div>) : (null)
+                  </div>
                 ))}
               </Slider>
             </div>

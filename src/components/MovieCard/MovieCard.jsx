@@ -31,13 +31,16 @@ const MovieCard = ({ user }) => {
   const movieRelease = useSelector(getFetchedCertificationUs);
   const movieSimilarTwo = useSelector(getFetchedSimilarWithPosterMovieTwo);
 
+  const slidesToShowSimilarSix = (movieSimilarTwo?.length < 7) ? movieSimilarTwo.length : 6;
+  const slidesToShowSimilarFour= (movieSimilarTwo?.length < 5) ? movieSimilarTwo.length : 4;
+
   let settings4;
   if (window.matchMedia('(max-width: 540px)').matches) {
     settings4 = {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 4,
+      slidesToShow: slidesToShowSimilarFour,
       slidesToScroll: 4,
       autoplay: false,
       autoplaySpeed: 3500,
@@ -51,7 +54,7 @@ const MovieCard = ({ user }) => {
       dots: false,
       infinite: true,
       speed: 700,
-      slidesToShow: 7,
+      slidesToShow: slidesToShowSimilarSix,
       slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 3500,

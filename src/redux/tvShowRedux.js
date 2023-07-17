@@ -11,7 +11,7 @@ export const getFetchedTvShowSeason = ({ tvShow }) => tvShow.season;
 export const getFetchedTvShowEpisode = ({ tvShow }) => tvShow.episode;
 
 export const getFetchedTrailerTvShow = ({ tvShow }) => tvShow.videos.results?.filter(video => video.type === 'Trailer');
-export const getFetchedSimilarWithPosterTvShow = ({ tvShow }) => tvShow.similar.results?.filter(similar => similar.poster_path !== null && similar.vote_average > 6);
+export const getFetchedSimilarWithPosterTvShow = ({ tvShow }) => tvShow.similar.results?.filter(similar => similar.poster_path !== null && similar.backdrop_path !== null && similar.vote_average > 6);
 
 //  ACTIONS
 const createActionName = actionName => `app/tvShow/${actionName}`;
