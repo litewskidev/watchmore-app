@@ -51,6 +51,11 @@ const Login = () => {
           {error && <span>Wrong email or password!</span>}
         </form>
         <p>Don't have an account yet?<Link to="/signup"> Sign Up</Link></p>
+        <div className='login__test'>
+          <p>Test Account</p>
+          <p>Email: test@test.com</p>
+          <p>Password: test123</p>
+        </div>
       </div>
       <Footer />
     </motion.div>
