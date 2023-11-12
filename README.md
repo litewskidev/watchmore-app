@@ -1,24 +1,19 @@
-## watchmore app ##
-This product uses the TMDB API but is not endorsed or certified by TMDB.
+# Watchmore
+Streaming service with movies, TV shows, collections, hubs and search. User authentication and saving watchlist to a database.
 
-Multi-page 'streaming' app with login, sign up, watch list, movies, TV shows, collections, hubs and search.
+# Live View:
+- https://watchmore.litewskidev.usermd.net
+
+# Test Account:
+Email: test@test.com ∙ Password: test123
 
 # Build with:
-- HTML5
-- JavaScript
-- React
-- React Router
-- Redux
-- Express
-- Firebase
-- Framer
-- Slick
-- Sass
-- CSS Flexbox
+HTML5 ∙ JavaScript ∙ React ∙ React Router ∙ Redux ∙ Node ∙ Firebase ∙ TMDB API ∙ Framer ∙ SASS ∙ RWD
 
 # Layouts:
-- Mobile
-- Tablet
-- Desktop
-# Links:
-- Live Site URL: http://watchmore.litewskidev.usermd.net
+Mobile ∙ Tablet ∙ Desktop
+
+# Preview:
+![watchmore1](watchmore1.png)
+![watchmore2](watchmore2.png)
+![watchmore3](watchmore3.png)
